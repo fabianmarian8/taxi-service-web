@@ -26,8 +26,8 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-            <span className="font-bold text-accent-foreground text-lg" style={{ fontFamily: "'Sora', sans-serif" }}>Z</span>
+          <div className="w-10 h-10 rounded-lg flex items-center justify-center overflow-hidden">
+            <img src="/zvolen-taxi-logo.webp" alt="ZVOLEN TAXI" className="w-full h-full object-cover" />
           </div>
           <span className="font-bold text-lg hidden sm:inline" style={{ fontFamily: "'Sora', sans-serif" }}>ZVOLEN TAXI</span>
         </div>

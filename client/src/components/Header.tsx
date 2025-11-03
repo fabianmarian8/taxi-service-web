@@ -27,9 +27,9 @@ export default function Header() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <div className="w-10 h-10 bg-accent rounded-lg flex items-center justify-center">
-            <span className="font-bold text-accent-foreground text-lg" style={{ fontFamily: "'Sora', sans-serif" }}>T</span>
+            <span className="font-bold text-accent-foreground text-lg" style={{ fontFamily: "'Sora', sans-serif" }}>Z</span>
           </div>
-          <span className="font-bold text-lg hidden sm:inline" style={{ fontFamily: "'Sora', sans-serif" }}>LEST TAXI</span>
+          <span className="font-bold text-lg hidden sm:inline" style={{ fontFamily: "'Sora', sans-serif" }}>ZVOLEN TAXI</span>
         </div>
 
         {/* Desktop Navigation */}

@@ -26,8 +26,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2 h-full py-2">
-          <img src={logoImage} alt="ZVOLEN TAXI" className="h-full w-auto" />
+        <div className="flex items-center gap-2">
+          <img src={logoImage} alt="ZVOLEN TAXI" className="h-[58px] w-auto" />
         </div>
 
         {/* Desktop Navigation */}

@@ -1,4 +1,4 @@
-# LEST TAXI - Porkbum
+# ZVOLEN TAXI - Porkbum
 
 Professional taxi service website with video background.
 
@@ -56,4 +56,4 @@ Values:
 
 ---
 
-Built with ❤️ for LEST TAXI
+Built with ❤️ for ZVOLEN TAXI

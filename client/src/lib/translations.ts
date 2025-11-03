@@ -10,7 +10,7 @@ export const translations = {
     },
     // Hero Section
     hero: {
-      title: "Professional Taxi Service",
+      title: "Professional Taxi Service Zvolen",
       subtitle: "24/7 Airport Transfers & City Rides",
       cta: "Book Now",
       description: "Reliable transport across Slovakia with professional, English-speaking drivers",
@@ -47,7 +47,7 @@ export const translations = {
     },
     // Features
     features: {
-      title: "Why Choose LEST TAXI",
+      title: "Why Choose ZVOLEN TAXI",
       feature1: "24/7 Availability",
       feature1Desc: "Available round the clock for your transport needs",
       feature2: "Professional Drivers",
@@ -83,13 +83,13 @@ export const translations = {
     },
     // Footer
     footer: {
-      company: "LEST TAXI",
+      company: "ZVOLEN TAXI",
       description: "Professional taxi service in Slovakia",
       quickLinks: "Quick Links",
       legal: "Legal",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
-      copyright: "© 2024 LEST TAXI. All rights reserved.",
+      copyright: "© 2024 ZVOLEN TAXI. All rights reserved.",
     },
   },
   sk: {
@@ -140,7 +140,7 @@ export const translations = {
     },
     // Features
     features: {
-      title: "Prečo si vybrať LEST TAXI",
+      title: "Prečo si vybrať ZVOLEN TAXI",
       feature1: "Dostupnosť 24/7",
       feature1Desc: "Dostupní v každej hodine dňa a noci",
       feature2: "Profesionálni vodiči",
@@ -176,13 +176,13 @@ export const translations = {
     },
     // Footer
     footer: {
-      company: "LEST TAXI",
+      company: "ZVOLEN TAXI",
       description: "Profesionálna taxislužba na Slovensku",
       quickLinks: "Rýchle odkazy",
       legal: "Právne informácie",
       privacy: "Zásady ochrany osobných údajov",
       terms: "Podmienky používania",
-      copyright: "© 2024 LEST TAXI. Všetky práva vyhradené.",
+      copyright: "© 2024 ZVOLEN TAXI. Všetky práva vyhradené.",
     },
   },
 };

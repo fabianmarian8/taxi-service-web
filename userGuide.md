@@ -1,4 +1,4 @@
-# LEST TAXI Website User Guide
+# ZVOLEN TAXI Website User Guide
 
 **Website URL:** Your website will be available at the domain provided in the Management UI.
 
@@ -18,7 +18,7 @@ This website is built with cutting-edge technology: **React 19 + TypeScript + Ta
 
 ### Booking a Taxi
 
-Click the **"Book Now"** button in the header or scroll to the **"Get in Touch"** section. You can contact LEST TAXI through three methods: call **"+421 919 040 118"** for immediate assistance, message via **"WhatsApp"** for quick communication, or visit the **"Address"** card for the physical location at Zvolenská cesta 52, Lešť.
+Click the **"Book Now"** button in the header or scroll to the **"Get in Touch"** section. You can contact ZVOLEN TAXI through three methods: call **"+421 919 040 118"** for immediate assistance, message via **"WhatsApp"** for quick communication, or visit the **"Address"** card for the physical location at Zvolenská cesta 52, Lešť.
 
 ### Switching Languages
 
@@ -26,7 +26,7 @@ Click the **"EN"** or **"SK"** language toggle button in the top-right corner of
 
 ### Exploring Services
 
-Scroll through the **"Our Services"** section to learn about Airport Transfers (Vienna, Budapest, Bratislava, Sliač), City Rides in local areas, Intercity Transfers, and Corporate Billing options. Each service card displays what LEST TAXI offers with clear descriptions.
+Scroll through the **"Our Services"** section to learn about Airport Transfers (Vienna, Budapest, Bratislava, Sliač), City Rides in local areas, Intercity Transfers, and Corporate Billing options. Each service card displays what ZVOLEN TAXI offers with clear descriptions.
 
 ### Checking Prices
 

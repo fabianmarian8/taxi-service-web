@@ -3,7 +3,7 @@ import { getTranslation } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
 import { useState } from "react";
-import logoImage from "/zvolen-taxi-logo.webp";
+import logoImage from "/zvolen-taxi-logo-transparent.png";
 
 export default function Header() {
   const { language, setLanguage } = useLanguage();
@@ -24,10 +24,10 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b border-border">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center justify-between py-1">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img src={logoImage} alt="ZVOLEN TAXI" className="h-14 w-auto" />
+          <img src={logoImage} alt="ZVOLEN TAXI" className="h-full w-auto py-1" />
         </div>
 
         {/* Desktop Navigation */}

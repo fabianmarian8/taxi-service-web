@@ -1,17 +1,12 @@
 import Header from "@/components/Header";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslation } from "@/lib/translations";
-import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Phone, MessageCircle, MapPin, Clock, Zap, Users, Shield, Plane } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
-  // The userAuth hooks provides authentication state
-  // To implement login/logout functionality, simply call logout() or redirect to getLoginUrl()
-  const { user, loading, error, isAuthenticated, logout } = useAuth();
-
   const { language } = useLanguage();
   const t = getTranslation(language);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);

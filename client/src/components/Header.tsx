@@ -27,7 +27,7 @@ export default function Header() {
       <div className="container flex h-16 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <img src={logoImage} alt="ZVOLEN TAXI" className="h-12 w-auto" />
+          <img src={logoImage} alt="ZVOLEN TAXI" className="h-14 w-auto" />
         </div>
 
         {/* Desktop Navigation */}

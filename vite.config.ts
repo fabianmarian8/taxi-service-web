@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   // Set base to './' for relative paths (works with any deployment path)
   // Or set to '/repo-name/' if deploying to github.io/repo-name
-  base: './',
+  base: '/taxi-service-web/',
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

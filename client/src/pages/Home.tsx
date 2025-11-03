@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Phone, MessageCircle, MapPin, Clock, Zap, Users, Shield, Plane } from "lucide-react";
 import { useState } from "react";
+import backgroundVideo from "/background.mp4";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -34,7 +35,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/background.mp4" type="video/mp4" />
+            <source src={backgroundVideo} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-black/40"></div>
         </div>

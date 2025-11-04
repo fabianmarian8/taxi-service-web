@@ -52,10 +52,10 @@ export default function Home() {
             {t.hero.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+421919040118">
+            <a href="tel:+421902048583">
               <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground gap-2">
                 <Phone className="w-5 h-5" />
-                +421 919 040 118
+                +421 902 048 583
               </Button>
             </a>
             <a href="https://api.whatsapp.com/send?phone=421919040118">
@@ -232,8 +232,8 @@ export default function Home() {
               <h3 className="font-bold mb-2" style={{ fontFamily: "'Sora', sans-serif" }}>
                 {t.contact.phone}
               </h3>
-              <a href="tel:+421919040118" className="text-accent hover:underline font-medium">
-                +421 919 040 118
+              <a href="tel:+421902048583" className="text-accent hover:underline font-medium">
+                +421 902 048 583
               </a>
             </Card>
             <Card className="p-8 text-center card-hover border-t-4 border-t-accent">
@@ -281,7 +281,7 @@ export default function Home() {
               </h4>
               <ul className="space-y-2 text-sm">
                 <li>
-                  <a href="tel:+421919040118" className="hover:underline">
+                  <a href="tel:+421902048583" className="hover:underline">
                     {t.contact.phone}
                   </a>
                 </li>

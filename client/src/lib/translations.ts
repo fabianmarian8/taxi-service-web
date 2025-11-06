@@ -103,29 +103,29 @@ export const translations = {
     },
     // Hero Section
     hero: {
-      title: "Profesionálna taxislužba Zvolen",
-      subtitle: "Letiskové transfery a mestské jazdy 24/7",
+      title: "Najlacnejší Taxi Service Zvolen - Nonstop",
+      subtitle: "Taxi Delivery, Food Delivery, Letiskové transfery 24/7",
       cta: "Objednať",
-      description: "Spoľahlivá preprava po celom Slovensku s profesionálnymi vodičmi",
+      description: "Najlacnejší taxi vo Zvolene. Taxi nonstop s dovozom jedla z McDonald's, KFC. Alternatíva k Bolt Taxi, Europa Taxi, EKO Taxi",
     },
     // Services
     services: {
       title: "Naše služby",
       airport: {
-        name: "Letiskové transfery",
-        description: "Fixné ceny na letiská Viedeň, Budapešť, Bratislava a Sliač s monitorovaním letov",
+        name: "Taxi Letiskové transfery",
+        description: "Taxi Sliač, Viedeň, Budapešť, Bratislava. Fixné ceny s monitorovaním letov. Taxi z Zvolen vlaková stanica a autobusová stanica",
       },
       city: {
-        name: "Mestské jazdy",
-        description: "Lokálna preprava v Lešti, Zvolene, Banskej Bystrici a okolí",
+        name: "Taxi Delivery & Food Delivery",
+        description: "Dovoz jedla McDonald's, KFC. Taxi Zvolen, Taxi Lešť, Taxi Lest, Taxi Banská Bystrica. Najlacnejší taxi v regióne",
       },
       intercity: {
-        name: "Medzimiestny transfer",
-        description: "Dlhé vzdialenosti s priestrannými vozidlami a profesionálnym servisom",
+        name: "Medzimiestny Taxi Transfer",
+        description: "Taxi service nonstop na dlhé vzdialenosti. Alternatíva k Bolt, PP Taxi, ZV Taxi",
       },
       corporate: {
         name: "Firemné faktúry",
-        description: "Faktúry a účtenky vhodné na vrátenie nákladov",
+        description: "Faktúry a účtenky vhodné na vrátenie nákladov. Taxi service pre firmy",
       },
     },
     // Pricing
@@ -140,15 +140,15 @@ export const translations = {
     },
     // Features
     features: {
-      title: "Prečo si vybrať ZVOLEN TAXI",
-      feature1: "Dostupnosť 24/7",
-      feature1Desc: "Dostupní v každej hodine dňa a noci",
-      feature2: "Profesionálni vodiči",
-      feature2Desc: "Skúsení a bezpečnostne orientovaní vodiči",
-      feature3: "Fixné ceny",
-      feature3Desc: "Transparentné ponuky bez prekvapení na konci jazdy",
-      feature4: "Monitorovanie letov",
-      feature4Desc: "Sledujeme váš let a prispôsobujeme čas vyzdvihnutia pri oneskoreniach",
+      title: "Prečo si vybrať náš Taxi Service",
+      feature1: "Taxi Nonstop 24/7",
+      feature1Desc: "Najlacnejší taxi dostupný 24/7. Lepšia alternatíva k Bolt Taxi, Europa Taxi",
+      feature2: "Taxi Delivery & Food Delivery",
+      feature2Desc: "Dovoz jedla z McDonald's, KFC. Taxi delivery po celom Zvolene",
+      feature3: "Najlacnejší Taxi - Fixné ceny",
+      feature3Desc: "Najlacnejší taxi vo Zvolene bez skrytých poplatkov. Lepšie ceny než EKO Taxi, PP Taxi",
+      feature4: "Taxi Zvolen - Všetky destinácie",
+      feature4Desc: "Taxi Sliač letisko, Zvolen vlaková stanica, autobusová stanica, Banská Bystrica, Lešť, Lest",
     },
     // Contact
     contact: {
@@ -163,26 +163,26 @@ export const translations = {
     // FAQ
     faq: {
       title: "Často kladené otázky",
-      q1: "Ako si objednám taxi?",
-      a1: "Môžete nám zavolať na +421 919 040 118 alebo nám napísať na WhatsApp. Potvrdíme vašu objednávku a poskytneme fixnú cenu.",
-      q2: "Monitorujete lety?",
-      a2: "Áno! Pri letiskových transferoch sledujeme váš let a prispôsobujeme čas vyzdvihnutia pri oneskoreniach.",
-      q3: "Aké spôsoby platby akceptujete?",
-      a3: "Akceptujeme hotovosť a bankové prevody. Firemní klienti môžu používať faktúry.",
-      q4: "Sú vaše vozidlá priestranné?",
-      a4: "Áno, naše vozidlá pojmú štandardný kufor a vybavenie. Pomôžeme vám s batožinou pri vyzdvihnutí a vysadení.",
-      q5: "Slúžite aj v iných mestách?",
-      a5: "Primárne slúžime v Lešti, Zvolene, Banskej Bystrici a okolí. Kontaktujte nás na vlastné trasy.",
+      q1: "Ponúkate taxi delivery a food delivery vo Zvolene?",
+      a1: "Áno! Náš taxi service ponúka taxi delivery jedla z McDonald's, KFC a ďalších reštaurácií. Food delivery nonstop po celom Zvolene.",
+      q2: "Ste najlacnejší taxi vo Zvolene? Ako sa líšite od Bolt, Europa Taxi?",
+      a2: "Áno, sme najlacnejší taxi service vo Zvolene s fixnými cenami. V porovnaní s Bolt Taxi, Europa Taxi, EKO Taxi, PP Taxi, ZV Taxi ponúkame lepšie ceny a taxi nonstop.",
+      q3: "Jazdíte na Zvolen vlaková stanica a autobusová stanica?",
+      a3: "Áno! Taxi zo Zvolen vlaková stanica a Zvolen autobusová stanica je naša špecialita. Najlacnejší taxi transfer nonstop.",
+      q4: "Koľko stojí taxi na letisko Sliač, Banská Bystrica, Lešť?",
+      a4: "Taxi Sliač letisko €10, taxi Banská Bystrica a taxi Lešť (Lest) - kontaktujte nás pre fixnú cenu. Najlacnejší taxi v regióne.",
+      q5: "Ako si objednám taxi nonstop?",
+      a5: "Náš taxi service je dostupný nonstop 24/7. Zavolajte +421 919 040 118 alebo napište WhatsApp. Taxi Zvolen najlacnejší a najrýchlejší.",
     },
     // Footer
     footer: {
       company: "ZVOLEN TAXI",
-      description: "Profesionálna taxislužba na Slovensku",
+      description: "Najlacnejší taxi service nonstop vo Zvolene. Taxi delivery, food delivery McDonald's, KFC. Taxi Sliač, Banská Bystrica, Lešť. Alternatíva k Bolt Taxi",
       quickLinks: "Rýchle odkazy",
       legal: "Právne informácie",
       privacy: "Zásady ochrany osobných údajov",
       terms: "Podmienky používania",
-      copyright: "© 2024 ZVOLEN TAXI. Všetky práva vyhradené.",
+      copyright: "© 2024 ZVOLEN TAXI - Najlacnejší Taxi Service Nonstop. Všetky práva vyhradené.",
     },
   },
 };

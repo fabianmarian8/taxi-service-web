@@ -106,7 +106,7 @@ export const translations = {
       title: "Profesionálna taxislužba Zvolen",
       subtitle: "Letiskové transfery a mestské jazdy 24/7",
       cta: "Objednať",
-      description: "Spoľahlivá preprava po celom Slovensku s profesionálnymi, anglicky hovoriacimi vodičmi",
+      description: "Spoľahlivá preprava po celom Slovensku s profesionálnymi vodičmi",
     },
     // Services
     services: {
@@ -144,7 +144,7 @@ export const translations = {
       feature1: "Dostupnosť 24/7",
       feature1Desc: "Dostupní v každej hodine dňa a noci",
       feature2: "Profesionálni vodiči",
-      feature2Desc: "Anglicky hovoriaci, skúsení a bezpečnostne orientovaní vodiči",
+      feature2Desc: "Skúsení a bezpečnostne orientovaní vodiči",
       feature3: "Fixné ceny",
       feature3Desc: "Transparentné ponuky bez prekvapení na konci jazdy",
       feature4: "Monitorovanie letov",

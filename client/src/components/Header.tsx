@@ -56,12 +56,6 @@ export default function Header() {
           >
             {t.nav.contact}
           </button>
-          <a
-            href="/files"
-            className="text-sm font-medium hover:text-accent transition-colors"
-          >
-            {language === "en" ? "Files" : "Súbory"}
-          </a>
         </nav>
 
         {/* Right side - Language toggle and CTA */}
@@ -136,12 +130,6 @@ export default function Header() {
             >
               {t.nav.contact}
             </button>
-            <a
-              href="/files"
-              className="text-sm font-medium hover:text-accent transition-colors text-left block"
-            >
-              {language === "en" ? "Files" : "Súbory"}
-            </a>
             <Button
               onClick={() => scrollToSection("contact")}
               className="w-full bg-accent hover:bg-accent/90 text-accent-foreground"

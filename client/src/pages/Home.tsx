@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Phone, MessageCircle, MapPin, Clock, Zap, Users, Shield, Plane } from "lucide-react";
 import { useState } from "react";
-import backgroundVideo from "/background.mp4";
+import backgroundVideo from "/background_2k.mp4";
 
 export default function Home() {
   const { language } = useLanguage();

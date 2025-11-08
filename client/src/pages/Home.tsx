@@ -253,12 +253,12 @@ export default function Home() {
           </h2>
         </div>
         <div className="relative">
-          <div className="flex gap-16 animate-scroll">
-            {/* Duplicate logos for seamless loop */}
-            {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, idx) => (
+          <div className="flex gap-8 md:gap-16 animate-scroll">
+            {/* Duplicate logos for seamless loop - 4x for better mobile coverage */}
+            {[...partnerLogos, ...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, idx) => (
               <div
                 key={idx}
-                className="flex-shrink-0 w-48 h-24 flex items-center justify-center"
+                className="flex-shrink-0 w-40 h-20 md:w-48 md:h-24 flex items-center justify-center"
               >
                 <img
                   src={logo.src}

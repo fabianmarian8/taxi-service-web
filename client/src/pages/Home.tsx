@@ -256,14 +256,15 @@ export default function Home() {
           <div className="flex gap-16 animate-scroll">
             {/* Duplicate logos for seamless loop */}
             {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, idx) => (
-              <div 
-                key={idx} 
-                className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300"
+              <div
+                key={idx}
+                className="flex-shrink-0 w-48 h-24 flex items-center justify-center"
               >
-                <img 
-                  src={logo.src} 
+                <img
+                  src={logo.src}
                   alt={logo.name}
                   className="max-w-full max-h-full object-contain"
+                  style={{ filter: 'none' }}
                 />
               </div>
             ))}

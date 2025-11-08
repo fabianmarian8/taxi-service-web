@@ -51,7 +51,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className="relative z-10 container text-center text-white fade-in px-4">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-shadow-strong uppercase tracking-tight">
-            {language === "en" ? "THE CAR SERVICE" : "TAXI SLUŽBA"}
+            {language === "en" ? "THE CAR SERVICE" : "TAXISLUŽBA"}
           </h1>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-shadow-strong">
             <span className="text-accent">{language === "en" ? "YOU DESERVE" : "AKÚ SI ZASLÚŽITE"}</span>

@@ -77,7 +77,7 @@ export default function Home() {
       </section>
 
       {/* Services Section with Images - Addison Lee Style */}
-      <section id="services" className="py-24 bg-background">
+      <section id="services" className="pt-12 pb-24 md:pt-20 md:pb-24 bg-background">
         <div className="container">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-white">
             {language === "en" ? "OUR SERVICES" : "NAŠE SLUŽBY"}

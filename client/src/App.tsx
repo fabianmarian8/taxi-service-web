@@ -5,11 +5,15 @@ import { Route, Router as WouterRouter, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
+import { useMetaTags } from "./hooks/useMetaTags";
 import Home from "./pages/Home";
 
 const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 function Router() {
+  // Update meta tags based on language
+  useMetaTags();
+
   return (
     <WouterRouter base={basePath}>
       <Switch>

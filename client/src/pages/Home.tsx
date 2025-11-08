@@ -32,7 +32,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section with Video Background - Addison Lee Style */}
-      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Video Background with darker overlay */}
         <div className="absolute inset-0 w-full h-full">
           <video

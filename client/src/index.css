@@ -276,7 +276,7 @@
     @apply bg-gradient-to-r from-accent via-yellow-400 to-accent bg-clip-text text-transparent;
   }
 
-  /* Partner logos scrolling animation */
+  /* Partner logos scrolling animation - Updated 2025-11-08 */
   @keyframes scroll {
     0% {
       transform: translateX(0);

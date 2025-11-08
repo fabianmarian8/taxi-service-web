@@ -5,6 +5,10 @@ import { defineConfig } from "vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  server: {
+    host: true,
+    allowedHosts: ['5173-i35kr4wka3bh7zrpmkmdg-bab57eda.manusvm.computer', '.manusvm.computer']
+  },
   // Set base to './' for relative paths (works with any deployment path)
   // Or set to '/repo-name/' if deploying to github.io/repo-name
 base: '/' ,

@@ -258,7 +258,7 @@ export default function Home() {
             {[...partnerLogos, ...partnerLogos, ...partnerLogos].map((logo, idx) => (
               <div 
                 key={idx} 
-                className="flex-shrink-0 w-48 h-24 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+                className="flex-shrink-0 w-48 h-24 flex items-center justify-center transition-all duration-300"
               >
                 <img 
                   src={logo.src} 

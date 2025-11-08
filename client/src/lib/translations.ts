@@ -31,8 +31,8 @@ export const translations = {
         description: "Long-distance transfers with spacious vehicles and professional service",
       },
       corporate: {
-        name: "Corporate Billing",
-        description: "Invoice billing and receipts suitable for reimbursement",
+        name: "Hotel Polana",
+        description: "Vehicle pickup in front of your hotel, according to your requirements",
       },
     },
     // Pricing
@@ -124,8 +124,8 @@ export const translations = {
         description: "Dlhé vzdialenosti s priestrannými vozidlami a profesionálnym servisom",
       },
       corporate: {
-        name: "Firemné faktúry",
-        description: "Faktúry a účtenky vhodné na vrátenie nákladov",
+        name: "Hotel Polana",
+        description: "pristavenie vozidla pred Váš hotel, podľa Vašich požiadaviek",
       },
     },
     // Pricing

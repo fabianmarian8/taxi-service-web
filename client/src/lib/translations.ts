@@ -1,5 +1,13 @@
 export const translations = {
   en: {
+    // SEO Metadata
+    seo: {
+      title: "Zvolen Taxi | 24/7 Professional Taxi Service & Airport Transfers",
+      description: "Professional taxi service in Zvolen. 24/7 airport transfers to Vienna, Budapest, Bratislava. English-speaking drivers. Fixed prices. Call +421 902 048 583",
+      keywords: "taxi Zvolen, taxi service, airport transfer, Zvolen taxi service, taxi to Vienna airport, taxi to Budapest airport, taxi Bratislava, Sliač airport taxi, professional taxi, 24/7 taxi, English speaking taxi driver, taxi Slovakia, Zvolen transport, airport shuttle, city taxi, intercity transfer, taxi Banská Bystrica, reliable taxi service",
+      ogTitle: "Zvolen Taxi | 24/7 Professional Taxi & Airport Transfers",
+      ogDescription: "Professional 24/7 taxi service in Zvolen. Airport transfers to Vienna, Budapest, Bratislava with English-speaking drivers and fixed prices.",
+    },
     // Navigation
     nav: {
       pricing: "Pricing",
@@ -93,6 +101,14 @@ export const translations = {
     },
   },
   sk: {
+    // SEO Metadata
+    seo: {
+      title: "Zvolen Taxi | Najlepšia Taxi služba Nonstop 24/7",
+      description: "Profesionálna taxislužba vo Zvolene nonstop. Transfer na letiská Viedeň, Budapešť, Bratislava, Sliač. Fixné ceny. Volajte +421 902 048 583",
+      keywords: "taxi, zvolen taxi, taxi service, taxi nonstop, zvolen, najlepší taxi, taxi delivery, food delivery, taxi sliač, taxi lešť, taxi lest, taxi banská bystrica, europa taxi, zv taxi, eko taxi, pp taxi, bolt taxi, bolt, zvolen vlaková stanica, zvolen autobusová stanica, letisko transfer, taxi na letisko, profesionálne taxi",
+      ogTitle: "Zvolen Taxi | Najlepšia Taxi služba Nonstop",
+      ogDescription: "Profesionálna taxislužba vo Zvolene nonstop. Transfer na letiská, alebo kdekoľvek potrebujete. Volajte +421 902 048 583.",
+    },
     // Navigation
     nav: {
       pricing: "Cenník",

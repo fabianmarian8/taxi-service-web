@@ -42,6 +42,11 @@
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.zvolen-taxi.sk/" />
 
+    <!-- Hreflang Links for Language Variants -->
+    <link rel="alternate" hreflang="sk" href="https://www.zvolen-taxi.sk/" />
+    <link rel="alternate" hreflang="en" href="https://www.zvolen-taxi.sk/" />
+    <link rel="alternate" hreflang="x-default" href="https://www.zvolen-taxi.sk/" />
+
     <!-- Icons -->
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
     <link rel="apple-touch-icon" sizes="64x64" href="/favicon.png" />
@@ -59,7 +64,7 @@
       "@id": "https://www.zvolen-taxi.sk",
       "name": "Taxi Service Zvolen",
       "alternateName": ["Zvolen Taxi", "ZV Taxi", "Taxi Zvolen"],
-      "description": "Profesionálna taxislužba vo Zvolene a okolí. Najlepší taxi service nonstop, taxi delivery, transfer na letiská Sliač, Viedeň, Bratislava, Budapešť.",
+      "description": "Professional 24/7 taxi service in Zvolen and surrounding areas. Airport transfers to Sliač, Vienna, Bratislava, Budapest. English-speaking drivers.",
       "url": "https://www.zvolen-taxi.sk",
       "telephone": "+421902048583",
       "priceRange": "€€",
@@ -108,6 +113,18 @@
         {
           "@type": "City",
           "name": "Lešť"
+        },
+        {
+          "@type": "City",
+          "name": "Vienna"
+        },
+        {
+          "@type": "City",
+          "name": "Bratislava"
+        },
+        {
+          "@type": "City",
+          "name": "Budapest"
         }
       ],
       "hasOfferCatalog": {
@@ -118,36 +135,61 @@
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Taxi Transfer na letisko Sliač",
-              "description": "Transfer na letisko Sliač za fixnú cenu"
+              "name": "Airport Transfer to Sliač Airport",
+              "description": "Fixed price transfer to Sliač Airport with flight monitoring"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Taxi Delivery - Food Delivery",
-              "description": "Dovoz jedla z McDonald's, KFC a ďalších reštaurácií"
+              "name": "Airport Transfer to Vienna Airport",
+              "description": "Professional airport transfer to Vienna International Airport (VIE)"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Taxi Zvolen Vlaková Stanica",
-              "description": "Transfer z vlakovej stanice Zvolen"
+              "name": "Airport Transfer to Budapest Airport",
+              "description": "Reliable transfer to Budapest Ferenc Liszt Airport (BUD)"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Taxi Zvolen Autobusová Stanica",
-              "description": "Transfer z autobusovej stanice Zvolen"
+              "name": "Airport Transfer to Bratislava Airport",
+              "description": "Transfer to Bratislava M. R. Štefánik Airport (BTS)"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Zvolen Train Station Transfer",
+              "description": "Pickup and drop-off service at Zvolen railway station"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Zvolen Bus Station Transfer",
+              "description": "Transfer service to/from Zvolen bus station"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hotel Polana Transfer",
+              "description": "Hotel pickup service in Zvolen and surrounding areas"
             }
           }
         ]
       },
+      "knowsLanguage": ["English", "Slovak"],
       "sameAs": [
         "https://api.whatsapp.com/send?phone=421919040118"
       ],

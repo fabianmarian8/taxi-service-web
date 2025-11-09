@@ -364,12 +364,9 @@ export default function Home() {
       {/* Contact Section */}
       <section id="contact" className="py-24 bg-card/50">
         <div className="container">
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-white">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 text-white">
             {t.contact.title}
           </h2>
-          <p className="text-center text-muted-foreground text-lg mb-16 max-w-2xl mx-auto">
-            {language === "en" ? "Get in touch with us" : "Kontaktujte nás"}
-          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">

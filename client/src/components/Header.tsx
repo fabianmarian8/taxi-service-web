@@ -29,12 +29,15 @@ export default function Header() {
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2 hover:bg-muted/20 rounded-lg transition-colors text-white"
+          aria-label={language === "en" ? "Toggle navigation menu" : "Prepnutie navigačného menu"}
+          aria-expanded={isMenuOpen}
         >
           <svg
             className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -48,11 +51,16 @@ export default function Header() {
 
         {/* Center - Logo */}
         <div className="flex items-center justify-center flex-1 md:flex-initial">
-          <img src={logoImage} alt="ZVOLEN TAXI" className="h-[100px] w-auto" />
+          <img 
+            src={logoImage} 
+            alt={language === "en" ? "ZVOLEN TAXI - Professional taxi service logo" : "ZVOLEN TAXI - Logo profesionálnej taxi služby"} 
+            className="h-[100px] w-auto"
+            loading="eager"
+          />
         </div>
 
         {/* Desktop Navigation - Hidden on mobile */}
-        <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center">
+        <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center" aria-label={language === "en" ? "Main navigation" : "Hlavná navigácia"}>
           <button
             onClick={() => scrollToSection("services")}
             className="text-sm font-semibold text-white hover:text-accent transition-colors uppercase tracking-wide"
@@ -106,7 +114,7 @@ export default function Header() {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden border-t border-border bg-black/98">
-          <nav className="container py-6 flex flex-col gap-4">
+          <nav className="container py-6 flex flex-col gap-4" aria-label={language === "en" ? "Mobile navigation" : "Mobilná navigácia"}>
             <button
               onClick={() => scrollToSection("services")}
               className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"

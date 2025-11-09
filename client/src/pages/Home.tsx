@@ -25,6 +25,8 @@ export default function Home() {
     { name: "Budapest Airport", src: "/images/processed/budapest-airport.png" },
     { name: "Europa Shopping", src: "/images/processed/europa-shopping.png" },
     { name: "Hotel Poľana", src: "/images/processed/polana-hotel.jpg" },
+    { name: "Ministry of Fun", src: "/images/processed/ministry-of-fun.png" },
+    { name: "Ministry of Fun White", src: "/images/processed/ministry-of-fun-white.png" },
   ];
 
   return (

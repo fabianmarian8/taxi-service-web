@@ -79,7 +79,7 @@ export const translations = {
     faq: {
       title: "Frequently Asked Questions",
       q1: "How do I book a taxi?",
-      a1: "You can call us at +421 919 040 118 or message us on WhatsApp. We'll confirm your booking and provide a fixed price.",
+      a1: "You can call us at +421 902 048 583 or message us on WhatsApp. We'll confirm your booking and provide a fixed price.",
       q2: "Do you monitor flights?",
       a2: "Yes! For airport transfers, we monitor your flight and adjust pickup times if there are delays.",
       q3: "What payment methods do you accept?",
@@ -180,7 +180,7 @@ export const translations = {
     faq: {
       title: "Často kladené otázky",
       q1: "Ako si objednám taxi?",
-      a1: "Môžete nám zavolať na +421 919 040 118 alebo nám napísať na WhatsApp. Potvrdíme vašu objednávku a poskytneme fixnú cenu.",
+      a1: "Môžete nám zavolať na +421 902 048 583 alebo nám napísať na WhatsApp. Potvrdíme vašu objednávku a poskytneme fixnú cenu.",
       q2: "Monitorujete lety?",
       a2: "Áno! Pri letiskových transferoch sledujeme váš let a prispôsobujeme čas vyzdvihnutia pri oneskoreniach.",
       q3: "Aké spôsoby platby akceptujete?",

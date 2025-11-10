@@ -3,7 +3,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslation } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Phone, MessageCircle, MapPin, Clock, Zap, Users, Shield, Plane, Star, CheckCircle } from "lucide-react";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Phone, MessageCircle, MapPin, Clock, Zap, Users, Shield, Plane, Star, CheckCircle, AlertCircle } from "lucide-react";
 import { useState } from "react";
 import backgroundVideo from "/background_2k.mp4";
 
@@ -11,6 +12,9 @@ export default function Home() {
   const { language } = useLanguage();
   const t = getTranslation(language);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [videoLoaded, setVideoLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState<Record<string, boolean>>({});
 
   const faqItems = [
     { q: t.faq.q1, a: t.faq.a1 },
@@ -37,14 +41,29 @@ export default function Home() {
       <section className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Video Background with darker overlay */}
         <div className="absolute inset-0 w-full h-full">
+          {!videoLoaded && !videoError && (
+            <div className="absolute inset-0 bg-black/80 flex items-center justify-center">
+              <Skeleton className="w-full h-full" />
+            </div>
+          )}
+          {videoError && (
+            <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center">
+              <div className="text-center text-white/50">
+                <AlertCircle className="w-12 h-12 mx-auto mb-2" />
+                <p className="text-sm">{language === "en" ? "Video unavailable" : "Video nie je k dispozícii"}</p>
+              </div>
+            </div>
+          )}
           <video
             autoPlay
             muted
             loop
             playsInline
-            className="w-full h-full object-cover"
+            className={`w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-100' : 'opacity-0'}`}
             style={{ filter: 'brightness(0.5)' }}
             aria-label={language === "en" ? "Taxi service background video" : "Video pozadie taxislužby"}
+            onLoadedData={() => setVideoLoaded(true)}
+            onError={() => setVideoError(true)}
           >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
@@ -57,20 +76,20 @@ export default function Home() {
             {language === "en" ? "THE TAXI SERVICE" : "TAXISLUŽBA"}
           </h1>
           <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-shadow-strong">
-            <span className="text-accent">{language === "en" ? "YOU DESERVE" : "AKÚ SI ZASLÚŽITE"}</span>
+            <span className="gradient-text-animated">{language === "en" ? "YOU DESERVE" : "AKÚ SI ZASLÚŽITE"}</span>
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto text-shadow">
             {t.hero.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="tel:+421902048583">
-              <Button size="lg" className="btn-yellow text-lg px-10 py-6">
+            <a href="tel:+421902048583" className="w-full sm:w-auto">
+              <Button size="lg" className="btn-yellow text-lg px-10 py-6 w-full sm:w-auto">
                 <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
                 +421 902 048 583
               </Button>
             </a>
-            <a href="https://api.whatsapp.com/send?phone=421919040118">
-              <Button size="lg" className="btn-outline-white text-lg px-10 py-6">
+            <a href="https://api.whatsapp.com/send?phone=421919040118" className="w-full sm:w-auto">
+              <Button size="lg" className="btn-outline-white text-lg px-10 py-6 w-full sm:w-auto">
                 <MessageCircle className="w-5 h-5 mr-2" aria-hidden="true" />
                 WhatsApp
               </Button>
@@ -94,14 +113,19 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Airport Transfer Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
+              {!imagesLoaded['airport-transfer'] && (
+                <Skeleton className="absolute inset-0 w-full h-full" />
+              )}
               <img 
                 src="/images/processed/airport-transfer.png" 
                 alt={language === "en" ? "Professional airport transfer service to Vienna, Budapest, Bratislava and Sliač airports" : "Profesionálny letiskový transfer na letiská Viedeň, Budapešť, Bratislava a Sliač"}
-                className="absolute inset-0 w-full h-full object-cover"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${imagesLoaded['airport-transfer'] ? 'opacity-100' : 'opacity-0'}`}
                 loading="lazy"
+                onLoad={() => setImagesLoaded(prev => ({ ...prev, 'airport-transfer': true }))}
+                onError={() => setImagesLoaded(prev => ({ ...prev, 'airport-transfer': true }))}
               />
               <div className="service-card-content">
-                <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
+                <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4 float-animation">
                   <Plane className="w-7 h-7 text-accent-foreground" aria-hidden="true" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-3">
@@ -115,14 +139,19 @@ export default function Home() {
 
             {/* Family Transfer Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
+              {!imagesLoaded['family-transfer'] && (
+                <Skeleton className="absolute inset-0 w-full h-full" />
+              )}
               <img 
                 src="/images/processed/family-transfer.png" 
                 alt={language === "en" ? "City taxi service in Lešť, Zvolen, Banská Bystrica and surrounding areas" : "Mestská taxislužba v Lešti, Zvolene, Banskej Bystrici a okolí"}
-                className="absolute inset-0 w-full h-full object-cover"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${imagesLoaded['family-transfer'] ? 'opacity-100' : 'opacity-0'}`}
                 loading="lazy"
+                onLoad={() => setImagesLoaded(prev => ({ ...prev, 'family-transfer': true }))}
+                onError={() => setImagesLoaded(prev => ({ ...prev, 'family-transfer': true }))}
               />
               <div className="service-card-content">
-                <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
+                <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4 float-animation" style={{ animationDelay: '0.2s' }}>
                   <Users className="w-7 h-7 text-accent-foreground" aria-hidden="true" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-3">
@@ -136,14 +165,19 @@ export default function Home() {
 
             {/* Luxury Interior Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
+              {!imagesLoaded['car-interior'] && (
+                <Skeleton className="absolute inset-0 w-full h-full" />
+              )}
               <img 
                 src="/images/processed/car-interior.png" 
                 alt={language === "en" ? "Spacious intercity transfer service with professional vehicles" : "Priestranný medzimiestny transfer s profesionálnymi vozidlami"}
-                className="absolute inset-0 w-full h-full object-cover"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${imagesLoaded['car-interior'] ? 'opacity-100' : 'opacity-0'}`}
                 loading="lazy"
+                onLoad={() => setImagesLoaded(prev => ({ ...prev, 'car-interior': true }))}
+                onError={() => setImagesLoaded(prev => ({ ...prev, 'car-interior': true }))}
               />
               <div className="service-card-content">
-                <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
+                <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4 float-animation" style={{ animationDelay: '0.4s' }}>
                   <Shield className="w-7 h-7 text-accent-foreground" aria-hidden="true" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-3">
@@ -157,14 +191,19 @@ export default function Home() {
 
             {/* Night Service Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
+              {!imagesLoaded['hotel-night'] && (
+                <Skeleton className="absolute inset-0 w-full h-full" />
+              )}
               <img 
                 src="/images/processed/hotel-night.png" 
                 alt={language === "en" ? "Hotel Polana pickup service - vehicle pickup in front of your hotel" : "Služba Hotel Polana - pristavenie vozidla pred váš hotel"}
-                className="absolute inset-0 w-full h-full object-cover"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${imagesLoaded['hotel-night'] ? 'opacity-100' : 'opacity-0'}`}
                 loading="lazy"
+                onLoad={() => setImagesLoaded(prev => ({ ...prev, 'hotel-night': true }))}
+                onError={() => setImagesLoaded(prev => ({ ...prev, 'hotel-night': true }))}
               />
               <div className="service-card-content">
-                <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
+                <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4 float-animation" style={{ animationDelay: '0.6s' }}>
                   <Zap className="w-7 h-7 text-accent-foreground" aria-hidden="true" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-3">
@@ -236,9 +275,9 @@ export default function Home() {
                   : "Služby prispôsobené vašim potrebám"
               },
             ].map((feature, idx) => (
-              <Card key={idx} className="card-hover p-8 text-center bg-card border-border">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-8 h-8 text-accent" aria-hidden="true" />
+              <Card key={idx} className="card-hover p-8 text-center bg-card border-border group">
+                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors duration-300 pulse-glow">
+                  <feature.icon className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-white">
                   {feature.title}
@@ -383,9 +422,9 @@ export default function Home() {
             {t.contact.title}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Phone className="w-8 h-8 text-accent" aria-hidden="true" />
+            <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent group">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors duration-300 pulse-glow">
+                <Phone className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
               </div>
               <h3 className="font-bold mb-4 text-xl text-white">
                 {t.contact.phone}
@@ -394,9 +433,9 @@ export default function Home() {
                 +421 902 048 583
               </a>
             </Card>
-            <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <MessageCircle className="w-8 h-8 text-accent" aria-hidden="true" />
+            <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent group">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors duration-300 pulse-glow">
+                <MessageCircle className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
               </div>
               <h3 className="font-bold mb-4 text-xl text-white">
                 {t.contact.whatsapp}
@@ -410,9 +449,9 @@ export default function Home() {
                 {language === "en" ? "Message us" : "Napíšte nám"}
               </a>
             </Card>
-            <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent">
-              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Clock className="w-8 h-8 text-accent" aria-hidden="true" />
+            <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent group">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors duration-300 pulse-glow">
+                <Clock className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
               </div>
               <h3 className="font-bold mb-4 text-xl text-white">
                 {language === "en" ? "24/7 Service" : "Služba 24/7"}

@@ -2,17 +2,18 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle, FileText, MessageSquare, CheckCircle } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
 export default function AkoPodatStaznost() {
+  useDocumentMeta({
+    title: "Reklamácia jazdy taxi vo Zvolene – spravodlivé riešenie",
+    description: "Neboli ste spokojní? Tu je postup, ako podať sťažnosť, čo priložiť a ako prebieha vyhodnotenie.",
+    canonical: "https://zvolen-taxi.sk/ako-podat-staznost"
+  });
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Reklamácia jazdy taxi vo Zvolene – spravodlivé riešenie</title>
-        <meta name="description" content="Neboli ste spokojní? Tu je postup, ako podať sťažnosť, čo priložiť a ako prebieha vyhodnotenie." />
-        <link rel="canonical" href="https://zvolen-taxi.sk/ako-podat-staznost" />
-      </Helmet>
 
       <Header />
 

@@ -2,17 +2,18 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Plane, MapPin, Clock, Luggage } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
 export default function LetiskovaPreprava() {
+  useDocumentMeta({
+    title: "Letisková preprava zo Zvolena – spoľahlivo a načas",
+    description: "Individuálny odvoz na slovenské aj zahraničné letiská. Fixná cena po dohode, monitoring letu, pomoc s batožinou.",
+    canonical: "https://zvolen-taxi.sk/letiskova-preprava"
+  });
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Letisková preprava zo Zvolena – spoľahlivo a načas</title>
-        <meta name="description" content="Individuálny odvoz na slovenské aj zahraničné letiská. Fixná cena po dohode, monitoring letu, pomoc s batožinou." />
-        <link rel="canonical" href="https://zvolen-taxi.sk/letiskova-preprava" />
-      </Helmet>
 
       <Header />
 

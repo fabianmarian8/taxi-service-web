@@ -2,17 +2,18 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Train, Bus, Clock, MapPin } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
 export default function TaxiNaVlakAutobus() {
+  useDocumentMeta({
+    title: "Taxi na stanicu vo Zvolene – presné vyzdvihnutie a načasovanie",
+    description: "Potrebujete stihnúť vlak alebo autobus? Poradíme, čo nahlásiť dispečerovi, aby ste dorazili načas, bez stresu.",
+    canonical: "https://zvolen-taxi.sk/taxi-na-vlak-autobus"
+  });
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Taxi na stanicu vo Zvolene – presné vyzdvihnutie a načasovanie</title>
-        <meta name="description" content="Potrebujete stihnúť vlak alebo autobus? Poradíme, čo nahlásiť dispečerovi, aby ste dorazili načas, bez stresu." />
-        <link rel="canonical" href="https://zvolen-taxi.sk/taxi-na-vlak-autobus" />
-      </Helmet>
 
       <Header />
 

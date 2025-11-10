@@ -2,17 +2,18 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { CreditCard, Banknote, FileText } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
 export default function PlatbaVTaxiku() {
+  useDocumentMeta({
+    title: "Platba v taxíku vo Zvolene – karta, hotovosť, faktúra",
+    description: "Zaplaťte kartou, mobilom alebo hotovosťou. Firemní zákazníci vo Zvolene môžu jazdiť na faktúru – ako to funguje.",
+    canonical: "https://zvolen-taxi.sk/platba-v-taxiku"
+  });
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Platba v taxíku vo Zvolene – karta, hotovosť, faktúra</title>
-        <meta name="description" content="Zaplaťte kartou, mobilom alebo hotovosťou. Firemní zákazníci vo Zvolene môžu jazdiť na faktúru – ako to funguje." />
-        <link rel="canonical" href="https://zvolen-taxi.sk/platba-v-taxiku" />
-      </Helmet>
 
       <Header />
 

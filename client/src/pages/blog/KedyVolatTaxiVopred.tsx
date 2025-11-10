@@ -14,7 +14,7 @@ export default function KedyVolatTaxiVopred() {
   });
 
   useArticleSchema({
-    headline: "Kedy volať taxi vopred a kedy „hneď"",
+    headline: "Kedy volať taxi vopred a kedy \"hneď\"",
     description: "Ranné špičky, víkendy, nádražia aj podujatia. Zistite, kedy vo Zvolene objednať taxi vopred a kedy stačí zavolať na poslednú chvíľu.",
     datePublished: "2025-11-08",
     dateModified: "2025-11-10",

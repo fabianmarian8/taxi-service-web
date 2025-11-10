@@ -29,12 +29,16 @@ export default function Header() {
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           className="md:hidden p-2 hover:bg-muted/20 rounded-lg transition-colors text-white"
+          aria-label={language === "en" ? "Toggle navigation menu" : "Prepínač navigačného menu"}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-menu"
         >
           <svg
             className="w-6 h-6"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -48,32 +52,36 @@ export default function Header() {
 
         {/* Center - Logo */}
         <div className="flex items-center justify-center flex-1 md:flex-initial">
-          <img src={logoImage} alt="ZVOLEN TAXI" className="h-[100px] w-auto" />
+          <img src={logoImage} alt="ZVOLEN TAXI" className="h-[100px] w-auto" loading="eager" />
         </div>
 
         {/* Desktop Navigation - Hidden on mobile */}
-        <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center">
+        <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center" aria-label={language === "en" ? "Main navigation" : "Hlavná navigácia"}>
           <button
             onClick={() => scrollToSection("services")}
             className="text-sm font-semibold text-white hover:text-accent transition-colors uppercase tracking-wide"
+            aria-label={language === "en" ? "Go to services section" : "Prejsť na sekciu služby"}
           >
             {t.nav.services}
           </button>
           <button
             onClick={() => scrollToSection("pricing")}
             className="text-sm font-semibold text-white hover:text-accent transition-colors uppercase tracking-wide"
+            aria-label={language === "en" ? "Go to pricing section" : "Prejsť na sekciu cenník"}
           >
             {t.nav.pricing}
           </button>
           <button
             onClick={() => scrollToSection("faq")}
             className="text-sm font-semibold text-white hover:text-accent transition-colors uppercase tracking-wide"
+            aria-label={language === "en" ? "Go to FAQ section" : "Prejsť na sekciu často kladené otázky"}
           >
             {t.nav.faq}
           </button>
           <button
             onClick={() => scrollToSection("contact")}
             className="text-sm font-semibold text-white hover:text-accent transition-colors uppercase tracking-wide"
+            aria-label={language === "en" ? "Go to contact section" : "Prejsť na sekciu kontakt"}
           >
             {t.nav.contact}
           </button>
@@ -87,8 +95,9 @@ export default function Header() {
             onClick={toggleLanguage}
             className="gap-2 text-white hover:text-accent hover:bg-muted/20"
             title={language === "en" ? "Switch to Slovak" : "Switch to English"}
+            aria-label={language === "en" ? "Switch language to Slovak" : "Prepnúť jazyk na angličtinu"}
           >
-            <Globe className="w-4 h-4" />
+            <Globe className="w-4 h-4" aria-hidden="true" />
             <span className="hidden sm:inline text-xs font-bold uppercase">
               {language}
             </span>
@@ -105,29 +114,33 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden border-t border-border bg-black/98">
-          <nav className="container py-6 flex flex-col gap-4">
+        <div id="mobile-menu" className="md:hidden border-t border-border bg-black/98">
+          <nav className="container py-6 flex flex-col gap-4" aria-label={language === "en" ? "Mobile navigation" : "Mobilná navigácia"}>
             <button
               onClick={() => scrollToSection("services")}
               className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"
+              aria-label={language === "en" ? "Go to services section" : "Prejsť na sekciu služby"}
             >
               {t.nav.services}
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
               className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"
+              aria-label={language === "en" ? "Go to pricing section" : "Prejsť na sekciu cenník"}
             >
               {t.nav.pricing}
             </button>
             <button
               onClick={() => scrollToSection("faq")}
               className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"
+              aria-label={language === "en" ? "Go to FAQ section" : "Prejsť na sekciu často kladené otázky"}
             >
               {t.nav.faq}
             </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"
+              aria-label={language === "en" ? "Go to contact section" : "Prejsť na sekciu kontakt"}
             >
               {t.nav.contact}
             </button>

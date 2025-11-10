@@ -4,9 +4,10 @@ import { getTranslation } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Phone, MessageCircle, MapPin, Clock, Zap, Users, Shield, Plane, Star, CheckCircle, AlertCircle } from "lucide-react";
+import { Phone, MessageCircle, MapPin, Clock, Zap, Users, Shield, Plane, Star, CheckCircle, AlertCircle, BookOpen, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import backgroundVideo from "/background_2k.mp4";
+import { Link } from "wouter";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -374,8 +375,197 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog/Info Section */}
+      <section className="py-24 bg-background border-t border-border" aria-label={language === "en" ? "Useful information" : "Užitočné informácie"}>
+        <div className="container">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <BookOpen className="w-10 h-10 text-accent" aria-hidden="true" />
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                {language === "en" ? "USEFUL INFORMATION" : "UŽITOČNÉ INFORMÁCIE"}
+              </h2>
+            </div>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              {language === "en"
+                ? "Everything you need to know about our taxi service"
+                : "Všetko, čo potrebujete vedieť o našej taxislužbe"}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            <Link href="/ako-objednat-taxi-bez-aplikacie">
+              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    <MessageCircle className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
+                    {language === "en" ? "How to Order Taxi" : "Ako objednať taxi"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    {language === "en"
+                      ? "Order by phone, SMS or WhatsApp without app"
+                      : "Objednajte telefonicky, SMS alebo WhatsApp bez aplikácie"}
+                  </p>
+                  <div className="flex items-center text-accent text-sm font-medium">
+                    {language === "en" ? "Read more" : "Čítať viac"} <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link href="/kedy-volat-taxi-vopred">
+              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    <Clock className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
+                    {language === "en" ? "When to Book in Advance" : "Kedy volať vopred"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    {language === "en"
+                      ? "Tips for rush hours, weekends and events"
+                      : "Tipy pre špičky, víkendy a podujatia"}
+                  </p>
+                  <div className="flex items-center text-accent text-sm font-medium">
+                    {language === "en" ? "Read more" : "Čítať viac"} <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link href="/platba-v-taxiku">
+              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    <CheckCircle className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
+                    {language === "en" ? "Payment Options" : "Platba v taxíku"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    {language === "en"
+                      ? "Card, cash or invoice for companies"
+                      : "Kartou, hotovosť alebo faktúra pre firmy"}
+                  </p>
+                  <div className="flex items-center text-accent text-sm font-medium">
+                    {language === "en" ? "Read more" : "Čítať viac"} <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link href="/taxi-s-detskou-sedackou">
+              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    <Users className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
+                    {language === "en" ? "Child Seat" : "Detská sedačka"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    {language === "en"
+                      ? "Safe travel with children"
+                      : "Bezpečná preprava s deťmi"}
+                  </p>
+                  <div className="flex items-center text-accent text-sm font-medium">
+                    {language === "en" ? "Read more" : "Čítať viac"} <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link href="/taxi-na-vlak-autobus">
+              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    <MapPin className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
+                    {language === "en" ? "Station Transfer" : "Transfer na stanicu"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    {language === "en"
+                      ? "On time to train or bus"
+                      : "Načas na vlak alebo autobus"}
+                  </p>
+                  <div className="flex items-center text-accent text-sm font-medium">
+                    {language === "en" ? "Read more" : "Čítať viac"} <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link href="/letiskova-preprava">
+              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    <Plane className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
+                    {language === "en" ? "Airport Transfer" : "Letisková preprava"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    {language === "en"
+                      ? "To Vienna, Budapest, Bratislava"
+                      : "Do Viedne, Budapešti, Bratislavy"}
+                  </p>
+                  <div className="flex items-center text-accent text-sm font-medium">
+                    {language === "en" ? "Read more" : "Čítať viac"} <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link href="/ako-podat-staznost">
+              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    <AlertCircle className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
+                    {language === "en" ? "Complaints" : "Reklamácia"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    {language === "en"
+                      ? "How to file a complaint"
+                      : "Ako podať sťažnosť"}
+                  </p>
+                  <div className="flex items-center text-accent text-sm font-medium">
+                    {language === "en" ? "Read more" : "Čítať viac"} <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+
+            <Link href="/nonstop-taxi">
+              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
+                <div className="flex flex-col h-full">
+                  <div className="mb-4">
+                    <Clock className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
+                    {language === "en" ? "24/7 Service" : "Nonstop služba"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
+                    {language === "en"
+                      ? "Night and weekend service"
+                      : "Nočná a víkendová prevádzka"}
+                  </p>
+                  <div className="flex items-center text-accent text-sm font-medium">
+                    {language === "en" ? "Read more" : "Čítať viac"} <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
+              </Card>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* FAQ Section */}
-      <section id="faq" className="py-24 bg-background" aria-label={language === "en" ? "Frequently asked questions" : "Často kladené otázky"}>
+      <section id="faq" className="py-24 bg-card/50" aria-label={language === "en" ? "Frequently asked questions" : "Často kladené otázky"}>
         <div className="container max-w-4xl">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-white">
             {t.faq.title}

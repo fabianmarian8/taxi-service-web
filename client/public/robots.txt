@@ -4,7 +4,7 @@ User-agent: *
 Allow: /
 
 # Sitemaps
-Sitemap: https://www.zvolen-taxi.sk/sitemap.xml
+Sitemap: https://zvolen-taxi.sk/sitemap.xml
 
 # Crawl-delay for respectful crawling
 Crawl-delay: 1

@@ -4,50 +4,50 @@
 
   <!-- Main Page -->
   <url>
-    <loc>https://www.zvolen-taxi.sk/</loc>
+    <loc>https://zvolen-taxi.sk/</loc>
     <lastmod>2025-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.zvolen-taxi.sk/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.zvolen-taxi.sk/" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.zvolen-taxi.sk/" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/" />
   </url>
 
   <!-- Service Sections (accessible via hash navigation) -->
   <url>
-    <loc>https://www.zvolen-taxi.sk/#services</loc>
+    <loc>https://zvolen-taxi.sk/#services</loc>
     <lastmod>2025-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.zvolen-taxi.sk/#services" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.zvolen-taxi.sk/#services" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/#services" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/#services" />
   </url>
 
   <url>
-    <loc>https://www.zvolen-taxi.sk/#pricing</loc>
+    <loc>https://zvolen-taxi.sk/#pricing</loc>
     <lastmod>2025-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.zvolen-taxi.sk/#pricing" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.zvolen-taxi.sk/#pricing" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/#pricing" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/#pricing" />
   </url>
 
   <url>
-    <loc>https://www.zvolen-taxi.sk/#faq</loc>
+    <loc>https://zvolen-taxi.sk/#faq</loc>
     <lastmod>2025-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.zvolen-taxi.sk/#faq" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.zvolen-taxi.sk/#faq" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/#faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/#faq" />
   </url>
 
   <url>
-    <loc>https://www.zvolen-taxi.sk/#contact</loc>
+    <loc>https://zvolen-taxi.sk/#contact</loc>
     <lastmod>2025-11-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://www.zvolen-taxi.sk/#contact" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.zvolen-taxi.sk/#contact" />
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/#contact" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/#contact" />
   </url>
 
 </urlset>

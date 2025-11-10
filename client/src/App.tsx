@@ -6,6 +6,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { useMetaTags } from "./hooks/useMetaTags";
+import { useScrollToTop } from "./hooks/useScrollToTop";
 import Home from "./pages/Home";
 
 // SEO Blog Pages
@@ -23,6 +24,9 @@ const basePath = import.meta.env.BASE_URL.replace(/\/$/, "");
 function Router() {
   // Update meta tags based on language
   useMetaTags();
+
+  // Scroll to top on route change
+  useScrollToTop();
 
   return (
     <WouterRouter base={basePath}>

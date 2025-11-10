@@ -4,12 +4,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Train, Bus, Clock, MapPin } from "lucide-react";
 import { Link } from "wouter";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { useArticleSchema } from "@/hooks/useArticleSchema";
 
 export default function TaxiNaVlakAutobus() {
   useDocumentMeta({
     title: "Taxi na stanicu vo Zvolene – presné vyzdvihnutie a načasovanie",
     description: "Potrebujete stihnúť vlak alebo autobus? Poradíme, čo nahlásiť dispečerovi, aby ste dorazili načas, bez stresu.",
     canonical: "https://zvolen-taxi.sk/taxi-na-vlak-autobus"
+  });
+
+  useArticleSchema({
+    headline: "Taxi na vlak a autobus",
+    description: "Potrebujete stihnúť vlak alebo autobus? Poradíme, čo nahlásiť dispečerovi, aby ste dorazili načas, bez stresu.",
+    datePublished: "2025-11-08",
+    dateModified: "2025-11-10",
+    url: "https://zvolen-taxi.sk/taxi-na-vlak-autobus"
   });
 
   return (

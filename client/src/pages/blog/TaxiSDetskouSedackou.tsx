@@ -4,12 +4,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Baby, Shield, Phone } from "lucide-react";
 import { Link } from "wouter";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { useArticleSchema } from "@/hooks/useArticleSchema";
 
 export default function TaxiSDetskouSedackou() {
   useDocumentMeta({
     title: "Taxi vo Zvolene s detskou sedačkou – bezpečne a pohodlne",
     description: "Cestujete s dieťaťom? Povieme vám, ako si objednať taxi s vhodnou detskou sedačkou vo Zvolene a čo nahlásiť dopredu.",
     canonical: "https://zvolen-taxi.sk/taxi-s-detskou-sedackou"
+  });
+
+  useArticleSchema({
+    headline: "Taxi s detskou sedačkou",
+    description: "Cestujete s dieťaťom? Povieme vám, ako si objednať taxi s vhodnou detskou sedačkou vo Zvolene a čo nahlásiť dopredu.",
+    datePublished: "2025-11-08",
+    dateModified: "2025-11-10",
+    url: "https://zvolen-taxi.sk/taxi-s-detskou-sedackou"
   });
 
   return (

@@ -4,12 +4,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Clock, AlertCircle } from "lucide-react";
 import { Link } from "wouter";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { useArticleSchema } from "@/hooks/useArticleSchema";
 
 export default function KedyVolatTaxiVopred() {
   useDocumentMeta({
     title: "Kedy objednať taxi vo Zvolene vopred – tipy podľa situácie",
     description: "Ranné špičky, víkendy, nádražia aj podujatia. Zistite, kedy vo Zvolene objednať taxi vopred a kedy stačí zavolať na poslednú chvíľu.",
     canonical: "https://zvolen-taxi.sk/kedy-volat-taxi-vopred"
+  });
+
+  useArticleSchema({
+    headline: "Kedy volať taxi vopred a kedy „hneď"",
+    description: "Ranné špičky, víkendy, nádražia aj podujatia. Zistite, kedy vo Zvolene objednať taxi vopred a kedy stačí zavolať na poslednú chvíľu.",
+    datePublished: "2025-11-08",
+    dateModified: "2025-11-10",
+    url: "https://zvolen-taxi.sk/kedy-volat-taxi-vopred"
   });
 
   return (

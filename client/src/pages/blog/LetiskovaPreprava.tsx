@@ -4,12 +4,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Plane, MapPin, Clock, Luggage } from "lucide-react";
 import { Link } from "wouter";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { useArticleSchema } from "@/hooks/useArticleSchema";
 
 export default function LetiskovaPreprava() {
   useDocumentMeta({
     title: "Letisková preprava zo Zvolena – spoľahlivo a načas",
     description: "Individuálny odvoz na slovenské aj zahraničné letiská. Fixná cena po dohode, monitoring letu, pomoc s batožinou.",
     canonical: "https://zvolen-taxi.sk/letiskova-preprava"
+  });
+
+  useArticleSchema({
+    headline: "Letisková preprava",
+    description: "Individuálny odvoz na slovenské aj zahraničné letiská. Fixná cena po dohode, monitoring letu, pomoc s batožinou.",
+    datePublished: "2025-11-08",
+    dateModified: "2025-11-10",
+    url: "https://zvolen-taxi.sk/letiskova-preprava"
   });
 
   return (

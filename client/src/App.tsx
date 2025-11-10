@@ -7,7 +7,6 @@ import { ThemeProvider } from "./contexts/ThemeContext";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { useMetaTags } from "./hooks/useMetaTags";
 import Home from "./pages/Home";
-import { HelmetProvider } from "react-helmet-async";
 
 // SEO Blog Pages
 import AkoObjednatTaxiBezAplikacie from "./pages/blog/AkoObjednatTaxiBezAplikacie";
@@ -52,19 +51,17 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <HelmetProvider>
-        <ThemeProvider
-          defaultTheme="dark"
-          // switchable
-        >
-          <LanguageProvider>
-            <TooltipProvider>
-              <Toaster />
-              <Router />
-            </TooltipProvider>
-          </LanguageProvider>
-        </ThemeProvider>
-      </HelmetProvider>
+      <ThemeProvider
+        defaultTheme="dark"
+        // switchable
+      >
+        <LanguageProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Router />
+          </TooltipProvider>
+        </LanguageProvider>
+      </ThemeProvider>
     </ErrorBoundary>
   );
 }

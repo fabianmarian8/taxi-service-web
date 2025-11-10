@@ -2,17 +2,18 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
 export default function AkoObjednatTaxiBezAplikacie() {
+  useDocumentMeta({
+    title: "Taxi Zvolen bez aplikácie – telefonicky, SMS aj WhatsApp",
+    description: "Potrebujete taxi vo Zvolene bez sťahovania aplikácie? Zavolajte, napíšte SMS alebo WhatsApp. Tipy, čo povedať dispečerovi a ako urýchliť príchod auta.",
+    canonical: "https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie"
+  });
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Taxi Zvolen bez aplikácie – telefonicky, SMS aj WhatsApp</title>
-        <meta name="description" content="Potrebujete taxi vo Zvolene bez sťahovania aplikácie? Zavolajte, napíšte SMS alebo WhatsApp. Tipy, čo povedať dispečerovi a ako urýchliť príchod auta." />
-        <link rel="canonical" href="https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie" />
-      </Helmet>
 
       <Header />
 

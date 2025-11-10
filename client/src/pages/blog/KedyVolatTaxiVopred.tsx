@@ -2,17 +2,18 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, AlertCircle } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
 export default function KedyVolatTaxiVopred() {
+  useDocumentMeta({
+    title: "Kedy objednať taxi vo Zvolene vopred – tipy podľa situácie",
+    description: "Ranné špičky, víkendy, nádražia aj podujatia. Zistite, kedy vo Zvolene objednať taxi vopred a kedy stačí zavolať na poslednú chvíľu.",
+    canonical: "https://zvolen-taxi.sk/kedy-volat-taxi-vopred"
+  });
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Kedy objednať taxi vo Zvolene vopred – tipy podľa situácie</title>
-        <meta name="description" content="Ranné špičky, víkendy, nádražia aj podujatia. Zistite, kedy vo Zvolene objednať taxi vopred a kedy stačí zavolať na poslednú chvíľu." />
-        <link rel="canonical" href="https://zvolen-taxi.sk/kedy-volat-taxi-vopred" />
-      </Helmet>
 
       <Header />
 

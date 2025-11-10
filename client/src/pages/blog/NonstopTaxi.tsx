@@ -2,17 +2,18 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Moon, AlertCircle, Shield } from "lucide-react";
-import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
+import { useDocumentMeta } from "@/hooks/useDocumentMeta";
 
 export default function NonstopTaxi() {
+  useDocumentMeta({
+    title: "Nonstop taxi Zvolen – dostupnosť v noci a cez víkendy",
+    description: "Ako funguje nonstop taxi vo Zvolene, čo očakávať v noci a na čo sa pripraviť počas víkendov a sviatkov.",
+    canonical: "https://zvolen-taxi.sk/nonstop-taxi"
+  });
+
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Nonstop taxi Zvolen – dostupnosť v noci a cez víkendy</title>
-        <meta name="description" content="Ako funguje nonstop taxi vo Zvolene, čo očakávať v noci a na čo sa pripraviť počas víkendov a sviatkov." />
-        <link rel="canonical" href="https://zvolen-taxi.sk/nonstop-taxi" />
-      </Helmet>
 
       <Header />
 

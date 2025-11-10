@@ -44,6 +44,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.5)' }}
+            aria-label={language === "en" ? "Taxi service background video" : "Video pozadie taxislužby"}
           >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
@@ -64,13 +65,13 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="tel:+421902048583">
               <Button size="lg" className="btn-yellow text-lg px-10 py-6">
-                <Phone className="w-5 h-5 mr-2" />
+                <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
                 +421 902 048 583
               </Button>
             </a>
             <a href="https://api.whatsapp.com/send?phone=421919040118">
               <Button size="lg" className="btn-outline-white text-lg px-10 py-6">
-                <MessageCircle className="w-5 h-5 mr-2" />
+                <MessageCircle className="w-5 h-5 mr-2" aria-hidden="true" />
                 WhatsApp
               </Button>
             </a>
@@ -79,7 +80,7 @@ export default function Home() {
       </section>
 
       {/* Services Section with Images - Addison Lee Style */}
-      <section id="services" className="pt-6 pb-24 md:pt-12 md:pb-24 bg-background">
+      <section id="services" className="pt-6 pb-24 md:pt-12 md:pb-24 bg-background" aria-label={language === "en" ? "Our services" : "Naše služby"}>
         <div className="container">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-white">
             {language === "en" ? "OUR SERVICES" : "NAŠE SLUŽBY"}
@@ -92,15 +93,16 @@ export default function Home() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Airport Transfer Card */}
-            <div className="service-card h-[400px] scale-in">
+            <div className="service-card h-[400px] md:h-[400px] scale-in">
               <img 
                 src="/images/processed/airport-transfer.png" 
-                alt="Airport Transfer"
+                alt={language === "en" ? "Professional airport transfer service to Vienna, Budapest, Bratislava and Sliač airports" : "Profesionálny letiskový transfer na letiská Viedeň, Budapešť, Bratislava a Sliač"}
                 className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
-                  <Plane className="w-7 h-7 text-accent-foreground" />
+                  <Plane className="w-7 h-7 text-accent-foreground" aria-hidden="true" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-3">
                   {t.services.airport.name}
@@ -112,15 +114,16 @@ export default function Home() {
             </div>
 
             {/* Family Transfer Card */}
-            <div className="service-card h-[400px] scale-in">
+            <div className="service-card h-[400px] md:h-[400px] scale-in">
               <img 
                 src="/images/processed/family-transfer.png" 
-                alt="Family Transfer"
+                alt={language === "en" ? "City taxi service in Lešť, Zvolen, Banská Bystrica and surrounding areas" : "Mestská taxislužba v Lešti, Zvolene, Banskej Bystrici a okolí"}
                 className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
-                  <Users className="w-7 h-7 text-accent-foreground" />
+                  <Users className="w-7 h-7 text-accent-foreground" aria-hidden="true" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-3">
                   {t.services.city.name}
@@ -132,15 +135,16 @@ export default function Home() {
             </div>
 
             {/* Luxury Interior Card */}
-            <div className="service-card h-[400px] scale-in">
+            <div className="service-card h-[400px] md:h-[400px] scale-in">
               <img 
                 src="/images/processed/car-interior.png" 
-                alt="Luxury Car Interior"
+                alt={language === "en" ? "Spacious intercity transfer service with professional vehicles" : "Priestranný medzimiestny transfer s profesionálnymi vozidlami"}
                 className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-7 h-7 text-accent-foreground" />
+                  <Shield className="w-7 h-7 text-accent-foreground" aria-hidden="true" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-3">
                   {t.services.intercity.name}
@@ -152,15 +156,16 @@ export default function Home() {
             </div>
 
             {/* Night Service Card */}
-            <div className="service-card h-[400px] scale-in">
+            <div className="service-card h-[400px] md:h-[400px] scale-in">
               <img 
                 src="/images/processed/hotel-night.png" 
-                alt="Night Service"
+                alt={language === "en" ? "Hotel Polana pickup service - vehicle pickup in front of your hotel" : "Služba Hotel Polana - pristavenie vozidla pred váš hotel"}
                 className="absolute inset-0 w-full h-full object-cover"
+                loading="lazy"
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="w-7 h-7 text-accent-foreground" />
+                  <Zap className="w-7 h-7 text-accent-foreground" aria-hidden="true" />
                 </div>
                 <h3 className="text-3xl font-bold text-white mb-3">
                   {t.services.corporate.name}
@@ -175,7 +180,7 @@ export default function Home() {
       </section>
 
       {/* Features Section - What Sets Us Apart */}
-      <section className="py-24 bg-card/50">
+      <section className="py-24 bg-card/50" aria-label={language === "en" ? "What sets us apart" : "Čo nás odlišuje"}>
         <div className="container">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-white">
             {language === "en" ? "WHAT SETS US APART" : "ČO NÁS ODLIŠUJE"}
@@ -233,7 +238,7 @@ export default function Home() {
             ].map((feature, idx) => (
               <Card key={idx} className="card-hover p-8 text-center bg-card border-border">
                 <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <feature.icon className="w-8 h-8 text-accent" />
+                  <feature.icon className="w-8 h-8 text-accent" aria-hidden="true" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-white">
                   {feature.title}
@@ -248,7 +253,7 @@ export default function Home() {
       </section>
 
       {/* Partner Logos Scrolling Banner */}
-      <section className="py-16 bg-background border-y border-border overflow-hidden">
+      <section className="py-16 bg-background border-y border-border overflow-hidden" aria-label={language === "en" ? "Our partners" : "Naši partneri"}>
         <div className="container mb-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-white">
             {language === "en" ? "OUR PARTNERS" : "NAŠI PARTNERI"}
@@ -264,9 +269,10 @@ export default function Home() {
               >
                 <img
                   src={logo.src}
-                  alt={logo.name}
+                  alt={language === "en" ? `${logo.name} partner logo` : `Logo partnera ${logo.name}`}
                   className="max-w-full max-h-full object-contain"
                   style={{ filter: 'none' }}
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -275,7 +281,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Section */}
-      <section id="pricing" className="py-24 bg-card/50">
+      <section id="pricing" className="py-24 bg-card/50" aria-label={language === "en" ? "Pricing" : "Cenník"}>
         <div className="container">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-white">
             {t.pricing.title}
@@ -287,7 +293,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
                 <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Plane className="w-8 h-8 text-accent" />
+                  <Plane className="w-8 h-8 text-accent" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">{t.pricing.vienna}</p>
@@ -296,7 +302,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
                 <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Plane className="w-8 h-8 text-accent" />
+                  <Plane className="w-8 h-8 text-accent" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">{t.pricing.budapest}</p>
@@ -305,7 +311,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
                 <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-8 h-8 text-accent" />
+                  <MapPin className="w-8 h-8 text-accent" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">{t.pricing.bratislava}</p>
@@ -314,7 +320,7 @@ export default function Home() {
               </div>
               <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
                 <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Plane className="w-8 h-8 text-accent" />
+                  <Plane className="w-8 h-8 text-accent" aria-hidden="true" />
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">{t.pricing.sliač}</p>
@@ -330,7 +336,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-24 bg-background">
+      <section id="faq" className="py-24 bg-background" aria-label={language === "en" ? "Frequently asked questions" : "Často kladené otázky"}>
         <div className="container max-w-4xl">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-6 text-white">
             {t.faq.title}
@@ -339,32 +345,39 @@ export default function Home() {
             {language === "en" ? "Find answers to common questions" : "Nájdite odpovede na časté otázky"}
           </p>
           <div className="space-y-4">
-            {faqItems.map((item, idx) => (
-              <div key={idx} className="border border-border rounded-lg overflow-hidden bg-card">
-                <button
-                  onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
-                  className="w-full p-8 text-left hover:bg-muted/30 transition-colors flex items-center justify-between"
-                >
-                  <h3 className="font-bold text-lg text-white pr-4">
-                    {item.q}
-                  </h3>
-                  <span className="text-accent text-3xl font-bold flex-shrink-0">
-                    {openFaqIndex === idx ? "−" : "+"}
-                  </span>
-                </button>
-                {openFaqIndex === idx && (
-                  <div className="px-8 pb-8 text-muted-foreground border-t border-border pt-6 text-base leading-relaxed">
-                    {item.a}
-                  </div>
-                )}
-              </div>
-            ))}
+            {faqItems.map((item, idx) => {
+              const questionId = `faq-question-${idx}`;
+              const answerId = `faq-answer-${idx}`;
+              return (
+                <div key={idx} className="border border-border rounded-lg overflow-hidden bg-card">
+                  <button
+                    id={questionId}
+                    onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
+                    className="w-full p-8 text-left hover:bg-muted/30 transition-colors flex items-center justify-between"
+                    aria-expanded={openFaqIndex === idx}
+                    aria-controls={answerId}
+                  >
+                    <h3 className="font-bold text-lg text-white pr-4">
+                      {item.q}
+                    </h3>
+                    <span className="text-accent text-3xl font-bold flex-shrink-0" aria-hidden="true">
+                      {openFaqIndex === idx ? "−" : "+"}
+                    </span>
+                  </button>
+                  {openFaqIndex === idx && (
+                    <div id={answerId} className="px-8 pb-8 text-muted-foreground border-t border-border pt-6 text-base leading-relaxed" role="region" aria-labelledby={questionId}>
+                      {item.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-24 bg-card/50">
+      <section id="contact" className="py-24 bg-card/50" aria-label={language === "en" ? "Contact us" : "Kontaktujte nás"}>
         <div className="container">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 text-white">
             {t.contact.title}
@@ -372,7 +385,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Phone className="w-8 h-8 text-accent" />
+                <Phone className="w-8 h-8 text-accent" aria-hidden="true" />
               </div>
               <h3 className="font-bold mb-4 text-xl text-white">
                 {t.contact.phone}
@@ -383,7 +396,7 @@ export default function Home() {
             </Card>
             <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <MessageCircle className="w-8 h-8 text-accent" />
+                <MessageCircle className="w-8 h-8 text-accent" aria-hidden="true" />
               </div>
               <h3 className="font-bold mb-4 text-xl text-white">
                 {t.contact.whatsapp}
@@ -399,7 +412,7 @@ export default function Home() {
             </Card>
             <Card className="p-10 text-center card-hover bg-card border-t-4 border-t-accent">
               <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Clock className="w-8 h-8 text-accent" />
+                <Clock className="w-8 h-8 text-accent" aria-hidden="true" />
               </div>
               <h3 className="font-bold mb-4 text-xl text-white">
                 {language === "en" ? "24/7 Service" : "Služba 24/7"}

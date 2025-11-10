@@ -4,12 +4,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Clock, Moon, AlertCircle, Shield } from "lucide-react";
 import { Link } from "wouter";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { useArticleSchema } from "@/hooks/useArticleSchema";
 
 export default function NonstopTaxi() {
   useDocumentMeta({
     title: "Nonstop taxi Zvolen – dostupnosť v noci a cez víkendy",
     description: "Ako funguje nonstop taxi vo Zvolene, čo očakávať v noci a na čo sa pripraviť počas víkendov a sviatkov.",
     canonical: "https://zvolen-taxi.sk/nonstop-taxi"
+  });
+
+  useArticleSchema({
+    headline: "Nonstop taxi: čo to znamená v praxi",
+    description: "Ako funguje nonstop taxi vo Zvolene, čo očakávať v noci a na čo sa pripraviť počas víkendov a sviatkov.",
+    datePublished: "2025-11-08",
+    dateModified: "2025-11-10",
+    url: "https://zvolen-taxi.sk/nonstop-taxi"
   });
 
   return (

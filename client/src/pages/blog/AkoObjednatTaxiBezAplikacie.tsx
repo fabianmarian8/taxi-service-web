@@ -4,12 +4,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
 import { Link } from "wouter";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { useArticleSchema } from "@/hooks/useArticleSchema";
 
 export default function AkoObjednatTaxiBezAplikacie() {
   useDocumentMeta({
     title: "Taxi Zvolen bez aplikácie – telefonicky, SMS aj WhatsApp",
     description: "Potrebujete taxi vo Zvolene bez sťahovania aplikácie? Zavolajte, napíšte SMS alebo WhatsApp. Tipy, čo povedať dispečerovi a ako urýchliť príchod auta.",
     canonical: "https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie"
+  });
+
+  useArticleSchema({
+    headline: "Ako si objednať taxi vo Zvolene bez aplikácie",
+    description: "Potrebujete taxi vo Zvolene bez sťahovania aplikácie? Zavolajte, napíšte SMS alebo WhatsApp. Tipy, čo povedať dispečerovi a ako urýchliť príchod auta.",
+    datePublished: "2025-11-08",
+    dateModified: "2025-11-10",
+    url: "https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie"
   });
 
   return (

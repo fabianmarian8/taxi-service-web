@@ -4,12 +4,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle, FileText, MessageSquare, CheckCircle } from "lucide-react";
 import { Link } from "wouter";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { useArticleSchema } from "@/hooks/useArticleSchema";
 
 export default function AkoPodatStaznost() {
   useDocumentMeta({
     title: "Reklamácia jazdy taxi vo Zvolene – spravodlivé riešenie",
     description: "Neboli ste spokojní? Tu je postup, ako podať sťažnosť, čo priložiť a ako prebieha vyhodnotenie.",
     canonical: "https://zvolen-taxi.sk/ako-podat-staznost"
+  });
+
+  useArticleSchema({
+    headline: "Ako podať sťažnosť alebo požiadať o vrátenie",
+    description: "Neboli ste spokojní? Tu je postup, ako podať sťažnosť, čo priložiť a ako prebieha vyhodnotenie.",
+    datePublished: "2025-11-08",
+    dateModified: "2025-11-10",
+    url: "https://zvolen-taxi.sk/ako-podat-staznost"
   });
 
   return (

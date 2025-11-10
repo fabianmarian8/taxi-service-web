@@ -4,12 +4,21 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CreditCard, Banknote, FileText } from "lucide-react";
 import { Link } from "wouter";
 import { useDocumentMeta } from "@/hooks/useDocumentMeta";
+import { useArticleSchema } from "@/hooks/useArticleSchema";
 
 export default function PlatbaVTaxiku() {
   useDocumentMeta({
     title: "Platba v taxíku vo Zvolene – karta, hotovosť, faktúra",
     description: "Zaplaťte kartou, mobilom alebo hotovosťou. Firemní zákazníci vo Zvolene môžu jazdiť na faktúru – ako to funguje.",
     canonical: "https://zvolen-taxi.sk/platba-v-taxiku"
+  });
+
+  useArticleSchema({
+    headline: "Platba v taxíku: karta, hotovosť, faktúra",
+    description: "Zaplaťte kartou, mobilom alebo hotovosťou. Firemní zákazníci vo Zvolene môžu jazdiť na faktúru – ako to funguje.",
+    datePublished: "2025-11-08",
+    dateModified: "2025-11-10",
+    url: "https://zvolen-taxi.sk/platba-v-taxiku"
   });
 
   return (

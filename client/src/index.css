@@ -230,9 +230,28 @@
     @apply absolute inset-0 bg-gradient-to-br from-black/60 via-black/50 to-black/60 pointer-events-none;
   }
 
-  /* Card with hover effect - dark theme */
+  /* Card with hover effect - dark theme - Enhanced */
   .card-hover {
     @apply rounded-lg border border-border bg-card p-6 transition-all duration-300 hover:shadow-2xl hover:shadow-accent/10 hover:border-accent/50 hover:scale-[1.02];
+    position: relative;
+    overflow: hidden;
+  }
+
+  .card-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .card-hover:hover::before {
+    opacity: 1;
   }
 
   /* Smooth fade in animation */
@@ -283,6 +302,50 @@
     animation: scaleIn 0.8s ease-out;
   }
 
+  /* Modern gradient text animation */
+  @keyframes gradientShift {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .gradient-text-animated {
+    @apply bg-gradient-to-r from-accent via-yellow-400 to-accent bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: gradientShift 3s ease infinite;
+  }
+
+  /* Floating animation for icons */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .float-animation {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Pulse glow effect */
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+    }
+  }
+
+  .pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+  }
+
   /* Gradient text - yellow accent */
   .gradient-text {
     @apply bg-gradient-to-r from-accent via-yellow-400 to-accent bg-clip-text text-transparent;
@@ -312,9 +375,26 @@
     animation-play-state: paused;
   }
 
-  /* Yellow accent button style */
+  /* Yellow accent button style - Enhanced */
   .btn-yellow {
     @apply bg-accent text-accent-foreground font-bold px-8 py-4 rounded-md hover:bg-yellow-400 transition-all duration-300 shadow-lg shadow-accent/20 hover:shadow-xl hover:shadow-accent/30 hover:scale-105;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-yellow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+  }
+
+  .btn-yellow:hover::before {
+    left: 100%;
   }
 
   /* White outline button */
@@ -332,13 +412,19 @@
     @apply absolute inset-0 bg-black/30 pointer-events-none;
   }
 
-  /* Service card with image */
+  /* Service card with image - Enhanced */
   .service-card {
     @apply relative overflow-hidden rounded-lg cursor-pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
   }
 
   .service-card img {
-    @apply w-full h-full object-cover transition-transform duration-500;
+    @apply w-full h-full object-cover transition-transform duration-700;
   }
 
   .service-card:hover img {
@@ -346,7 +432,12 @@
   }
 
   .service-card-content {
-    @apply absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent p-8 flex flex-col justify-end;
+    @apply absolute inset-0 bg-gradient-to-t from-black via-black/70 to-transparent p-8 flex flex-col justify-end;
+    transition: background 0.3s ease;
+  }
+
+  .service-card:hover .service-card-content {
+    @apply bg-gradient-to-t from-black via-black/80 to-transparent;
   }
 
   /* Header styling */

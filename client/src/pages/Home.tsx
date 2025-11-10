@@ -276,7 +276,7 @@ export default function Home() {
               },
             ].map((feature, idx) => (
               <Card key={idx} className="card-hover p-8 text-center bg-card border-border group">
-                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors duration-300 pulse-glow">
+                <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-accent/20 transition-colors duration-300">
                   <feature.icon className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" aria-hidden="true" />
                 </div>
                 <h3 className="text-2xl font-bold mb-4 text-white">

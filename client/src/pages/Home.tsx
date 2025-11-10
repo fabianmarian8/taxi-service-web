@@ -44,7 +44,6 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover"
             style={{ filter: 'brightness(0.5)' }}
-            aria-label={language === "en" ? "Background video showing taxi service" : "Pozadie videa zobrazujúce taxi službu"}
           >
             <source src={backgroundVideo} type="video/mp4" />
           </video>
@@ -96,9 +95,8 @@ export default function Home() {
             <div className="service-card h-[400px] scale-in">
               <img 
                 src="/images/processed/airport-transfer.png" 
-                alt={language === "en" ? "Professional airport transfer service to Vienna, Budapest, Bratislava and Sliač airports" : "Profesionálny letiskový transfer na letiská Viedeň, Budapešť, Bratislava a Sliač"}
+                alt="Airport Transfer"
                 className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
@@ -117,9 +115,8 @@ export default function Home() {
             <div className="service-card h-[400px] scale-in">
               <img 
                 src="/images/processed/family-transfer.png" 
-                alt={language === "en" ? "City taxi rides in Lešť, Zvolen, Banská Bystrica and surrounding areas" : "Mestské taxi jazdy v Lešti, Zvolene, Banskej Bystrici a okolí"}
+                alt="Family Transfer"
                 className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
@@ -138,9 +135,8 @@ export default function Home() {
             <div className="service-card h-[400px] scale-in">
               <img 
                 src="/images/processed/car-interior.png" 
-                alt={language === "en" ? "Spacious intercity transfer vehicles with professional service" : "Priestranné vozidlá pre medzimestné transfery s profesionálnym servisom"}
+                alt="Luxury Car Interior"
                 className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
@@ -159,9 +155,8 @@ export default function Home() {
             <div className="service-card h-[400px] scale-in">
               <img 
                 src="/images/processed/hotel-night.png" 
-                alt={language === "en" ? "Hotel Polana pickup service - vehicle pickup in front of your hotel" : "Služba Hotel Polana - pristavenie vozidla pred váš hotel"}
+                alt="Night Service"
                 className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4">
@@ -269,10 +264,9 @@ export default function Home() {
               >
                 <img
                   src={logo.src}
-                  alt={`${logo.name} ${language === "en" ? "partner logo" : "logo partnera"}`}
+                  alt={logo.name}
                   className="max-w-full max-h-full object-contain"
                   style={{ filter: 'none' }}
-                  loading="lazy"
                 />
               </div>
             ))}
@@ -350,10 +344,8 @@ export default function Home() {
                 <button
                   onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
                   className="w-full p-8 text-left hover:bg-muted/30 transition-colors flex items-center justify-between"
-                  aria-expanded={openFaqIndex === idx}
-                  aria-controls={`faq-answer-${idx}`}
                 >
-                  <h3 id={`faq-question-${idx}`} className="font-bold text-lg text-white pr-4">
+                  <h3 className="font-bold text-lg text-white pr-4">
                     {item.q}
                   </h3>
                   <span className="text-accent text-3xl font-bold flex-shrink-0">
@@ -361,12 +353,7 @@ export default function Home() {
                   </span>
                 </button>
                 {openFaqIndex === idx && (
-                  <div 
-                    id={`faq-answer-${idx}`}
-                    className="px-8 pb-8 text-muted-foreground border-t border-border pt-6 text-base leading-relaxed"
-                    role="region"
-                    aria-labelledby={`faq-question-${idx}`}
-                  >
+                  <div className="px-8 pb-8 text-muted-foreground border-t border-border pt-6 text-base leading-relaxed">
                     {item.a}
                   </div>
                 )}

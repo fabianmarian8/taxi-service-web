@@ -3,7 +3,7 @@ import { getTranslation } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
 import { useState } from "react";
-import logoImage from "/zvolen-taxi-logo-transparent.png";
+import logoImage from "/taxigo-logo.webp";
 
 export default function Header() {
   const { language, setLanguage } = useLanguage();
@@ -52,7 +52,7 @@ export default function Header() {
 
         {/* Center - Logo */}
         <div className="flex items-center justify-center flex-1 md:flex-initial">
-          <img src={logoImage} alt="ZVOLEN TAXI" className="h-[100px] w-auto" loading="eager" />
+          <img src={logoImage} alt="TaxiGO - Zvolen Taxi Service" className="h-[100px] w-auto" loading="eager" />
         </div>
 
         {/* Desktop Navigation - Hidden on mobile */}

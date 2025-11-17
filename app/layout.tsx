@@ -3,9 +3,9 @@ import { Providers } from "./providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Taxi Zvolen Nonstop 24/7 | Transfer na letisko od €10 | +421 902 048 583",
+  title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250 | +421 902 048 583",
   description:
-    "Profesionálna taxislužba vo Zvolene nonstop 24/7. Transfer na letiská Viedeň €250, Budapešť €170, Bratislava €180, Sliač €10. Volajte +421 902 048 583.",
+    "Taxi Zvolen nonstop 24/7 ⚡ Fixné ceny: Viedeň €250, Budapešť €170, Bratislava €180, Sliač €10. Monitoring letov, platba kartou. Rezervujte cez WhatsApp +421 902 048 583.",
   authors: [{ name: "Taxi Service Zvolen" }],
   keywords: [
     "taxi zvolen",
@@ -21,9 +21,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://zvolen-taxi.sk/",
-    title: "Taxi Zvolen Nonstop 24/7 | Transfer na letisko od €10",
+    title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250",
     description:
-      "Profesionálna taxislužba vo Zvolene nonstop 24/7. Transfer na letiská Viedeň €250, Budapešť €170, Bratislava €180, Sliač €10. Volajte +421 902 048 583.",
+      "Taxi Zvolen nonstop 24/7 ⚡ Fixné ceny: Viedeň €250, Budapešť €170, Bratislava €180, Sliač €10. Monitoring letov, platba kartou. Rezervujte cez WhatsApp +421 902 048 583.",
     images: [
       {
         url: "https://zvolen-taxi.sk/og-image.svg",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Taxi Zvolen Nonstop 24/7 | Transfer na letisko od €10",
+    title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250",
     description:
-      "Profesionálna taxislužba vo Zvolene nonstop 24/7. Transfer na letiská Viedeň €250, Budapešť €170, Bratislava €180, Sliač €10. Volajte +421 902 048 583.",
+      "Taxi Zvolen nonstop 24/7 ⚡ Fixné ceny: Viedeň €250, Budapešť €170, Bratislava €180, Sliač €10. Monitoring letov, platba kartou. Rezervujte cez WhatsApp +421 902 048 583.",
     images: ["https://zvolen-taxi.sk/og-image.svg"],
   },
   alternates: {

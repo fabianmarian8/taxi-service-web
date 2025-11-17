@@ -23,6 +23,11 @@ export default function Header() {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="header-dark">
       <div className="container flex h-20 items-center justify-between">
@@ -53,7 +58,13 @@ export default function Header() {
 
         {/* Center - Logo */}
         <div className="flex items-center justify-center flex-1 md:flex-initial">
-          <img src="/taxigo-logo.webp" alt="TaxiGO - Zvolen Taxi Service" className="h-[100px] w-auto" loading="eager" />
+          <button
+            onClick={scrollToTop}
+            className="hover:opacity-80 transition-opacity cursor-pointer"
+            aria-label={language === "en" ? "Go to homepage" : "Prejsť na domovskú stránku"}
+          >
+            <img src="/taxigo-logo.webp" alt="TaxiGO - Zvolen Taxi Service" className="h-[100px] w-auto" loading="eager" />
+          </button>
         </div>
 
         {/* Desktop Navigation - Hidden on mobile */}

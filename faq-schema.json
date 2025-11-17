@@ -1,0 +1,46 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Ako si objednám taxi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Taxi si môžete objednať jednoducho telefonicky na čísle +421 902 048 583, cez SMS alebo WhatsApp. Nepotrebujete žiadnu aplikáciu - stačí nás kontaktovať a my sa postaráme o zvyšok."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Monitorujete lety?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Áno, pri letiskových transferoch monitorujeme lety v reálnom čase, takže ak má váš let meškanie alebo príde skôr, vodič bude informovaný a prispôsobí sa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Aké spôsoby platby akceptujete?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Akceptujeme platbu v hotovosti, platobnou kartou priamo vo vozidle, alebo môžeme vystaviť faktúru pre firemných klientov."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Sú vaše vozidlá priestranné?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Áno, naša flotila pozostáva z priestranných vozidiel vhodných pre rodiny aj skupiny. Máme vozidlá s kapacitou až 7 miest a dostatok priestoru na batožinu."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Slúžite aj v iných mestách?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Áno, pôsobíme vo Zvolene, Lešti, Banskej Bystrici a okolí. Poskytujeme aj medzimestné transfery a letiskové transfery do Viedne, Budapešti, Bratislavy a Sliača."
+      }
+    }
+  ]
+}

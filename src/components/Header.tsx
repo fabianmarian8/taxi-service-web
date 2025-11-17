@@ -5,11 +5,13 @@ import { getTranslation } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   const { language, setLanguage } = useLanguage();
   const t = getTranslation(language);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const router = useRouter();
 
   const toggleLanguage = () => {
     setLanguage(language === "en" ? "sk" : "en");
@@ -23,9 +25,15 @@ export default function Header() {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const handleLogoClick = () => {
     setIsMenuOpen(false);
+    // Ak sme na domovskej stránke, scrolluj hore
+    if (window.location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // Inak naviguj na domovskú stránku
+      router.push("/");
+    }
   };
 
   return (
@@ -59,7 +67,7 @@ export default function Header() {
         {/* Center - Logo */}
         <div className="flex items-center justify-center flex-1 md:flex-initial">
           <button
-            onClick={scrollToTop}
+            onClick={handleLogoClick}
             className="hover:opacity-80 transition-opacity cursor-pointer"
             aria-label={language === "en" ? "Go to homepage" : "Prejsť na domovskú stránku"}
           >

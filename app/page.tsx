@@ -73,15 +73,15 @@ export default function Home() {
 
         {/* Hero Content */}
         <div className="relative z-10 container text-center text-white fade-in px-4">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 text-shadow-strong tracking-tight">
+          <h1 className="text-7xl font-bold mb-4 text-shadow-strong tracking-tight leading-7">
             <span className="text-accent">
               TaxiGO
             </span>
           </h1>
-          <p className="text-base md:text-lg lg:text-xl mb-12 max-w-3xl mx-auto text-shadow text-white">
+          <p className="text-base md:text-lg lg:text-xl mb-12 max-w-3xl mx-auto text-shadow text-white leading-7">
             {language === "en"
               ? "Quick, reliable and professional taxi service. Available 24/7 for airport transfers, city transport and intercity journeys."
-              : "Rýchla, spoľahlivá a profesionálna taxislužba. Dostupné 24/7 pre letiskové transfery, mestskú dopravu a medzimiestne cesty."}
+              : "Rýchla, spoľahlivá a profesionálna taxislužba v meste Zvolen. Dostupné 24/7 pre letiskové transfery, mestskú dopravu a medzimiestne cesty."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a href="tel:+421902048583" className="w-full sm:w-auto">

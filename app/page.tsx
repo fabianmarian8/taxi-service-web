@@ -87,7 +87,8 @@ export default function Home() {
             <a href="tel:+421902048583" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="btn-yellow text-lg px-10 py-6 w-full sm:w-auto"
+                className="text-lg px-10 py-6 w-full sm:w-auto text-white font-semibold"
+                style={{ backgroundColor: '#ff9d25' }}
               >
                 <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
                 +421 902 048 583
@@ -99,7 +100,8 @@ export default function Home() {
             >
               <Button
                 size="lg"
-                className="btn-outline-white text-lg px-10 py-6 w-full sm:w-auto"
+                className="text-lg px-10 py-6 w-full sm:w-auto text-white font-semibold"
+                style={{ backgroundColor: '#25D366' }}
               >
                 <MessageCircle className="w-5 h-5 mr-2" aria-hidden="true" />
                 WhatsApp

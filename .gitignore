@@ -105,3 +105,8 @@ temp/
 *.db
 *.sqlite
 *.sqlite3
+
+# Next.js
+.next/
+out/
+next-env.d.ts

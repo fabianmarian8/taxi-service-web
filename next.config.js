@@ -12,16 +12,11 @@ const nextConfig = {
   basePath: '',
 
   // Disable trailing slashes
-  trailingSlash: true,
+  trailingSlash: false,
 
   // TypeScript config
   typescript: {
     ignoreBuildErrors: false,
-  },
-
-  // ESLint config
-  eslint: {
-    ignoreDuringBuilds: false,
   },
 }
 

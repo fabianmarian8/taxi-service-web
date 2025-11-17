@@ -5,7 +5,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslation } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
 import {
   Phone,
   MessageCircle,
@@ -28,9 +27,6 @@ export default function Home() {
   const { language } = useLanguage();
   const t = getTranslation(language);
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [videoError, setVideoError] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState<Record<string, boolean>>({});
 
   const faqItems = [
     { q: t.faq.q1, a: t.faq.a1 },
@@ -57,37 +53,18 @@ export default function Home() {
       <section className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Video Background with darker overlay */}
         <div className="absolute inset-0 w-full h-full">
-          {!videoLoaded && !videoError && (
-            <div className="absolute inset-0 bg-black/80 flex items-center justify-center">
-              <Skeleton className="w-full h-full" />
-            </div>
-          )}
-          {videoError && (
-            <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center">
-              <div className="text-center text-white/50">
-                <AlertCircle className="w-12 h-12 mx-auto mb-2" />
-                <p className="text-sm">
-                  {language === "en" ? "Video unavailable" : "Video nie je k dispozícii"}
-                </p>
-              </div>
-            </div>
-          )}
           <video
             autoPlay
             muted
             loop
             playsInline
-            className={`w-full h-full object-cover transition-opacity duration-1000 ${
-              videoLoaded ? "opacity-100" : "opacity-0"
-            }`}
+            className="w-full h-full object-cover"
             style={{ filter: "brightness(0.5)" }}
             aria-label={
               language === "en"
                 ? "Taxi service background video"
                 : "Video pozadie taxislužby"
             }
-            onLoadedData={() => setVideoLoaded(true)}
-            onError={() => setVideoError(true)}
           >
             <source src="/background_2k.mp4" type="video/mp4" />
           </video>
@@ -97,13 +74,12 @@ export default function Home() {
         {/* Hero Content */}
         <div className="relative z-10 container text-center text-white fade-in px-4">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 text-shadow-strong uppercase tracking-tight">
-            <span className="text-accent">TaxiGO</span>{" "}
-            {language === "en" ? "THE TAXI SERVICE" : "TAXISLUŽBA"}
-          </h1>
-          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-shadow-strong">
-            <span className="gradient-text-animated">
-              {language === "en" ? "YOU DESERVE" : "AKÚ SI ZASLÚŽITE"}
+            <span className="text-accent">
+              {language === "en" ? "TaxiGO THE TAXI SERVICE" : "TaxiGO TAXISLUŽBA"}
             </span>
+          </h1>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 text-shadow-strong text-white">
+            {language === "en" ? "YOU DESERVE" : "KTORÚ SI ZASLÚŽITE"}
           </h2>
           <p className="text-lg md:text-xl lg:text-2xl mb-12 max-w-3xl mx-auto text-shadow">
             {t.hero.description}
@@ -153,9 +129,6 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Airport Transfer Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
-              {!imagesLoaded["airport-transfer"] && (
-                <Skeleton className="absolute inset-0 w-full h-full" />
-              )}
               <img
                 src="/images/processed/airport-transfer.png"
                 alt={
@@ -163,16 +136,8 @@ export default function Home() {
                     ? "Professional airport transfer service to Vienna, Budapest, Bratislava and Sliač airports"
                     : "Profesionálny letiskový transfer na letiská Viedeň, Budapešť, Bratislava a Sliač"
                 }
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                  imagesLoaded["airport-transfer"] ? "opacity-100" : "opacity-0"
-                }`}
+                className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
-                onLoad={() =>
-                  setImagesLoaded((prev) => ({ ...prev, "airport-transfer": true }))
-                }
-                onError={() =>
-                  setImagesLoaded((prev) => ({ ...prev, "airport-transfer": true }))
-                }
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4 float-animation">
@@ -187,9 +152,6 @@ export default function Home() {
 
             {/* Family Transfer Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
-              {!imagesLoaded["family-transfer"] && (
-                <Skeleton className="absolute inset-0 w-full h-full" />
-              )}
               <img
                 src="/images/processed/family-transfer.png"
                 alt={
@@ -197,16 +159,8 @@ export default function Home() {
                     ? "City taxi service in Lešť, Zvolen, Banská Bystrica and surrounding areas"
                     : "Mestská taxislužba v Lešti, Zvolene, Banskej Bystrici a okolí"
                 }
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                  imagesLoaded["family-transfer"] ? "opacity-100" : "opacity-0"
-                }`}
+                className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
-                onLoad={() =>
-                  setImagesLoaded((prev) => ({ ...prev, "family-transfer": true }))
-                }
-                onError={() =>
-                  setImagesLoaded((prev) => ({ ...prev, "family-transfer": true }))
-                }
               />
               <div className="service-card-content">
                 <div
@@ -224,9 +178,6 @@ export default function Home() {
 
             {/* Luxury Interior Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
-              {!imagesLoaded["car-interior"] && (
-                <Skeleton className="absolute inset-0 w-full h-full" />
-              )}
               <img
                 src="/images/processed/car-interior.png"
                 alt={
@@ -234,16 +185,8 @@ export default function Home() {
                     ? "Spacious intercity transfer service with professional vehicles"
                     : "Priestranný medzimiestny transfer s profesionálnymi vozidlami"
                 }
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                  imagesLoaded["car-interior"] ? "opacity-100" : "opacity-0"
-                }`}
+                className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
-                onLoad={() =>
-                  setImagesLoaded((prev) => ({ ...prev, "car-interior": true }))
-                }
-                onError={() =>
-                  setImagesLoaded((prev) => ({ ...prev, "car-interior": true }))
-                }
               />
               <div className="service-card-content">
                 <div
@@ -261,9 +204,6 @@ export default function Home() {
 
             {/* Night Service Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
-              {!imagesLoaded["hotel-night"] && (
-                <Skeleton className="absolute inset-0 w-full h-full" />
-              )}
               <img
                 src="/images/processed/hotel-night.png"
                 alt={
@@ -271,16 +211,8 @@ export default function Home() {
                     ? "Hotel Polana pickup service - vehicle pickup in front of your hotel"
                     : "Služba Hotel Polana - pristavenie vozidla pred váš hotel"
                 }
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                  imagesLoaded["hotel-night"] ? "opacity-100" : "opacity-0"
-                }`}
+                className="absolute inset-0 w-full h-full object-cover"
                 loading="lazy"
-                onLoad={() =>
-                  setImagesLoaded((prev) => ({ ...prev, "hotel-night": true }))
-                }
-                onError={() =>
-                  setImagesLoaded((prev) => ({ ...prev, "hotel-night": true }))
-                }
               />
               <div className="service-card-content">
                 <div

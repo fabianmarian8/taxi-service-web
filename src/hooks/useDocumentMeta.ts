@@ -37,7 +37,7 @@ export function useDocumentMeta({ title, description, canonical }: MetaProps) {
 
     // Cleanup function to restore original title
     return () => {
-      document.title = 'Zvolen Taxi | Najlepšia Taxi služba Nonstop';
+      document.title = 'Zvolen Taxi | Taxi služba Nonstop';
     };
   }, [title, description, canonical]);
 }

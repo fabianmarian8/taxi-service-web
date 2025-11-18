@@ -103,10 +103,10 @@ export const translations = {
   sk: {
     // SEO Metadata
     seo: {
-      title: "Zvolen Taxi | Najlepšia Taxi služba Nonstop 24/7",
+      title: "Zvolen Taxi | Taxi služba Nonstop 24/7",
       description: "Profesionálna taxislužba vo Zvolene nonstop. Transfer na letiská Viedeň, Budapešť, Bratislava, Sliač. Fixné ceny. Volajte +421 902 048 583",
-      keywords: "taxi, zvolen taxi, taxi service, taxi nonstop, zvolen, najlepší taxi, taxi delivery, food delivery, taxi sliač, taxi lešť, taxi lest, taxi banská bystrica, europa taxi, zv taxi, eko taxi, pp taxi, bolt taxi, bolt, zvolen vlaková stanica, zvolen autobusová stanica, letisko transfer, taxi na letisko, profesionálne taxi, taxi so sedačkou zvolen, taxi zvolen deti, detská autosedačka taxi, rodinné taxi zvolen, firemné taxi zvolen, taxi zvolen faktúra, biznis taxi zvolen, taxi zvolen firma, najlacnejšie taxi zvolen, lacné taxi zvolen budapešť, taxi zvolen cena, lacné taxi zvolen, bolt alternatíva zvolen, alternatíva bolt zvolen, taxi zvolen kúpele, taxi zvolen podborová, taxi zvolen západ, taxi zvolen zlatý potok, taxi zvolen nemocnica, taxi zvolen svadba, taxi zvolen firemná akcia, kuriérska služba zvolen, senior taxi zvolen, taxi pre invalidov zvolen, taxi zvolen košíky, taxi zvolen centrum, taxi zvolen sídlisko, taxi zvolen letiško, lacné taxi zvolen bratislava",
-      ogTitle: "Zvolen Taxi | Najlepšia Taxi služba Nonstop",
+      keywords: "taxi, zvolen taxi, taxi service, taxi nonstop, zvolen, taxi delivery, food delivery, taxi sliač, taxi lešť, taxi lest, taxi banská bystrica, europa taxi, zv taxi, eko taxi, pp taxi, bolt taxi, bolt, zvolen vlaková stanica, zvolen autobusová stanica, letisko transfer, taxi na letisko, profesionálne taxi, taxi so sedačkou zvolen, taxi zvolen deti, detská autosedačka taxi, rodinné taxi zvolen, firemné taxi zvolen, taxi zvolen faktúra, biznis taxi zvolen, taxi zvolen firma, lacné taxi zvolen budapešť, taxi zvolen cena, lacné taxi zvolen, bolt alternatíva zvolen, alternatíva bolt zvolen, taxi zvolen kúpele, taxi zvolen podborová, taxi zvolen západ, taxi zvolen zlatý potok, taxi zvolen nemocnica, taxi zvolen svadba, taxi zvolen firemná akcia, kuriérska služba zvolen, senior taxi zvolen, taxi pre invalidov zvolen, taxi zvolen košíky, taxi zvolen centrum, taxi zvolen sídlisko, taxi zvolen letiško, lacné taxi zvolen bratislava",
+      ogTitle: "Zvolen Taxi | Taxi služba Nonstop",
       ogDescription: "Profesionálna taxislužba vo Zvolene nonstop. Transfer na letiská, alebo kdekoľvek potrebujete. Volajte +421 902 048 583.",
     },
     // Navigation

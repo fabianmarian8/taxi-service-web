@@ -18,9 +18,9 @@ export default function AkoObjednatTaxiBezAplikacie() {
         </h1>
 
         <section className="prose prose-lg dark:prose-invert max-w-none mb-12">
-          <h2 className="text-2xl font-semibold mb-4">Prečo je to stále najjednoduchšie</h2>
+          <h2 className="text-2xl font-semibold mb-4">Prečo je to stále veľmi jednoduché</h2>
           <p className="text-lg mb-6">
-            Priame zavolanie na taxislužbu je vo Zvolene najrýchlejšia cesta k autu – bez technických problémov,
+            Priame zavolanie na taxislužbu je vo Zvolene rýchla cesta k autu – bez technických problémov,
             s <strong>okamžitou komunikáciou</strong> s dispečerom a priestorom na dohodu (trasa, zastávky, platba).
           </p>
 

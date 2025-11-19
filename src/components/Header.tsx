@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Header() {
   const { language, setLanguage } = useLanguage();
@@ -39,39 +40,22 @@ export default function Header() {
   return (
     <header className="header-dark">
       <div className="container flex h-20 items-center justify-between px-8 md:px-12 lg:px-20">
-        {/* Left - Menu Button (Mobile) */}
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="md:hidden p-2 hover:bg-muted/20 rounded-lg transition-colors text-white"
-          aria-label={language === "en" ? "Toggle navigation menu" : "Prepínač navigačného menu"}
-          aria-expanded={isMenuOpen}
-          aria-controls="mobile-menu"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            aria-hidden="true"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
-            />
-          </svg>
-          <span className="sr-only">Menu</span>
-        </button>
-
-        {/* Center - Logo */}
-        <div className="flex items-center flex-1 md:flex-initial">
+        {/* Left - Logo */}
+        <div className="flex items-center">
           <button
             onClick={handleLogoClick}
             className="hover:opacity-80 transition-opacity cursor-pointer"
             aria-label={language === "en" ? "Go to homepage" : "Prejsť na domovskú stránku"}
           >
-            <img src="/flux-1-kontext-pro_a_Modern_logo_design_f.png" alt="Zvolen Taxi Service" className="h-[81px] w-auto" loading="eager" />
+            <Image
+              src="/flux-1-kontext-pro_a_Modern_logo_design_f.png"
+              alt="Zvolen Taxi Service"
+              width={147}
+              height={81}
+              priority
+              quality={90}
+              className="h-[81px] w-auto"
+            />
           </button>
         </div>
 
@@ -107,7 +91,7 @@ export default function Header() {
           </button>
         </nav>
 
-        {/* Right side - Language toggle and CTA */}
+        {/* Right side - Language toggle, CTA and Menu Button (Mobile) */}
         <div className="flex items-center gap-3">
           <Button
             variant="ghost"
@@ -129,6 +113,30 @@ export default function Header() {
           >
             {language === "en" ? "BOOK NOW" : "REZERVOVAŤ"}
           </Button>
+
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 hover:bg-muted/20 rounded-lg transition-colors text-white"
+            aria-label={language === "en" ? "Toggle navigation menu" : "Prepínač navigačného menu"}
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
+              />
+            </svg>
+            <span className="sr-only">Menu</span>
+          </button>
         </div>
       </div>
 

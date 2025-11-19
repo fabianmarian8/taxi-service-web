@@ -74,15 +74,9 @@ export default function Home() {
         {/* Hero Content */}
         <div className="relative z-10 container text-center text-white fade-in px-4">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow-strong tracking-tight leading-tight">
-            {language === "en" ? (
-              <>
-                <span className="text-white">Professional Taxi Service Zvolen</span>
-                <br />
-                <span className="text-accent">24/7 Airport Transfers from €10</span>
-              </>
-            ) : (
-              <span className="text-white">Taxi Zvolen Nonstop 24/7</span>
-            )}
+            <span className="text-white">
+              {language === "en" ? "Professional Taxi Service Zvolen" : "Taxi Zvolen Nonstop 24/7"}
+            </span>
           </h1>
           <p className="text-base md:text-lg lg:text-xl mb-12 max-w-3xl mx-auto text-shadow text-white leading-7">
             {language === "en"

@@ -22,6 +22,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const { language } = useLanguage();
@@ -53,11 +54,14 @@ export default function Home() {
       <section className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-start justify-center overflow-hidden pt-20 md:pt-24">
         {/* Image Background with overlay */}
         <div className="absolute inset-0 w-full h-full">
-          <img
+          <Image
             src="/lexi-anderson-G8wPrJyNqWQ-unsplash.webp"
             alt={language === "en" ? "Taxi service background" : "Pozadie taxislužby"}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
             style={{ filter: "brightness(0.5)", objectPosition: "75% 60%" }}
+            priority
+            quality={85}
           />
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
@@ -138,15 +142,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Airport Transfer Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
-              <img
+              <Image
                 src="/images/processed/airport-transfer.png"
                 alt={
                   language === "en"
                     ? "Professional airport transfer service to Vienna, Budapest, Bratislava and Sliač airports"
                     : "Profesionálny letiskový transfer na letiská Viedeň, Budapešť, Bratislava a Sliač"
                 }
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
+                fill
+                className="object-cover"
+                quality={80}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="service-card-content">
                 <div className="w-14 h-14 bg-accent rounded-lg flex items-center justify-center mb-4 float-animation">
@@ -161,15 +167,17 @@ export default function Home() {
 
             {/* Family Transfer Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
-              <img
+              <Image
                 src="/images/processed/family-transfer.png"
                 alt={
                   language === "en"
                     ? "City taxi service in Lešť, Zvolen, Banská Bystrica and surrounding areas"
                     : "Mestská taxislužba v Lešti, Zvolene, Banskej Bystrici a okolí"
                 }
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
+                fill
+                className="object-cover"
+                quality={80}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="service-card-content">
                 <div
@@ -187,15 +195,17 @@ export default function Home() {
 
             {/* Luxury Interior Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
-              <img
+              <Image
                 src="/images/processed/car-interior.png"
                 alt={
                   language === "en"
                     ? "Spacious intercity transfer service with professional vehicles"
                     : "Priestranný medzimiestny transfer s profesionálnymi vozidlami"
                 }
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
+                fill
+                className="object-cover"
+                quality={80}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="service-card-content">
                 <div
@@ -213,15 +223,17 @@ export default function Home() {
 
             {/* Night Service Card */}
             <div className="service-card h-[400px] md:h-[400px] scale-in">
-              <img
+              <Image
                 src="/images/processed/hotel-night.png"
                 alt={
                   language === "en"
                     ? "Hotel Polana pickup service - vehicle pickup in front of your hotel"
                     : "Služba Hotel Polana - pristavenie vozidla pred váš hotel"
                 }
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
+                fill
+                className="object-cover"
+                quality={80}
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               <div className="service-card-content">
                 <div
@@ -340,18 +352,19 @@ export default function Home() {
             {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
               <div
                 key={idx}
-                className="flex-shrink-0 w-40 h-20 md:w-48 md:h-24 flex items-center justify-center"
+                className="flex-shrink-0 w-40 h-20 md:w-48 md:h-24 relative"
               >
-                <img
+                <Image
                   src={logo.src}
                   alt={
                     language === "en"
                       ? `${logo.name} partner logo`
                       : `Logo partnera ${logo.name}`
                   }
-                  className="max-w-full max-h-full object-contain"
-                  style={{ filter: "none" }}
-                  loading="lazy"
+                  fill
+                  className="object-contain"
+                  quality={75}
+                  sizes="(max-width: 768px) 160px, 192px"
                 />
               </div>
             ))}

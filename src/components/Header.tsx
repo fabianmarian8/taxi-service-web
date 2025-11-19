@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 export default function Header() {
   const { language, setLanguage } = useLanguage();
@@ -46,7 +47,15 @@ export default function Header() {
             className="hover:opacity-80 transition-opacity cursor-pointer"
             aria-label={language === "en" ? "Go to homepage" : "Prejsť na domovskú stránku"}
           >
-            <img src="/flux-1-kontext-pro_a_Modern_logo_design_f.png" alt="Zvolen Taxi Service" className="h-[81px] w-auto" loading="eager" />
+            <Image
+              src="/flux-1-kontext-pro_a_Modern_logo_design_f.png"
+              alt="Zvolen Taxi Service"
+              width={147}
+              height={81}
+              priority
+              quality={90}
+              className="h-[81px] w-auto"
+            />
           </button>
         </div>
 

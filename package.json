@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "optimize": "node scripts/optimize-images.js",
+    "build": "npm run optimize && next build",
+    "build:no-optimize": "next build",
     "start": "next start",
     "preview": "next start",
     "deploy": "gh-pages -d out"
@@ -68,6 +70,7 @@
     "gh-pages": "^6.3.0",
     "postcss": "^8.4.47",
     "prettier": "^3.6.2",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.14",
     "typescript": "5.9.3"
   }

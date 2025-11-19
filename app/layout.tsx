@@ -1,6 +1,21 @@
 import type { Metadata } from "next";
+import { Beiruti, Fira_Mono } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
+
+// Nakonfigurujeme Beiruti font
+const beiruti = Beiruti({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "700", "800", "900"],
+  variable: "--font-beiruti",
+});
+
+// Nakonfigurujeme Fira Mono - strojový, technický font
+const firaMono = Fira_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-fira-mono",
+});
 
 export const metadata: Metadata = {
   title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250 | +421 902 048 583",
@@ -69,19 +84,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="sk" className="dark">
+    <html lang="sk" className={`dark ${beiruti.variable} ${firaMono.variable}`}>
       <head>
-        {/* Preconnect to Google Fonts */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&display=swap"
-          rel="stylesheet"
-        />
 
         {/* JSON-LD Structured Data - LocalBusiness */}
         <script

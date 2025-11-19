@@ -38,7 +38,7 @@ export default function Header() {
 
   return (
     <header className="header-dark">
-      <div className="container flex h-20 items-center justify-between">
+      <div className="container flex h-20 items-center justify-between px-8 md:px-12 lg:px-20">
         {/* Left - Menu Button (Mobile) */}
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -65,13 +65,13 @@ export default function Header() {
         </button>
 
         {/* Center - Logo */}
-        <div className="flex items-center justify-center flex-1 md:flex-initial">
+        <div className="flex items-center flex-1 md:flex-initial">
           <button
             onClick={handleLogoClick}
             className="hover:opacity-80 transition-opacity cursor-pointer"
             aria-label={language === "en" ? "Go to homepage" : "Prejsť na domovskú stránku"}
           >
-            <img src="/taxigo-logo.webp" alt="TaxiGO - Zvolen Taxi Service" className="h-[100px] w-auto" loading="eager" />
+            <img src="/flux-1-kontext-pro_a_Modern_logo_design_f.png" alt="Zvolen Taxi Service" className="h-[81px] w-auto" loading="eager" />
           </button>
         </div>
 
@@ -135,7 +135,7 @@ export default function Header() {
       {/* Mobile Navigation */}
       {isMenuOpen && (
         <div id="mobile-menu" className="md:hidden border-t border-border bg-black/98">
-          <nav className="container py-6 flex flex-col gap-4" aria-label={language === "en" ? "Mobile navigation" : "Mobilná navigácia"}>
+          <nav className="container py-6 flex flex-col gap-4 px-8 md:px-12 lg:px-20" aria-label={language === "en" ? "Mobile navigation" : "Mobilná navigácia"}>
             <button
               onClick={() => scrollToSection("services")}
               className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"

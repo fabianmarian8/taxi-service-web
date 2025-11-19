@@ -49,46 +49,54 @@ export default function Home() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section with Video Background - Addison Lee Style */}
-      <section className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-center justify-center overflow-hidden">
-        {/* Video Background with darker overlay */}
+      {/* Hero Section with Image Background */}
+      <section className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-start justify-center overflow-hidden pt-20 md:pt-24">
+        {/* Image Background with overlay */}
         <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
+          <img
+            src="/lexi-anderson-G8wPrJyNqWQ-unsplash.webp"
+            alt={language === "en" ? "Taxi service background" : "Pozadie taxislužby"}
             className="w-full h-full object-cover"
-            style={{ filter: "brightness(0.5)" }}
-            aria-label={
-              language === "en"
-                ? "Taxi service background video"
-                : "Video pozadie taxislužby"
-            }
-          >
-            <source src="/background_2k.mp4" type="video/mp4" />
-          </video>
+            style={{ filter: "brightness(0.5)", objectPosition: "75% 60%" }}
+          />
           <div className="absolute inset-0 bg-black/60"></div>
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 container text-center text-white fade-in px-4">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-shadow-strong tracking-tight leading-tight">
-            <span className="text-white">
-              {language === "en" ? "Professional Taxi Service Zvolen" : "Taxi Zvolen Nonstop 24/7"}
-            </span>
+        <div className="relative z-10 container text-left text-white fade-in px-8 md:px-12 lg:px-20">
+          <h1 className="font-medium text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider drop-shadow-lg leading-none mb-1">
+            {language === "en" ? (
+              <>
+                Professional <span className="text-[#f9b101] font-semibold">Taxi Service</span> Zvolen
+              </>
+            ) : (
+              <>
+                <span className="text-[#f9b101] font-semibold">Taxi Zvolen</span>
+              </>
+            )}
           </h1>
-          <p className="text-base md:text-lg lg:text-xl mb-12 max-w-3xl mx-auto text-shadow text-white leading-7">
+          <h2 className="font-medium text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider text-[#ffffff] drop-shadow-lg leading-none mt-2 mb-8">
+            {language === "en" ? (
+              <>
+                Your quick contact <span className="text-[#f9b101]">always on time</span>
+              </>
+            ) : (
+              <>
+                Váš rýchly kontakt vždy načas
+              </>
+            )}
+          </h2>
+          <p className="text-base md:text-lg lg:text-xl mb-12 max-w-3xl text-shadow text-white leading-7">
             {language === "en"
               ? "Quick, reliable and professional taxi service. Available 24/7 for airport transfers, city transport and intercity journeys."
               : "Rýchla, spoľahlivá a profesionálna taxislužba v meste Zvolen. Dostupné 24/7 pre letiskové transfery, mestskú dopravu a medzimiestne cesty."}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-start items-start">
             <a href="tel:+421902048583" className="w-full sm:w-auto">
               <Button
                 size="lg"
                 className="text-lg px-10 py-6 w-full sm:w-auto text-white font-semibold"
-                style={{ backgroundColor: '#ff9d25' }}
+                style={{ backgroundColor: '#f9b101' }}
               >
                 <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
                 +421 902 048 583
@@ -368,29 +376,11 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
                 <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Plane className="w-8 h-8 text-accent" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">{t.pricing.vienna}</p>
-                  <p className="text-3xl font-bold text-accent">€250</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
-                <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Plane className="w-8 h-8 text-accent" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-sm text-muted-foreground mb-1">{t.pricing.budapest}</p>
-                  <p className="text-3xl font-bold text-accent">€170</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
-                <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
                   <MapPin className="w-8 h-8 text-accent" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-sm text-muted-foreground mb-1">{t.pricing.bratislava}</p>
-                  <p className="text-3xl font-bold text-accent">€180</p>
+                  <p className="text-sm text-muted-foreground mb-1">{language === "en" ? "Within the city from" : "V rámci mesta od"}</p>
+                  <p className="text-3xl font-bold text-accent">3€</p>
                 </div>
               </div>
               <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
@@ -399,7 +389,34 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="text-sm text-muted-foreground mb-1">{t.pricing.sliač}</p>
-                  <p className="text-3xl font-bold text-accent">€10</p>
+                  <p className="text-3xl font-bold text-accent">10€</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
+                <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Plane className="w-8 h-8 text-accent" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">{t.pricing.budapest}</p>
+                  <p className="text-3xl font-bold text-accent">170€</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
+                <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <MapPin className="w-8 h-8 text-accent" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">{t.pricing.bratislava}</p>
+                  <p className="text-3xl font-bold text-accent">180€</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-6 p-6 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
+                <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Plane className="w-8 h-8 text-accent" aria-hidden="true" />
+                </div>
+                <div>
+                  <p className="text-sm text-muted-foreground mb-1">{t.pricing.vienna}</p>
+                  <p className="text-3xl font-bold text-accent">250€</p>
                 </div>
               </div>
             </div>

@@ -81,11 +81,7 @@ export default function Home() {
                 <span className="text-accent">24/7 Airport Transfers from €10</span>
               </>
             ) : (
-              <>
-                <span className="text-white">Taxi Zvolen Nonstop 24/7</span>
-                <br />
-                <span className="text-accent">Letiskové Transfery od €10</span>
-              </>
+              <span className="text-white">Taxi Zvolen Nonstop 24/7</span>
             )}
           </h1>
           <p className="text-base md:text-lg lg:text-xl mb-12 max-w-3xl mx-auto text-shadow text-white leading-7">

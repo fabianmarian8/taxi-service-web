@@ -113,6 +113,32 @@ export default function Home() {
               </Button>
             </a>
           </div>
+
+          {/* Payment Methods Image - Mobile version (inline) */}
+          <div className="block md:hidden mt-6 w-[200px] h-[200px] relative mx-auto">
+            <Image
+              src="/Snimka-obrazovky-2022-07-12-o-14.51.55.webp"
+              alt={language === "en" ? "Payment methods" : "Platobné metódy"}
+              fill
+              className="object-contain"
+              style={{ filter: 'brightness(0.5)' }}
+              quality={85}
+              sizes="200px"
+            />
+          </div>
+        </div>
+
+        {/* Payment Methods Image - Desktop version (absolute positioned) */}
+        <div className="hidden md:block absolute -bottom-43 right-37 z-20 w-[392px] h-[392px]">
+          <Image
+            src="/Snimka-obrazovky-2022-07-12-o-14.51.55.webp"
+            alt={language === "en" ? "Payment methods" : "Platobné metódy"}
+            fill
+            className="object-contain"
+            style={{ filter: 'brightness(0.5)' }}
+            quality={85}
+            sizes="392px"
+          />
         </div>
       </section>
 

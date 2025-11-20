@@ -91,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="sk" className={`dark ${beiruti.variable} ${firaMono.variable} ${rajdhani.variable}`}>
+    <html lang="sk" className={`dark ${beiruti.variable} ${firaMono.variable} ${rajdhani.variable}`} suppressHydrationWarning>
       <head>
 
         {/* JSON-LD Structured Data - LocalBusiness */}

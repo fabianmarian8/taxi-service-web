@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Beiruti, Fira_Mono } from "next/font/google";
+import { Beiruti, Fira_Mono, Rajdhani } from "next/font/google";
 import { Providers } from "./providers";
 import "./globals.css";
 
@@ -8,6 +8,13 @@ const beiruti = Beiruti({
   subsets: ["latin"],
   weight: ["300", "400", "500", "700", "800", "900"],
   variable: "--font-beiruti",
+});
+
+// Nakonfigurujeme Rajdhani font - pre nadpisy H2
+const rajdhani = Rajdhani({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-rajdhani",
 });
 
 // Nakonfigurujeme Fira Mono - strojový, technický font
@@ -84,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="sk" className={`dark ${beiruti.variable} ${firaMono.variable}`}>
+    <html lang="sk" className={`dark ${beiruti.variable} ${firaMono.variable} ${rajdhani.variable}`}>
       <head>
 
         {/* JSON-LD Structured Data - LocalBusiness */}

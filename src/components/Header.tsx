@@ -12,6 +12,9 @@ export default function Header() {
   const { language, setLanguage } = useLanguage();
   const t = getTranslation(language);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isBlogDropdownOpen, setIsBlogDropdownOpen] = useState(false);
+  const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
+  const [isFaqDropdownOpen, setIsFaqDropdownOpen] = useState(false);
   const router = useRouter();
 
   const toggleLanguage = () => {
@@ -61,30 +64,140 @@ export default function Header() {
 
         {/* Desktop Navigation - Hidden on mobile */}
         <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center" aria-label={language === "en" ? "Main navigation" : "Hlavná navigácia"}>
-          <button
-            onClick={() => scrollToSection("services")}
-            className="text-sm font-semibold text-white hover:text-accent transition-colors uppercase tracking-wide"
-            aria-label={language === "en" ? "Go to services section" : "Prejsť na sekciu služby"}
+          {/* Services Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsServicesDropdownOpen(true)}
+            onMouseLeave={() => setIsServicesDropdownOpen(false)}
           >
-            {t.nav.services}
-          </button>
+            <button
+              className="nav-link text-sm uppercase tracking-wide flex items-center gap-1"
+              aria-label={language === "en" ? "Services menu" : "Menu služby"}
+              aria-expanded={isServicesDropdownOpen}
+            >
+              {t.nav.services}
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {isServicesDropdownOpen && (
+              <div className="absolute top-full left-0 mt-0 pt-2 w-64 z-50">
+                <div className="bg-white border border-gray-300 rounded-lg shadow-lg">
+                  <button onClick={() => scrollToSection("services")} className="block w-full text-left px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "All Services" : "Všetky služby"}
+                  </button>
+                  <a href="/letiskova-preprava" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "Airport Transfer" : "Letisková preprava"}
+                  </a>
+                  <a href="/taxi-na-vlak-autobus" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "Station Transfer" : "Transfer na stanicu"}
+                  </a>
+                  <a href="/taxi-s-detskou-sedackou" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
+                    {language === "en" ? "Child Seat" : "Detská sedačka"}
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+
           <button
             onClick={() => scrollToSection("pricing")}
-            className="text-sm font-semibold text-white hover:text-accent transition-colors uppercase tracking-wide"
+            className="nav-link text-sm uppercase tracking-wide"
             aria-label={language === "en" ? "Go to pricing section" : "Prejsť na sekciu cenník"}
           >
             {t.nav.pricing}
           </button>
-          <button
-            onClick={() => scrollToSection("faq")}
-            className="text-sm font-semibold text-white hover:text-accent transition-colors uppercase tracking-wide"
-            aria-label={language === "en" ? "Go to FAQ section" : "Prejsť na sekciu často kladené otázky"}
+
+          {/* FAQ Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsFaqDropdownOpen(true)}
+            onMouseLeave={() => setIsFaqDropdownOpen(false)}
           >
-            {t.nav.faq}
-          </button>
+            <button
+              className="nav-link text-sm uppercase tracking-wide flex items-center gap-1"
+              aria-label={language === "en" ? "FAQ menu" : "Menu FAQ"}
+              aria-expanded={isFaqDropdownOpen}
+            >
+              {t.nav.faq}
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {isFaqDropdownOpen && (
+              <div className="absolute top-full left-0 mt-0 pt-2 w-64 z-50">
+                <div className="bg-white border border-gray-300 rounded-lg shadow-lg">
+                  <button onClick={() => scrollToSection("faq")} className="block w-full text-left px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "All FAQs" : "Všetky otázky"}
+                  </button>
+                  <a href="/ako-objednat-taxi-bez-aplikacie" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "How to Order Taxi" : "Ako objednať taxi"}
+                  </a>
+                  <a href="/kedy-volat-taxi-vopred" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "When to Book in Advance" : "Kedy volať vopred"}
+                  </a>
+                  <a href="/platba-v-taxiku" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
+                    {language === "en" ? "Payment Options" : "Platba v taxíku"}
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Blog Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsBlogDropdownOpen(true)}
+            onMouseLeave={() => setIsBlogDropdownOpen(false)}
+          >
+            <button
+              className="nav-link text-sm uppercase tracking-wide flex items-center gap-1"
+              aria-label={language === "en" ? "Blog menu" : "Blog menu"}
+              aria-expanded={isBlogDropdownOpen}
+            >
+              BLOG
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {isBlogDropdownOpen && (
+              <div className="absolute top-full left-0 mt-0 pt-2 w-64 z-50">
+                <div className="bg-white border border-gray-300 rounded-lg shadow-lg">
+                  <a href="/ako-objednat-taxi-bez-aplikacie" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "How to Order Taxi" : "Ako objednať taxi"}
+                  </a>
+                  <a href="/kedy-volat-taxi-vopred" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "When to Book in Advance" : "Kedy volať vopred"}
+                  </a>
+                  <a href="/platba-v-taxiku" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "Payment Options" : "Platba v taxíku"}
+                  </a>
+                  <a href="/taxi-s-detskou-sedackou" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "Child Seat" : "Detská sedačka"}
+                  </a>
+                  <a href="/taxi-na-vlak-autobus" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "Station Transfer" : "Transfer na stanicu"}
+                  </a>
+                  <a href="/letiskova-preprava" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "Airport Transfer" : "Letisková preprava"}
+                  </a>
+                  <a href="/ako-podat-staznost" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "Complaints" : "Reklamácia"}
+                  </a>
+                  <a href="/nonstop-taxi" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
+                    {language === "en" ? "24/7 Service" : "Nonstop služba"}
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
+
           <button
             onClick={() => scrollToSection("contact")}
-            className="text-sm font-semibold text-white hover:text-accent transition-colors uppercase tracking-wide"
+            className="nav-link text-sm uppercase tracking-wide"
             aria-label={language === "en" ? "Go to contact section" : "Prejsť na sekciu kontakt"}
           >
             {t.nav.contact}
@@ -97,7 +210,7 @@ export default function Header() {
             variant="ghost"
             size="sm"
             onClick={toggleLanguage}
-            className="gap-2 text-white hover:text-accent hover:bg-muted/20"
+            className="gap-2 text-black hover:text-accent hover:bg-muted/20"
             title={language === "en" ? "Switch to Slovak" : "Switch to English"}
             aria-label={language === "en" ? "Switch language to Slovak" : "Prepnúť jazyk na angličtinu"}
           >
@@ -107,16 +220,16 @@ export default function Header() {
             </span>
           </Button>
 
-          <Button
-            onClick={() => scrollToSection("contact")}
-            className="hidden md:inline-flex bg-accent hover:bg-yellow-400 text-accent-foreground font-bold px-6 uppercase tracking-wide"
+          <a
+            href="tel:+421902048583"
+            className="hidden md:inline-flex btn-call"
           >
-            {language === "en" ? "BOOK NOW" : "REZERVOVAŤ"}
-          </Button>
+            {language === "en" ? "CALL NOW" : "ZAVOLAŤ"}
+          </a>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:bg-muted/20 rounded-lg transition-colors text-white"
+            className="md:hidden p-2 hover:bg-muted/20 rounded-lg transition-colors text-black"
             aria-label={language === "en" ? "Toggle navigation menu" : "Prepínač navigačného menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
@@ -125,13 +238,13 @@ export default function Header() {
               className="w-6 h-6"
               fill="none"
               stroke="currentColor"
+              strokeWidth={2}
               viewBox="0 0 24 24"
               aria-hidden="true"
             >
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
-                strokeWidth={2}
                 d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
               />
             </svg>
@@ -142,42 +255,86 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div id="mobile-menu" className="md:hidden border-t border-border bg-black/98">
+        <div id="mobile-menu" className="md:hidden border-t border-border bg-gray-200">
           <nav className="container py-6 flex flex-col gap-4 px-8 md:px-12 lg:px-20" aria-label={language === "en" ? "Mobile navigation" : "Mobilná navigácia"}>
             <button
               onClick={() => scrollToSection("services")}
-              className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"
+              className="nav-link text-base text-left py-2 uppercase tracking-wide"
               aria-label={language === "en" ? "Go to services section" : "Prejsť na sekciu služby"}
             >
               {t.nav.services}
             </button>
             <button
               onClick={() => scrollToSection("pricing")}
-              className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"
+              className="nav-link text-base text-left py-2 uppercase tracking-wide"
               aria-label={language === "en" ? "Go to pricing section" : "Prejsť na sekciu cenník"}
             >
               {t.nav.pricing}
             </button>
             <button
               onClick={() => scrollToSection("faq")}
-              className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"
+              className="nav-link text-base text-left py-2 uppercase tracking-wide"
               aria-label={language === "en" ? "Go to FAQ section" : "Prejsť na sekciu často kladené otázky"}
             >
               {t.nav.faq}
             </button>
+
+            {/* Blog Dropdown Mobile */}
+            <div>
+              <button
+                onClick={() => setIsBlogDropdownOpen(!isBlogDropdownOpen)}
+                className="nav-link text-base text-left py-2 uppercase tracking-wide flex items-center gap-2 w-full"
+                aria-expanded={isBlogDropdownOpen}
+              >
+                BLOG
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isBlogDropdownOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
+                </svg>
+              </button>
+
+              {isBlogDropdownOpen && (
+                <div className="ml-4 mt-2 flex flex-col gap-2">
+                  <a href="/ako-objednat-taxi-bez-aplikacie" className="text-black text-sm py-2 hover:text-accent">
+                    {language === "en" ? "How to Order Taxi" : "Ako objednať taxi"}
+                  </a>
+                  <a href="/kedy-volat-taxi-vopred" className="text-black text-sm py-2 hover:text-accent">
+                    {language === "en" ? "When to Book in Advance" : "Kedy volať vopred"}
+                  </a>
+                  <a href="/platba-v-taxiku" className="text-black text-sm py-2 hover:text-accent">
+                    {language === "en" ? "Payment Options" : "Platba v taxíku"}
+                  </a>
+                  <a href="/taxi-s-detskou-sedackou" className="text-black text-sm py-2 hover:text-accent">
+                    {language === "en" ? "Child Seat" : "Detská sedačka"}
+                  </a>
+                  <a href="/taxi-na-vlak-autobus" className="text-black text-sm py-2 hover:text-accent">
+                    {language === "en" ? "Station Transfer" : "Transfer na stanicu"}
+                  </a>
+                  <a href="/letiskova-preprava" className="text-black text-sm py-2 hover:text-accent">
+                    {language === "en" ? "Airport Transfer" : "Letisková preprava"}
+                  </a>
+                  <a href="/ako-podat-staznost" className="text-black text-sm py-2 hover:text-accent">
+                    {language === "en" ? "Complaints" : "Reklamácia"}
+                  </a>
+                  <a href="/nonstop-taxi" className="text-black text-sm py-2 hover:text-accent">
+                    {language === "en" ? "24/7 Service" : "Nonstop služba"}
+                  </a>
+                </div>
+              )}
+            </div>
+
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-base font-semibold text-white hover:text-accent transition-colors text-left py-2 uppercase tracking-wide"
+              className="nav-link text-base text-left py-2 uppercase tracking-wide"
               aria-label={language === "en" ? "Go to contact section" : "Prejsť na sekciu kontakt"}
             >
               {t.nav.contact}
             </button>
-            <Button
-              onClick={() => scrollToSection("contact")}
-              className="w-full bg-accent hover:bg-yellow-400 text-accent-foreground font-bold mt-4 uppercase tracking-wide"
+            <a
+              href="tel:+421902048583"
+              className="w-full btn-call mt-4"
             >
-              {language === "en" ? "BOOK NOW" : "REZERVOVAŤ"}
-            </Button>
+              {language === "en" ? "CALL NOW" : "ZAVOLAŤ"}
+            </a>
           </nav>
         </div>
       )}

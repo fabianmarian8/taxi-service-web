@@ -35,27 +35,7 @@
 - [ ] SEO meta tags
 
 
-## Full-Stack Upgrade
-- [x] Upgrade project to web-db-user template (backend + database + authentication)
-- [x] Set up database schema for taxi photos and documents
-- [x] Configure user authentication system
-- [x] Create admin dashboard for file management
 
-## File Storage Integration
-- [x] Implement S3 file storage integration
-- [x] Create file upload API endpoint
-- [x] Create file retrieval API endpoint
-- [x] Build file management UI for admin panel
-- [x] Add file deletion functionality
-- [x] Implement file metadata storage in database
-
-## File Management Features
-- [x] Upload taxi photos and documents
-- [x] Display files in gallery/list view
-- [x] Delete files with confirmation
-- [ ] File type validation (images, PDFs)
-- [ ] File size limits enforcement
-- [x] Presigned URLs for secure access
 
 
 ## User Requested Changes

@@ -1,11 +1,39 @@
-"use client";
-
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ako objednať taxi Zvolen bez aplikácie | Telefón, SMS, WhatsApp",
+  description:
+    "Objednajte taxi vo Zvolene bez aplikácie - telefonicky, cez SMS alebo WhatsApp. Jednoduchý postup, okamžitá komunikácia. Zavolajte +421 902 048 583.",
+  keywords: [
+    "objednať taxi bez aplikácie",
+    "taxi telefonicky",
+    "taxi sms zvolen",
+    "taxi whatsapp",
+    "objednať taxi telefón",
+    "taxi bez appky",
+  ],
+  openGraph: {
+    type: "article",
+    url: "https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie",
+    title: "Ako objednať taxi Zvolen bez aplikácie | Telefón, SMS, WhatsApp",
+    description:
+      "Objednajte taxi vo Zvolene bez aplikácie - telefonicky, cez SMS alebo WhatsApp. Jednoduchý postup, okamžitá komunikácia.",
+    images: [
+      {
+        url: "https://zvolen-taxi.sk/og-image.svg",
+        alt: "Objednať taxi bez aplikácie Zvolen",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie",
+  },
+};
 
 export default function AkoObjednatTaxiBezAplikacie() {
   return (

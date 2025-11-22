@@ -1,11 +1,39 @@
-"use client";
-
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ako podať sťažnosť na taxi Zvolen | Reklamácia jazdy | +421 902 048 583",
+  description:
+    "Postup pre podanie sťažnosti alebo reklamácie jazdy v Taxi Zvolen. Čo priložiť, ako prebieha vyhodnotenie, vrátenie platby. Kontakt: +421 902 048 583.",
+  keywords: [
+    "sťažnosť taxi",
+    "reklamácia taxi zvolen",
+    "sťažnosť na jazdu",
+    "vrátenie peňazí taxi",
+    "reklamácia taxi služby",
+    "podať sťažnosť taxi",
+  ],
+  openGraph: {
+    type: "article",
+    url: "https://zvolen-taxi.sk/ako-podat-staznost",
+    title: "Ako podať sťažnosť na taxi Zvolen | Reklamácia jazdy",
+    description:
+      "Postup pre podanie sťažnosti alebo reklamácie jazdy v Taxi Zvolen. Čo priložiť, ako prebieha vyhodnotenie, vrátenie platby.",
+    images: [
+      {
+        url: "https://zvolen-taxi.sk/og-image.svg",
+        alt: "Reklamácia Taxi Zvolen",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://zvolen-taxi.sk/ako-podat-staznost",
+  },
+};
 
 export default function AkoPodatStaznost() {
   return (

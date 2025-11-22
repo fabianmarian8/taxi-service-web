@@ -1,11 +1,39 @@
-"use client";
-
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Platba v taxíku Zvolen | Karta, Hotovosť, Faktúra | Taxi Payment",
+  description:
+    "Ako zaplatiť za taxi vo Zvolene? Akceptujeme karty (VISA, Mastercard), Apple/Google Pay, hotovosť aj faktúry pre firmy (B2B). Kompletný prehľad možností platby.",
+  keywords: [
+    "platba v taxíku",
+    "platba kartou taxi",
+    "apple pay taxi",
+    "google pay taxi",
+    "faktúra taxi",
+    "b2b taxi zvolen",
+  ],
+  openGraph: {
+    type: "article",
+    url: "https://zvolen-taxi.sk/platba-v-taxiku",
+    title: "Platba v taxíku Zvolen | Karta, Hotovosť, Faktúra",
+    description:
+      "Ako zaplatiť za taxi vo Zvolene? Akceptujeme karty (VISA, Mastercard), Apple/Google Pay, hotovosť aj faktúry pre firmy (B2B).",
+    images: [
+      {
+        url: "https://zvolen-taxi.sk/og-image.svg",
+        alt: "Platobné možnosti Taxi Zvolen",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://zvolen-taxi.sk/platba-v-taxiku",
+  },
+};
 
 export default function PlatbaVTaxiku() {
   return (

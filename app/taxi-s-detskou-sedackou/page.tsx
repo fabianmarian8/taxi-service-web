@@ -1,11 +1,39 @@
-"use client";
-
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Taxi s detskou sedačkou Zvolen | Bezpečná preprava detí | +421 902 048 583",
+  description:
+    "Taxi s detskou sedačkou vo Zvolene. Bezpečná preprava detí, podsedák aj plnohodnotná sedačka. Nahlaste vek dieťaťa pri objednávke. Zavolajte +421 902 048 583.",
+  keywords: [
+    "taxi detská sedačka",
+    "detská sedačka taxi zvolen",
+    "preprava detí taxi",
+    "podsedák taxi",
+    "bezpečná preprava deti",
+    "taxi s deťmi",
+  ],
+  openGraph: {
+    type: "article",
+    url: "https://zvolen-taxi.sk/taxi-s-detskou-sedackou",
+    title: "Taxi s detskou sedačkou Zvolen | Bezpečná preprava detí",
+    description:
+      "Taxi s detskou sedačkou vo Zvolene. Bezpečná preprava detí, podsedák aj plnohodnotná sedačka. Nahlaste vek dieťaťa pri objednávke.",
+    images: [
+      {
+        url: "https://zvolen-taxi.sk/og-image.svg",
+        alt: "Taxi s detskou sedačkou Zvolen",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://zvolen-taxi.sk/taxi-s-detskou-sedackou",
+  },
+};
 
 export default function TaxiSDetskouSedackou() {
   return (

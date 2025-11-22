@@ -1,11 +1,39 @@
-"use client";
-
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kedy volať taxi vopred? Ranné špičky, víkendy, podujatia | Zvolen",
+  description:
+    "Zistite, kedy objednať taxi vopred vo Zvolene. Ranné špičky (6:00-8:30), víkendy, nádražia, podujatia. Tipy pre istú a rýchlu prepravu. +421 902 048 583",
+  keywords: [
+    "kedy volať taxi vopred",
+    "rezervácia taxi zvolen",
+    "objednať taxi vopred",
+    "taxi ráno",
+    "taxi víkend",
+    "taxi špička",
+  ],
+  openGraph: {
+    type: "article",
+    url: "https://zvolen-taxi.sk/kedy-volat-taxi-vopred",
+    title: "Kedy volať taxi vopred? Ranné špičky, víkendy, podujatia",
+    description:
+      "Zistite, kedy objednať taxi vopred vo Zvolene. Ranné špičky (6:00-8:30), víkendy, nádražia, podujatia. Tipy pre istú a rýchlu prepravu.",
+    images: [
+      {
+        url: "https://zvolen-taxi.sk/og-image.svg",
+        alt: "Rezervácia taxi vopred Zvolen",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://zvolen-taxi.sk/kedy-volat-taxi-vopred",
+  },
+};
 
 export default function KedyVolatTaxiVopred() {
   return (

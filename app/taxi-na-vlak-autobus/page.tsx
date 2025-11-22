@@ -1,11 +1,39 @@
-"use client";
-
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Taxi na vlak a autobus Zvolen | Transfer na stanicu načas | +421 902 048 583",
+  description:
+    "Taxi na železničnú a autobusovú stanicu vo Zvolene. Stihnite vlak alebo autobus načas. Monitoring vlakov, presné vyzdvihnutie. Zavolajte +421 902 048 583.",
+  keywords: [
+    "taxi na stanicu zvolen",
+    "taxi na vlak",
+    "taxi na autobus",
+    "železničná stanica zvolen",
+    "autobusová stanica zvolen",
+    "transfer stanica",
+  ],
+  openGraph: {
+    type: "article",
+    url: "https://zvolen-taxi.sk/taxi-na-vlak-autobus",
+    title: "Taxi na vlak a autobus Zvolen | Transfer na stanicu načas",
+    description:
+      "Taxi na železničnú a autobusovú stanicu vo Zvolene. Stihnite vlak alebo autobus načas. Monitoring vlakov, presné vyzdvihnutie.",
+    images: [
+      {
+        url: "https://zvolen-taxi.sk/og-image.svg",
+        alt: "Taxi na stanicu Zvolen",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://zvolen-taxi.sk/taxi-na-vlak-autobus",
+  },
+};
 
 export default function TaxiNaVlakAutobus() {
   return (

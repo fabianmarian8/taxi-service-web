@@ -1,11 +1,39 @@
-"use client";
-
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Letisková preprava Zvolen | Transfer Viedeň, Budapešť, Bratislava | Taxi",
+  description:
+    "Individuálny letiskový transfer zo Zvolenu na letiská Viedeň, Budapešť, Bratislava a Sliač. Fixná cena, monitoring letu, pomoc s batožinou. Objednajte na +421 902 048 583.",
+  keywords: [
+    "letisková preprava zvolen",
+    "transfer letisko viedeň",
+    "transfer letisko budapešť",
+    "transfer letisko bratislava",
+    "taxi letisko sliač",
+    "odvoz na letisko",
+  ],
+  openGraph: {
+    type: "article",
+    url: "https://zvolen-taxi.sk/letiskova-preprava",
+    title: "Letisková preprava Zvolen | Transfer Viedeň, Budapešť, Bratislava",
+    description:
+      "Individuálny letiskový transfer zo Zvolenu na letiská Viedeň, Budapešť, Bratislava a Sliač. Fixná cena, monitoring letu, pomoc s batožinou.",
+    images: [
+      {
+        url: "https://zvolen-taxi.sk/og-image.svg",
+        alt: "Letisková preprava Taxi Zvolen",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://zvolen-taxi.sk/letiskova-preprava",
+  },
+};
 
 export default function LetiskovaPreprava() {
   return (

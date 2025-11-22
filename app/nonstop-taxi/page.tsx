@@ -1,11 +1,39 @@
-"use client";
-
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Nonstop Taxi Zvolen 24/7 | Nočná preprava | +421 902 048 583",
+  description:
+    "Taxi Zvolen k dispozícii nonstop 24/7. Nočná preprava, víkendová služba, prevádzka počas sviatkov. Rýchla reakcia kedykoľvek. Zavolajte +421 902 048 583.",
+  keywords: [
+    "nonstop taxi zvolen",
+    "taxi 24/7 zvolen",
+    "nočná preprava zvolen",
+    "víkendová taxi služba",
+    "taxi cez noc",
+    "taxi o polnoci",
+  ],
+  openGraph: {
+    type: "article",
+    url: "https://zvolen-taxi.sk/nonstop-taxi",
+    title: "Nonstop Taxi Zvolen 24/7 | Nočná preprava",
+    description:
+      "Taxi Zvolen k dispozícii nonstop 24/7. Nočná preprava, víkendová služba, prevádzka počas sviatkov. Rýchla reakcia kedykoľvek.",
+    images: [
+      {
+        url: "https://zvolen-taxi.sk/og-image.svg",
+        alt: "Nonstop Taxi Zvolen 24/7",
+      },
+    ],
+  },
+  alternates: {
+    canonical: "https://zvolen-taxi.sk/nonstop-taxi",
+  },
+};
 
 export default function NonstopTaxi() {
   return (

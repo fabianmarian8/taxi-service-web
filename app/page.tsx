@@ -85,7 +85,7 @@ export default function Home() {
               </>
             ) : (
               <>
-                Váš rýchly kontakt vždy načas
+                Jazda, ktorá rešpektuje váš čas a pokoj.
               </>
             )}
           </h2>

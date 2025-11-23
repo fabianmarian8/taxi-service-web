@@ -2,14 +2,14 @@
 
 import { useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import HomePageClient from "./HomePageClient";
+import HomePageClient from "../HomePageClient";
 
-export default function Home() {
+export default function EnglishHome() {
   const { setLanguage } = useLanguage();
 
   useEffect(() => {
-    // Force Slovak language on this page
-    setLanguage("sk");
+    // Force English language on this page
+    setLanguage("en");
   }, [setLanguage]);
 
   return <HomePageClient />;

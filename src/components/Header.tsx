@@ -5,20 +5,49 @@ import { getTranslation } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { Globe } from "lucide-react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
 
+// URL mapping between Slovak and English versions
+const URL_MAPPING: Record<string, string> = {
+  // SK -> EN
+  "/": "/en/",
+  "/letiskova-preprava": "/en/airport-transfer",
+  "/ako-objednat-taxi-bez-aplikacie": "/en/how-to-order-taxi",
+  "/platba-v-taxiku": "/en/payment-options",
+  "/taxi-s-detskou-sedackou": "/en/child-seat",
+  "/nonstop-taxi": "/en/24-7-service",
+  // EN -> SK (reverse mapping)
+  "/en/": "/",
+  "/en/airport-transfer": "/letiskova-preprava",
+  "/en/how-to-order-taxi": "/ako-objednat-taxi-bez-aplikacie",
+  "/en/payment-options": "/platba-v-taxiku",
+  "/en/child-seat": "/taxi-s-detskou-sedackou",
+  "/en/24-7-service": "/nonstop-taxi",
+};
+
 export default function Header() {
-  const { language, setLanguage } = useLanguage();
+  const { language } = useLanguage();
   const t = getTranslation(language);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isBlogDropdownOpen, setIsBlogDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isFaqDropdownOpen, setIsFaqDropdownOpen] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   const toggleLanguage = () => {
-    setLanguage(language === "en" ? "sk" : "en");
+    // Get the alternate URL for the current page
+    const targetUrl = URL_MAPPING[pathname] || (language === "en" ? "/" : "/en/");
+    router.push(targetUrl);
+  };
+
+  // Helper to get URL for current language
+  const getLocalizedUrl = (skUrl: string): string => {
+    if (language === "en") {
+      return URL_MAPPING[skUrl] || skUrl;
+    }
+    return skUrl;
   };
 
   const scrollToSection = (id: string) => {
@@ -31,12 +60,13 @@ export default function Header() {
 
   const handleLogoClick = () => {
     setIsMenuOpen(false);
+    const homePage = language === "en" ? "/en/" : "/";
     // Ak sme na domovskej stránke, scrolluj hore
-    if (window.location.pathname === "/") {
+    if (pathname === homePage) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     } else {
       // Inak naviguj na domovskú stránku
-      router.push("/");
+      router.push(homePage);
     }
   };
 
@@ -87,13 +117,13 @@ export default function Header() {
                   <button onClick={() => scrollToSection("services")} className="block w-full text-left px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "All Services" : "Všetky služby"}
                   </button>
-                  <a href="/letiskova-preprava" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/letiskova-preprava")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "Airport Transfer" : "Letisková preprava"}
                   </a>
-                  <a href="/taxi-na-vlak-autobus" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/taxi-na-vlak-autobus")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "Station Transfer" : "Transfer na stanicu"}
                   </a>
-                  <a href="/taxi-s-detskou-sedackou" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
+                  <a href={getLocalizedUrl("/taxi-s-detskou-sedackou")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
                     {language === "en" ? "Child Seat" : "Detská sedačka"}
                   </a>
                 </div>
@@ -132,13 +162,13 @@ export default function Header() {
                   <button onClick={() => scrollToSection("faq")} className="block w-full text-left px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "All FAQs" : "Všetky otázky"}
                   </button>
-                  <a href="/ako-objednat-taxi-bez-aplikacie" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/ako-objednat-taxi-bez-aplikacie")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "How to Order Taxi" : "Ako objednať taxi"}
                   </a>
-                  <a href="/kedy-volat-taxi-vopred" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/kedy-volat-taxi-vopred")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "When to Book in Advance" : "Kedy volať vopred"}
                   </a>
-                  <a href="/platba-v-taxiku" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
+                  <a href={getLocalizedUrl("/platba-v-taxiku")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
                     {language === "en" ? "Payment Options" : "Platba v taxíku"}
                   </a>
                 </div>
@@ -166,28 +196,28 @@ export default function Header() {
             {isBlogDropdownOpen && (
               <div className="absolute top-full left-0 mt-0 pt-2 w-64 z-50">
                 <div className="bg-white border border-gray-300 rounded-lg shadow-lg">
-                  <a href="/ako-objednat-taxi-bez-aplikacie" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/ako-objednat-taxi-bez-aplikacie")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "How to Order Taxi" : "Ako objednať taxi"}
                   </a>
-                  <a href="/kedy-volat-taxi-vopred" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/kedy-volat-taxi-vopred")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "When to Book in Advance" : "Kedy volať vopred"}
                   </a>
-                  <a href="/platba-v-taxiku" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/platba-v-taxiku")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "Payment Options" : "Platba v taxíku"}
                   </a>
-                  <a href="/taxi-s-detskou-sedackou" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/taxi-s-detskou-sedackou")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "Child Seat" : "Detská sedačka"}
                   </a>
-                  <a href="/taxi-na-vlak-autobus" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/taxi-na-vlak-autobus")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "Station Transfer" : "Transfer na stanicu"}
                   </a>
-                  <a href="/letiskova-preprava" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/letiskova-preprava")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "Airport Transfer" : "Letisková preprava"}
                   </a>
-                  <a href="/ako-podat-staznost" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                  <a href={getLocalizedUrl("/ako-podat-staznost")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
                     {language === "en" ? "Complaints" : "Reklamácia"}
                   </a>
-                  <a href="/nonstop-taxi" className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
+                  <a href={getLocalizedUrl("/nonstop-taxi")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
                     {language === "en" ? "24/7 Service" : "Nonstop služba"}
                   </a>
                 </div>
@@ -294,28 +324,28 @@ export default function Header() {
 
               {isBlogDropdownOpen && (
                 <div className="ml-4 mt-2 flex flex-col gap-2">
-                  <a href="/ako-objednat-taxi-bez-aplikacie" className="text-black text-sm py-2 hover:text-accent">
+                  <a href={getLocalizedUrl("/ako-objednat-taxi-bez-aplikacie")} className="text-black text-sm py-2 hover:text-accent">
                     {language === "en" ? "How to Order Taxi" : "Ako objednať taxi"}
                   </a>
-                  <a href="/kedy-volat-taxi-vopred" className="text-black text-sm py-2 hover:text-accent">
+                  <a href={getLocalizedUrl("/kedy-volat-taxi-vopred")} className="text-black text-sm py-2 hover:text-accent">
                     {language === "en" ? "When to Book in Advance" : "Kedy volať vopred"}
                   </a>
-                  <a href="/platba-v-taxiku" className="text-black text-sm py-2 hover:text-accent">
+                  <a href={getLocalizedUrl("/platba-v-taxiku")} className="text-black text-sm py-2 hover:text-accent">
                     {language === "en" ? "Payment Options" : "Platba v taxíku"}
                   </a>
-                  <a href="/taxi-s-detskou-sedackou" className="text-black text-sm py-2 hover:text-accent">
+                  <a href={getLocalizedUrl("/taxi-s-detskou-sedackou")} className="text-black text-sm py-2 hover:text-accent">
                     {language === "en" ? "Child Seat" : "Detská sedačka"}
                   </a>
-                  <a href="/taxi-na-vlak-autobus" className="text-black text-sm py-2 hover:text-accent">
+                  <a href={getLocalizedUrl("/taxi-na-vlak-autobus")} className="text-black text-sm py-2 hover:text-accent">
                     {language === "en" ? "Station Transfer" : "Transfer na stanicu"}
                   </a>
-                  <a href="/letiskova-preprava" className="text-black text-sm py-2 hover:text-accent">
+                  <a href={getLocalizedUrl("/letiskova-preprava")} className="text-black text-sm py-2 hover:text-accent">
                     {language === "en" ? "Airport Transfer" : "Letisková preprava"}
                   </a>
-                  <a href="/ako-podat-staznost" className="text-black text-sm py-2 hover:text-accent">
+                  <a href={getLocalizedUrl("/ako-podat-staznost")} className="text-black text-sm py-2 hover:text-accent">
                     {language === "en" ? "Complaints" : "Reklamácia"}
                   </a>
-                  <a href="/nonstop-taxi" className="text-black text-sm py-2 hover:text-accent">
+                  <a href={getLocalizedUrl("/nonstop-taxi")} className="text-black text-sm py-2 hover:text-accent">
                     {language === "en" ? "24/7 Service" : "Nonstop služba"}
                   </a>
                 </div>

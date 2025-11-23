@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     canonical: "https://zvolen-taxi.sk/",
     languages: {
       sk: "https://zvolen-taxi.sk/",
-      en: "https://zvolen-taxi.sk/",
+      en: "https://zvolen-taxi.sk/en/",
       "x-default": "https://zvolen-taxi.sk/",
     },
   },

@@ -2,27 +2,134 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- Main Page -->
+  <!-- Main Page - Slovak -->
   <url>
     <loc>https://zvolen-taxi.sk/</loc>
-    <lastmod>2025-11-10</lastmod>
+    <lastmod>2025-11-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/" />
   </url>
 
-  <!-- Blog Articles -->
+  <!-- Main Page - English -->
+  <url>
+    <loc>https://zvolen-taxi.sk/en/</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/" />
+  </url>
+
+  <!-- Airport Transfer / Letisková preprava -->
+  <url>
+    <loc>https://zvolen-taxi.sk/letiskova-preprava</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/letiskova-preprava" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/airport-transfer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/letiskova-preprava" />
+  </url>
+
+  <url>
+    <loc>https://zvolen-taxi.sk/en/airport-transfer</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/letiskova-preprava" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/airport-transfer" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/letiskova-preprava" />
+  </url>
+
+  <!-- How to Order / Ako objednať -->
   <url>
     <loc>https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie</loc>
-    <lastmod>2025-11-18</lastmod>
+    <lastmod>2025-11-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/how-to-order-taxi" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie" />
   </url>
 
+  <url>
+    <loc>https://zvolen-taxi.sk/en/how-to-order-taxi</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/how-to-order-taxi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/ako-objednat-taxi-bez-aplikacie" />
+  </url>
+
+  <!-- Payment Options / Platba -->
+  <url>
+    <loc>https://zvolen-taxi.sk/platba-v-taxiku</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/platba-v-taxiku" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/payment-options" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/platba-v-taxiku" />
+  </url>
+
+  <url>
+    <loc>https://zvolen-taxi.sk/en/payment-options</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/platba-v-taxiku" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/payment-options" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/platba-v-taxiku" />
+  </url>
+
+  <!-- Child Seat / Detská sedačka -->
+  <url>
+    <loc>https://zvolen-taxi.sk/taxi-s-detskou-sedackou</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/taxi-s-detskou-sedackou" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/child-seat" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/taxi-s-detskou-sedackou" />
+  </url>
+
+  <url>
+    <loc>https://zvolen-taxi.sk/en/child-seat</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/taxi-s-detskou-sedackou" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/child-seat" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/taxi-s-detskou-sedackou" />
+  </url>
+
+  <!-- 24/7 Service / Nonstop taxi -->
+  <url>
+    <loc>https://zvolen-taxi.sk/nonstop-taxi</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/nonstop-taxi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/24-7-service" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/nonstop-taxi" />
+  </url>
+
+  <url>
+    <loc>https://zvolen-taxi.sk/en/24-7-service</loc>
+    <lastmod>2025-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/nonstop-taxi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://zvolen-taxi.sk/en/24-7-service" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/nonstop-taxi" />
+  </url>
+
+  <!-- Slovak-only articles (no English version yet) -->
   <url>
     <loc>https://zvolen-taxi.sk/kedy-volat-taxi-vopred</loc>
     <lastmod>2025-11-18</lastmod>
@@ -30,24 +137,6 @@
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/kedy-volat-taxi-vopred" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/kedy-volat-taxi-vopred" />
-  </url>
-
-  <url>
-    <loc>https://zvolen-taxi.sk/platba-v-taxiku</loc>
-    <lastmod>2025-11-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/platba-v-taxiku" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/platba-v-taxiku" />
-  </url>
-
-  <url>
-    <loc>https://zvolen-taxi.sk/taxi-s-detskou-sedackou</loc>
-    <lastmod>2025-11-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/taxi-s-detskou-sedackou" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/taxi-s-detskou-sedackou" />
   </url>
 
   <url>
@@ -60,30 +149,12 @@
   </url>
 
   <url>
-    <loc>https://zvolen-taxi.sk/letiskova-preprava</loc>
-    <lastmod>2025-11-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/letiskova-preprava" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/letiskova-preprava" />
-  </url>
-
-  <url>
     <loc>https://zvolen-taxi.sk/ako-podat-staznost</loc>
     <lastmod>2025-11-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
     <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/ako-podat-staznost" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/ako-podat-staznost" />
-  </url>
-
-  <url>
-    <loc>https://zvolen-taxi.sk/nonstop-taxi</loc>
-    <lastmod>2025-11-18</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="sk" href="https://zvolen-taxi.sk/nonstop-taxi" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://zvolen-taxi.sk/nonstop-taxi" />
   </url>
 
 </urlset>

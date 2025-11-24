@@ -781,30 +781,6 @@ export default function HomePageClient() {
       {/* Footer */}
       <footer className="py-12 bg-black border-t border-border">
         <div className="container text-center">
-          {/* Discreet cross-linking for SEO */}
-          <p className="text-xs text-muted-foreground/50 mb-2">
-            Pôsobíme aj v týchto lokalitách:{" "}
-            <a
-              href="https://www.lesttaxi.com"
-              className="hover:text-muted-foreground/70 transition-colors"
-            >
-              Lešť
-            </a>
-            {" | "}
-            <a
-              href="https://zvolen-taxi.sk"
-              className="hover:text-muted-foreground/70 transition-colors"
-            >
-              Zvolen
-            </a>
-            {" | "}
-            <a
-              href="https://lest-slavia-taxi.com"
-              className="hover:text-muted-foreground/70 transition-colors"
-            >
-              Slavia
-            </a>
-          </p>
           <p className="text-muted-foreground">
             © {new Date().getFullYear()} Zvolen Taxi Service.{" "}
             {language === "en" ? "All rights reserved." : "Všetky práva vyhradené."}

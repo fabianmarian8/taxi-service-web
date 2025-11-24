@@ -27,7 +27,7 @@ const firaMono = Fira_Mono({
 export const metadata: Metadata = {
   title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250 | +421 902 048 583",
   description:
-    "Taxi Zvolen nonstop 24/7 ⚡ Fixné ceny: Viedeň €250, Budapešť €170, Bratislava €180, Sliač €10. Monitoring letov, platba kartou. Rezervujte cez WhatsApp +421 902 048 583.",
+    "Taxi Zvolen | Platba kartou & Čisté autá | Pristavenie do 5 min",
   authors: [{ name: "Taxi Service Zvolen" }],
   keywords: [
     "taxi zvolen",
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     url: "https://zvolen-taxi.sk/",
     title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250",
     description:
-      "Taxi Zvolen nonstop 24/7 ⚡ Fixné ceny: Viedeň €250, Budapešť €170, Bratislava €180, Sliač €10. Monitoring letov, platba kartou. Rezervujte cez WhatsApp +421 902 048 583.",
+      "Taxi Zvolen | Platba kartou & Čisté autá | Pristavenie do 5 min",
     images: [
       {
         url: "https://zvolen-taxi.sk/og-image.svg",
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250",
     description:
-      "Taxi Zvolen nonstop 24/7 ⚡ Fixné ceny: Viedeň €250, Budapešť €170, Bratislava €180, Sliač €10. Monitoring letov, platba kartou. Rezervujte cez WhatsApp +421 902 048 583.",
+      "Taxi Zvolen | Platba kartou & Čisté autá | Pristavenie do 5 min",
     images: ["https://zvolen-taxi.sk/og-image.svg"],
   },
   alternates: {

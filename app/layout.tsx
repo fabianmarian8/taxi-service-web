@@ -93,6 +93,18 @@ export default function RootLayout({
   return (
     <html lang="sk" className={`dark ${beiruti.variable} ${firaMono.variable} ${rajdhani.variable}`} suppressHydrationWarning>
       <head>
+        {/* Google tag (gtag.js) */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5NKCS80W0"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-G5NKCS80W0');
+            `,
+          }}
+        />
 
         {/* JSON-LD Structured Data - LocalBusiness */}
         <script

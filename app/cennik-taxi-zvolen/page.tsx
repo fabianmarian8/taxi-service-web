@@ -73,28 +73,8 @@ export default function CennikTaxiZvolen() {
           </h1>
         </header>
 
-        {/* CTA tlačidlá */}
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-          <a href="tel:+421902048583" aria-label="Zavolať taxi na číslo +421 902 048 583">
-            <Button size="lg" className="btn-yellow w-full sm:w-auto">
-              <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
-              Zavolať: +421 902 048 583
-            </Button>
-          </a>
-          <a href="https://api.whatsapp.com/send?phone=421902048583" aria-label="Objednať taxi cez WhatsApp">
-            <Button size="lg" className="btn-outline-white w-full sm:w-auto">
-              <MessageSquare className="w-5 h-5 mr-2" aria-hidden="true" />
-              WhatsApp objednávka
-            </Button>
-          </a>
-        </div>
-
         {/* Cenník tabuľka */}
         <section className="mb-12">
-          <h2 className="text-3xl font-bold mb-6 text-center">
-            Ceny taxi zo Zvolena do miest Slovenska
-          </h2>
-
           <div className="overflow-x-auto">
             <table className="w-full border-collapse" aria-label="Cenník taxi prepravy zo Zvolena">
               <caption className="sr-only">Kompletný cenník taxi služby zo Zvolena do 50 miest Slovenska</caption>

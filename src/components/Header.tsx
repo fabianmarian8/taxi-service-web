@@ -17,6 +17,7 @@ const URL_MAPPING: Record<string, string> = {
   "/platba-v-taxiku": "/en/payment-options",
   "/taxi-s-detskou-sedackou": "/en/child-seat",
   "/nonstop-taxi": "/en/24-7-service",
+  "/cennik-taxi-zvolen": "/en/pricing",
   // EN -> SK (reverse mapping)
   "/en/": "/",
   "/en/airport-transfer": "/letiskova-preprava",
@@ -24,6 +25,7 @@ const URL_MAPPING: Record<string, string> = {
   "/en/payment-options": "/platba-v-taxiku",
   "/en/child-seat": "/taxi-s-detskou-sedackou",
   "/en/24-7-service": "/nonstop-taxi",
+  "/en/pricing": "/cennik-taxi-zvolen",
 };
 
 export default function Header() {
@@ -33,6 +35,7 @@ export default function Header() {
   const [isBlogDropdownOpen, setIsBlogDropdownOpen] = useState(false);
   const [isServicesDropdownOpen, setIsServicesDropdownOpen] = useState(false);
   const [isFaqDropdownOpen, setIsFaqDropdownOpen] = useState(false);
+  const [isPricingDropdownOpen, setIsPricingDropdownOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
@@ -93,7 +96,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation - Hidden on mobile */}
-        <nav className="hidden lg:flex items-center gap-8 flex-1 justify-center" aria-label={language === "en" ? "Main navigation" : "Hlavná navigácia"}>
+        <nav className="hidden md:flex items-center gap-6 flex-1 justify-center" aria-label={language === "en" ? "Main navigation" : "Hlavná navigácia"}>
           {/* Services Dropdown */}
           <div
             className="relative"
@@ -131,13 +134,36 @@ export default function Header() {
             )}
           </div>
 
-          <button
-            onClick={() => scrollToSection("pricing")}
-            className="nav-link text-sm uppercase tracking-wide"
-            aria-label={language === "en" ? "Go to pricing section" : "Prejsť na sekciu cenník"}
+          {/* Pricing Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsPricingDropdownOpen(true)}
+            onMouseLeave={() => setIsPricingDropdownOpen(false)}
           >
-            {t.nav.pricing}
-          </button>
+            <button
+              className="nav-link text-sm uppercase tracking-wide flex items-center gap-1"
+              aria-label={language === "en" ? "Pricing menu" : "Menu cenník"}
+              aria-expanded={isPricingDropdownOpen}
+            >
+              {t.nav.pricing}
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            {isPricingDropdownOpen && (
+              <div className="absolute top-full left-0 mt-0 pt-2 w-64 z-50">
+                <div className="bg-white border border-gray-300 rounded-lg shadow-lg">
+                  <button onClick={() => scrollToSection("pricing")} className="block w-full text-left px-4 py-3 hover:bg-gray-100 text-black text-sm border-b border-gray-200">
+                    {language === "en" ? "Quick Pricing" : "Rýchly cenník"}
+                  </button>
+                  <a href={getLocalizedUrl("/cennik-taxi-zvolen")} className="block px-4 py-3 hover:bg-gray-100 text-black text-sm">
+                    {language === "en" ? "Detailed Price List" : "Detailný cenník"}
+                  </a>
+                </div>
+              </div>
+            )}
+          </div>
 
           {/* FAQ Dropdown */}
           <div
@@ -294,13 +320,30 @@ export default function Header() {
             >
               {t.nav.services}
             </button>
-            <button
-              onClick={() => scrollToSection("pricing")}
-              className="nav-link text-base text-left py-2 uppercase tracking-wide"
-              aria-label={language === "en" ? "Go to pricing section" : "Prejsť na sekciu cenník"}
-            >
-              {t.nav.pricing}
-            </button>
+            {/* Pricing Dropdown Mobile */}
+            <div>
+              <button
+                onClick={() => setIsPricingDropdownOpen(!isPricingDropdownOpen)}
+                className="nav-link text-base text-left py-2 uppercase tracking-wide flex items-center gap-2 w-full"
+                aria-expanded={isPricingDropdownOpen}
+              >
+                {t.nav.pricing}
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={isPricingDropdownOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"} />
+                </svg>
+              </button>
+
+              {isPricingDropdownOpen && (
+                <div className="ml-4 mt-2 flex flex-col gap-2">
+                  <button onClick={() => scrollToSection("pricing")} className="text-black text-sm py-2 hover:text-accent text-left">
+                    {language === "en" ? "Quick Pricing" : "Rýchly cenník"}
+                  </button>
+                  <a href={getLocalizedUrl("/cennik-taxi-zvolen")} className="text-black text-sm py-2 hover:text-accent">
+                    {language === "en" ? "Detailed Price List" : "Detailný cenník"}
+                  </a>
+                </div>
+              )}
+            </div>
             <button
               onClick={() => scrollToSection("faq")}
               className="nav-link text-base text-left py-2 uppercase tracking-wide"

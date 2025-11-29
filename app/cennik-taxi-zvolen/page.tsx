@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, MessageSquare, MapPin, Euro, Car } from "lucide-react";
+import { Phone, MessageSquare } from "lucide-react";
 import Link from "next/link";
 
 // 50 najväčších miest Slovenska so vzdialenosťami od Zvolena (v km) - overené cestné vzdialenosti z Google Maps a vzdialenosti.sk
@@ -76,33 +76,6 @@ export default function CennikTaxiZvolen() {
             Transparentné ceny <strong>0,80€ za kilometer</strong>.
           </p>
         </header>
-
-        {/* Hlavné info karty */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <Card className="text-center border-yellow-500/50 bg-yellow-500/10">
-            <CardContent className="pt-6">
-              <Euro className="w-12 h-12 mx-auto mb-4 text-yellow-500" aria-hidden="true" />
-              <h2 className="text-2xl font-bold mb-2">0,80€ / km</h2>
-              <p className="text-muted-foreground">Jednoduchý cenník bez skrytých poplatkov</p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center border-yellow-500/50 bg-yellow-500/10">
-            <CardContent className="pt-6">
-              <Car className="w-12 h-12 mx-auto mb-4 text-yellow-500" aria-hidden="true" />
-              <h2 className="text-2xl font-bold mb-2">Komfortné vozidlá</h2>
-              <p className="text-muted-foreground">Klimatizované, čisté, pohodlné</p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center border-yellow-500/50 bg-yellow-500/10">
-            <CardContent className="pt-6">
-              <MapPin className="w-12 h-12 mx-auto mb-4 text-yellow-500" aria-hidden="true" />
-              <h2 className="text-2xl font-bold mb-2">Celé Slovensko</h2>
-              <p className="text-muted-foreground">Preprava kamkoľvek na Slovensku</p>
-            </CardContent>
-          </Card>
-        </div>
 
         {/* CTA tlačidlá */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">

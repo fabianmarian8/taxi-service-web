@@ -71,10 +71,6 @@ export default function CennikTaxiZvolen() {
           <h1 className="text-4xl md:text-5xl font-bold mb-6 gradient-text-animated">
             Cenník Taxi Zvolen
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Kompletný prehľad cien taxi prepravy zo <strong>Zvolena</strong> do 50 najväčších miest Slovenska.
-            Transparentné ceny <strong>0,80€ za kilometer</strong>.
-          </p>
         </header>
 
         {/* CTA tlačidlá */}

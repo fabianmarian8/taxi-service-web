@@ -1,28 +1,31 @@
 import type { Metadata } from "next";
-import { Beiruti, Fira_Mono, Rajdhani } from "next/font/google";
+import { Beiruti, Rajdhani } from "next/font/google";
+import Script from "next/script";
 import { Providers } from "./providers";
 import "./globals.css";
 
-// Nakonfigurujeme Beiruti font
+// Optimalizované fonty pre lepšie Core Web Vitals
+// Redukované weight-y pre menšiu veľkosť a rýchlejšie načítanie
 const beiruti = Beiruti({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "800", "900"],
+  weight: ["400", "700"], // Redukované z 6 na 2 weight-y
   variable: "--font-beiruti",
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
-// Nakonfigurujeme Rajdhani font - pre nadpisy H2
+// Rajdhani - pre nadpisy
 const rajdhani = Rajdhani({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "700"], // Redukované z 5 na 2 weight-y
   variable: "--font-rajdhani",
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
-// Nakonfigurujeme Fira Mono - strojový, technický font
-const firaMono = Fira_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-fira-mono",
-});
+// Fira Mono odstránené - používame system monospace
 
 export const metadata: Metadata = {
   title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250 | +421 902 048 583",
@@ -91,20 +94,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="sk" className={`dark ${beiruti.variable} ${firaMono.variable} ${rajdhani.variable}`} suppressHydrationWarning>
+    <html lang="sk" className={`dark ${beiruti.variable} ${rajdhani.variable}`} suppressHydrationWarning>
       <head>
-        {/* Google tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5NKCS80W0"></script>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-G5NKCS80W0');
-            `,
-          }}
-        />
 
         {/* JSON-LD Structured Data - LocalBusiness */}
         <script
@@ -282,22 +273,34 @@ export default function RootLayout({
           }}
         />
 
-        {/* Microsoft Clarity */}
-        <script
-          type="text/javascript"
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "u32b6wmhp2");
-            `,
-          }}
-        />
       </head>
       <body suppressHydrationWarning>
         <Providers>{children}</Providers>
+
+        {/* Google Analytics - lazyOnload pre lepší LCP */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-G5NKCS80W0"
+          strategy="lazyOnload"
+        />
+        <Script id="google-analytics" strategy="lazyOnload">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-G5NKCS80W0');
+          `}
+        </Script>
+
+        {/* Microsoft Clarity - lazyOnload */}
+        <Script id="clarity-tracking" strategy="lazyOnload">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "u32b6wmhp2");
+          `}
+        </Script>
       </body>
     </html>
   );

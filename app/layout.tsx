@@ -28,9 +28,9 @@ const rajdhani = Rajdhani({
 // Fira Mono odstránené - používame system monospace
 
 export const metadata: Metadata = {
-  title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250 | +421 902 048 583",
+  title: "Taxi Zvolen 24/7 od €10 | Transfer Viedeň €250 | Volajte teraz",
   description:
-    "Taxi Zvolen | Platba kartou & Čisté autá | Pristavenie do 5 min",
+    "Taxi Zvolen - profesionálna taxislužba 24/7. Pristavenie do 5 min, platba kartou. Letiskové transfery Viedeň, Bratislava, Budapešť od €30. Volajte +421 902 048 583",
   authors: [{ name: "Taxi Service Zvolen" }],
   keywords: [
     "taxi zvolen",
@@ -46,13 +46,15 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://zvolen-taxi.sk/",
-    title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250",
+    title: "Taxi Zvolen 24/7 od €10 | Transfer Viedeň €250",
     description:
-      "Taxi Zvolen | Platba kartou & Čisté autá | Pristavenie do 5 min",
+      "Taxi Zvolen - profesionálna taxislužba 24/7. Pristavenie do 5 min, platba kartou. Letiskové transfery Viedeň, Bratislava, Budapešť od €30.",
     images: [
       {
-        url: "https://zvolen-taxi.sk/og-image.svg",
-        alt: "Taxi Service Zvolen",
+        url: "https://zvolen-taxi.sk/flux-1-kontext-pro_a_Modern_logo_design_f.webp",
+        width: 256,
+        height: 256,
+        alt: "Taxi Service Zvolen Logo",
       },
     ],
     locale: "sk_SK",
@@ -60,10 +62,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Taxi Zvolen Nonstop 24/7 od €10 ⚡ Transfer Viedeň €250",
+    title: "Taxi Zvolen 24/7 od €10 | Transfer Viedeň €250",
     description:
-      "Taxi Zvolen | Platba kartou & Čisté autá | Pristavenie do 5 min",
-    images: ["https://zvolen-taxi.sk/og-image.svg"],
+      "Taxi Zvolen - profesionálna taxislužba 24/7. Pristavenie do 5 min, platba kartou. Letiskové transfery od €30.",
+    images: ["https://zvolen-taxi.sk/flux-1-kontext-pro_a_Modern_logo_design_f.webp"],
   },
   alternates: {
     canonical: "https://zvolen-taxi.sk/",

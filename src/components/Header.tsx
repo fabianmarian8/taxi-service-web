@@ -84,7 +84,7 @@ export default function Header() {
             aria-label={language === "en" ? "Go to homepage" : "Prejsť na domovskú stránku"}
           >
             <Image
-              src="/flux-1-kontext-pro_a_Modern_logo_design_f.png"
+              src="/flux-1-kontext-pro_a_Modern_logo_design_f.webp"
               alt="Zvolen Taxi Service"
               width={147}
               height={81}

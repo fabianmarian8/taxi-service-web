@@ -18,12 +18,51 @@ export default function optimizedImageLoader({ src, width }: ImageLoaderProps): 
   const basePath = normalizedSrc.substring(0, lastDot);
   const ext = normalizedSrc.substring(lastDot);
 
-  // Find the closest available size
-  // Available sizes from optimization script: 147, 192, 640, 828, 1024, 1080, 1200, 1920
-  const sizes = [147, 192, 640, 828, 1024, 1080, 1200, 1920];
-  const closestSize = sizes.reduce((prev, curr) =>
-    Math.abs(curr - width) < Math.abs(prev - width) ? curr : prev
-  );
+  // Define available sizes per image type based on optimize-images.js output
+  let availableSizes = [640, 828, 1080, 1920]; // Default (Hero images)
+
+  if (basePath.includes('flux-1-kontext-pro')) {
+    availableSizes = [147];
+  } else if (
+    basePath.includes('bratislava-airport') || 
+    basePath.includes('budapest-airport') || 
+    basePath.includes('europa-shopping') || 
+    basePath.includes('polana-hotel') || 
+    basePath.includes('ministry-of-fun')
+  ) {
+    // Partner logos
+    availableSizes = [192];
+  } else if (
+    basePath.includes('images/processed/airport-transfer') || 
+    basePath.includes('images/processed/family-transfer') || 
+    basePath.includes('images/processed/car-interior') ||
+    basePath.includes('images/processed/hotel-night')
+  ) {
+    // Service cards
+    availableSizes = [640, 828, 1024, 1200];
+  }
+
+  // Find the closest available size that is >= requested width to ensure quality,
+  // or the largest available if all are smaller.
+  // We prefer slightly larger image over non-existent one.
+  const closestSize = availableSizes.reduce((prev, curr) => {
+    return (Math.abs(curr - width) < Math.abs(prev - width) ? curr : prev);
+  });
+  
+  // Correction: If the closest size is smaller than 640 for service cards, force 640
+  // because 192w doesn't exist for them.
+  let finalSize = closestSize;
+  
+  // Specific override for service cards to avoid 404s on small sizes
+  if (
+    (basePath.includes('images/processed/airport-transfer') || 
+     basePath.includes('images/processed/family-transfer') || 
+     basePath.includes('images/processed/car-interior') ||
+     basePath.includes('images/processed/hotel-night')) &&
+     finalSize < 640
+  ) {
+    finalSize = 640;
+  }
 
   // Check if this is an image that gets optimized
   const optimizedPaths = [
@@ -55,8 +94,8 @@ export default function optimizedImageLoader({ src, width }: ImageLoaderProps): 
 
   // Use WebP format (modern browsers support it, fallback handled by Next.js)
   const optimizedPath = dirPath
-    ? `/${dirPath}/optimized/${fileName}-${closestSize}w.webp`
-    : `/optimized/${fileName}-${closestSize}w.webp`;
+    ? `/${dirPath}/optimized/${fileName}-${finalSize}w.webp`
+    : `/optimized/${fileName}-${finalSize}w.webp`;
 
   return optimizedPath;
 }

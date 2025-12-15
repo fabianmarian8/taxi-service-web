@@ -176,13 +176,13 @@ export default function HomePageClient() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="service-card-content">
-                <div className="w-9 h-9 bg-accent rounded-lg flex items-center justify-center mb-2 float-animation">
-                  <Plane className="w-5 h-5 text-accent-foreground" aria-hidden="true" />
+                <div className="w-8 h-8 md:w-9 md:h-9 bg-accent rounded-lg flex items-center justify-center mb-1 md:mb-2 float-animation">
+                  <Plane className="w-4 h-4 md:w-5 md:h-5 text-accent-foreground" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-3">
                   {t.services.airport.name}
                 </h3>
-                <p className="text-white/90 text-sm">{t.services.airport.description}</p>
+                <p className="text-white/90 text-xs md:text-sm">{t.services.airport.description}</p>
               </div>
             </div>
 
@@ -202,15 +202,15 @@ export default function HomePageClient() {
               />
               <div className="service-card-content">
                 <div
-                  className="w-9 h-9 bg-accent rounded-lg flex items-center justify-center mb-2 float-animation"
+                  className="w-8 h-8 md:w-9 md:h-9 bg-accent rounded-lg flex items-center justify-center mb-1 md:mb-2 float-animation"
                   style={{ animationDelay: "0.2s" }}
                 >
-                  <Users className="w-5 h-5 text-accent-foreground" aria-hidden="true" />
+                  <Users className="w-4 h-4 md:w-5 md:h-5 text-accent-foreground" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-3">
                   {t.services.city.name}
                 </h3>
-                <p className="text-white/90 text-sm">{t.services.city.description}</p>
+                <p className="text-white/90 text-xs md:text-sm">{t.services.city.description}</p>
               </div>
             </div>
 
@@ -230,15 +230,15 @@ export default function HomePageClient() {
               />
               <div className="service-card-content">
                 <div
-                  className="w-9 h-9 bg-accent rounded-lg flex items-center justify-center mb-2 float-animation"
+                  className="w-8 h-8 md:w-9 md:h-9 bg-accent rounded-lg flex items-center justify-center mb-1 md:mb-2 float-animation"
                   style={{ animationDelay: "0.4s" }}
                 >
-                  <Shield className="w-5 h-5 text-accent-foreground" aria-hidden="true" />
+                  <Shield className="w-4 h-4 md:w-5 md:h-5 text-accent-foreground" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-3">
                   {t.services.intercity.name}
                 </h3>
-                <p className="text-white/90 text-sm">{t.services.intercity.description}</p>
+                <p className="text-white/90 text-xs md:text-sm">{t.services.intercity.description}</p>
               </div>
             </div>
 
@@ -258,15 +258,15 @@ export default function HomePageClient() {
               />
               <div className="service-card-content">
                 <div
-                  className="w-9 h-9 bg-accent rounded-lg flex items-center justify-center mb-2 float-animation"
+                  className="w-8 h-8 md:w-9 md:h-9 bg-accent rounded-lg flex items-center justify-center mb-1 md:mb-2 float-animation"
                   style={{ animationDelay: "0.6s" }}
                 >
-                  <Zap className="w-5 h-5 text-accent-foreground" aria-hidden="true" />
+                  <Zap className="w-4 h-4 md:w-5 md:h-5 text-accent-foreground" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-3">
+                <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-3">
                   {t.services.corporate.name}
                 </h3>
-                <p className="text-white/90 text-sm">{t.services.corporate.description}</p>
+                <p className="text-white/90 text-xs md:text-sm">{t.services.corporate.description}</p>
               </div>
             </div>
           </div>
@@ -657,125 +657,6 @@ export default function HomePageClient() {
                 </div>
               </Card>
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section
-        id="faq"
-        className="py-12 bg-card/50"
-        aria-label={
-          language === "en" ? "Frequently asked questions" : "Často kladené otázky"
-        }
-      >
-        <div className="container max-w-4xl">
-          <h2 className="text-lg md:text-3xl lg:text-4xl font-bold text-center mb-2 md:mb-4 text-white">
-            {t.faq.title}
-          </h2>
-          <p className="text-center text-muted-foreground text-xs md:text-sm mb-6 md:mb-10">
-            {language === "en"
-              ? "Find answers to common questions"
-              : "Nájdite odpovede na časté otázky"}
-          </p>
-          <div className="space-y-2">
-            {faqItems.map((item, idx) => {
-              const questionId = `faq-question-${idx}`;
-              const answerId = `faq-answer-${idx}`;
-              return (
-                <div
-                  key={idx}
-                  className="border border-border rounded-lg overflow-hidden bg-card"
-                >
-                  <button
-                    id={questionId}
-                    onClick={() => setOpenFaqIndex(openFaqIndex === idx ? null : idx)}
-                    className="w-full p-3 md:p-5 text-left hover:bg-muted/30 transition-colors flex items-center justify-between"
-                    aria-expanded={openFaqIndex === idx}
-                    aria-controls={answerId}
-                  >
-                    <h3 className="font-bold text-sm md:text-base text-white pr-2 md:pr-3">{item.q}</h3>
-                    <span
-                      className="text-accent text-xl md:text-2xl font-bold flex-shrink-0"
-                      aria-hidden="true"
-                    >
-                      {openFaqIndex === idx ? "−" : "+"}
-                    </span>
-                  </button>
-                  {openFaqIndex === idx && (
-                    <div
-                      id={answerId}
-                      className="px-3 pb-3 md:px-5 md:pb-5 text-muted-foreground border-t border-border pt-3 md:pt-4 text-xs md:text-sm leading-relaxed"
-                      role="region"
-                      aria-labelledby={questionId}
-                    >
-                      {item.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section
-        id="contact"
-        className="py-12 bg-card/50"
-        aria-label={language === "en" ? "Contact us" : "Kontaktujte nás"}
-      >
-        <div className="container">
-          <h2 className="text-lg md:text-3xl lg:text-3xl font-bold text-center mb-4 md:mb-8 text-white">
-            {t.contact.title}
-          </h2>
-          <div className="grid grid-cols-3 md:grid-cols-3 gap-2 md:gap-4 max-w-3xl mx-auto">
-            <Card className="p-2 md:p-5 text-center card-hover bg-card border-t-2 border-t-accent group">
-              <div className="w-6 h-6 md:w-8 md:h-8 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-1 md:mb-3 group-hover:bg-accent/20 transition-colors duration-300 pulse-glow">
-                <Phone
-                  className="w-3 h-3 md:w-4 md:h-4 text-accent group-hover:scale-110 transition-transform duration-300"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold mb-1 md:mb-2 text-xs md:text-base text-white">{t.contact.phone}</h3>
-              <a
-                href="tel:+421902048583"
-                className="text-accent hover:text-yellow-400 font-medium text-xs md:text-sm transition-colors"
-              >
-                +421 902 048 583
-              </a>
-            </Card>
-            <Card className="p-2 md:p-5 text-center card-hover bg-card border-t-2 border-t-accent group">
-              <div className="w-6 h-6 md:w-8 md:h-8 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-1 md:mb-3 group-hover:bg-accent/20 transition-colors duration-300 pulse-glow">
-                <MessageCircle
-                  className="w-3 h-3 md:w-4 md:h-4 text-accent group-hover:scale-110 transition-transform duration-300"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold mb-1 md:mb-2 text-xs md:text-base text-white">{t.contact.whatsapp}</h3>
-              <a
-                href="https://api.whatsapp.com/send?phone=421919040118"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent hover:text-yellow-400 font-medium text-xs md:text-sm transition-colors"
-              >
-                {language === "en" ? "Message us" : "Napíšte nám"}
-              </a>
-            </Card>
-            <Card className="p-2 md:p-5 text-center card-hover bg-card border-t-2 border-t-accent group">
-              <div className="w-6 h-6 md:w-8 md:h-8 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-1 md:mb-3 group-hover:bg-accent/20 transition-colors duration-300 pulse-glow">
-                <Clock
-                  className="w-3 h-3 md:w-4 md:h-4 text-accent group-hover:scale-110 transition-transform duration-300"
-                  aria-hidden="true"
-                />
-              </div>
-              <h3 className="font-bold mb-1 md:mb-2 text-xs md:text-base text-white">
-                {language === "en" ? "24/7 Service" : "Služba 24/7"}
-              </h3>
-              <p className="text-muted-foreground text-xs md:text-sm">
-                {language === "en" ? "Always available" : "Vždy k dispozícii"}
-              </p>
-            </Card>
           </div>
         </div>
       </section>

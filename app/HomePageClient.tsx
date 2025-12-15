@@ -164,7 +164,7 @@ export default function HomePageClient() {
             {/* Airport Transfer Card */}
             <div className="service-card h-[180px] md:h-[260px] scale-in">
               <Image
-                src="/images/processed/airport-transfer.png"
+                src="/images/new/airport.webp"
                 alt={
                   language === "en"
                     ? "Professional airport transfer service to Vienna, Budapest, Bratislava and Sliač airports"
@@ -189,7 +189,7 @@ export default function HomePageClient() {
             {/* Family Transfer Card */}
             <div className="service-card h-[180px] md:h-[260px] scale-in">
               <Image
-                src="/images/processed/family-transfer.png"
+                src="/images/new/city.webp"
                 alt={
                   language === "en"
                     ? "City taxi service in Lešť, Zvolen, Banská Bystrica and surrounding areas"
@@ -217,7 +217,7 @@ export default function HomePageClient() {
             {/* Luxury Interior Card */}
             <div className="service-card h-[180px] md:h-[260px] scale-in">
               <Image
-                src="/images/processed/car-interior.png"
+                src="/images/new/luxury.webp"
                 alt={
                   language === "en"
                     ? "Spacious intercity transfer service with professional vehicles"

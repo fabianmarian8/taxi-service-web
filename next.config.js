@@ -8,15 +8,14 @@ const nextConfig = {
   // generované pomocou scripts/optimize-images.js
   //
   // Výhody:
-  // ✅ WebP format (90-95% menšie súbory)
-  // ✅ Responsive sizes (správna veľkosť pre každé zariadenie)
-  // ✅ Lazy loading (ušetrený bandwidth)
-  // ✅ Funguje so static export (GitHub Pages, atď.)
-  images: {
-    unoptimized: true, // Obrázky sú už pre-optimalizované
-    loader: 'custom',
-    loaderFile: './lib/imageLoader.ts',
-    deviceSizes: [640, 828, 1080, 1200, 1920],
+      // ✅ WebP format (90-95% menšie súbory)
+      // ✅ Responsive sizes (správna veľkosť pre každé zariadenie)
+      // ✅ Lazy loading (ušetrený bandwidth)
+      // ✅ Funguje so static export (GitHub Pages, atď.)
+    images: {
+      unoptimized: false, // Necháme Next.js používať náš loader pre generovanie srcset
+      loader: 'custom',
+      loaderFile: './lib/imageLoader.ts',    deviceSizes: [640, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 192, 256, 384],
   },
 

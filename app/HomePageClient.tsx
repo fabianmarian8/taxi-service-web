@@ -347,7 +347,7 @@ export default function HomePageClient() {
                   />
                 </div>
                 <h3 className="text-xs md:text-2xl font-bold mb-1 md:mb-4 text-white">{feature.title}</h3>
-                <p className="text-muted-foreground text-[10px] md:text-base leading-relaxed hidden md:block">
+                <p className="text-muted-foreground text-xs md:text-base leading-relaxed hidden md:block">
                   {feature.desc}
                 </p>
               </Card>
@@ -736,10 +736,10 @@ export default function HomePageClient() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="font-bold mb-1 md:mb-2 text-[10px] md:text-base text-white">{t.contact.phone}</h3>
+              <h3 className="font-bold mb-1 md:mb-2 text-xs md:text-base text-white">{t.contact.phone}</h3>
               <a
                 href="tel:+421902048583"
-                className="text-accent hover:text-yellow-400 font-medium text-[9px] md:text-sm transition-colors"
+                className="text-accent hover:text-yellow-400 font-medium text-xs md:text-sm transition-colors"
               >
                 +421 902 048 583
               </a>
@@ -751,12 +751,12 @@ export default function HomePageClient() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="font-bold mb-1 md:mb-2 text-[10px] md:text-base text-white">{t.contact.whatsapp}</h3>
+              <h3 className="font-bold mb-1 md:mb-2 text-xs md:text-base text-white">{t.contact.whatsapp}</h3>
               <a
                 href="https://api.whatsapp.com/send?phone=421919040118"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-accent hover:text-yellow-400 font-medium text-[9px] md:text-sm transition-colors"
+                className="text-accent hover:text-yellow-400 font-medium text-xs md:text-sm transition-colors"
               >
                 {language === "en" ? "Message us" : "Napíšte nám"}
               </a>
@@ -768,10 +768,10 @@ export default function HomePageClient() {
                   aria-hidden="true"
                 />
               </div>
-              <h3 className="font-bold mb-1 md:mb-2 text-[10px] md:text-base text-white">
+              <h3 className="font-bold mb-1 md:mb-2 text-xs md:text-base text-white">
                 {language === "en" ? "24/7 Service" : "Služba 24/7"}
               </h3>
-              <p className="text-muted-foreground text-[9px] md:text-sm">
+              <p className="text-muted-foreground text-xs md:text-sm">
                 {language === "en" ? "Always available" : "Vždy k dispozícii"}
               </p>
             </Card>

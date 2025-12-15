@@ -61,6 +61,7 @@ export default function HomePageClient() {
             className="object-cover"
             style={{ filter: "brightness(0.7)", objectPosition: "75% 60%" }}
             priority
+            sizes="100vw"
             quality={85}
           />
         </div>

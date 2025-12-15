@@ -106,7 +106,7 @@ export default function HomePageClient() {
             >
               <Button
                 size="lg"
-                className="text-lg px-10 py-6 w-full sm:w-auto text-white font-semibold"
+                className="text-lg px-10 py-6 w-full sm:w-auto text-black font-semibold"
                 style={{ backgroundColor: '#25D366' }}
               >
                 <MessageCircle className="w-5 h-5 mr-2" aria-hidden="true" />
@@ -172,7 +172,7 @@ export default function HomePageClient() {
                 fill
                 className="object-cover"
                 quality={80}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="service-card-content">
                 <div className="w-9 h-9 bg-accent rounded-lg flex items-center justify-center mb-2 float-animation">
@@ -197,7 +197,7 @@ export default function HomePageClient() {
                 fill
                 className="object-cover"
                 quality={80}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="service-card-content">
                 <div
@@ -225,7 +225,7 @@ export default function HomePageClient() {
                 fill
                 className="object-cover"
                 quality={80}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="service-card-content">
                 <div
@@ -253,7 +253,7 @@ export default function HomePageClient() {
                 fill
                 className="object-cover"
                 quality={80}
-                sizes="(max-width: 768px) 100vw, 50vw"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               <div className="service-card-content">
                 <div

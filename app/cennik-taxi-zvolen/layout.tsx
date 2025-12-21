@@ -188,11 +188,10 @@ const structuredData = {
             "@type": "Answer",
             "text": "Diaľkové taxi si môžete objednať telefonicky alebo cez WhatsApp na čísle +421 902 048 583. Odporúčame rezerváciu aspoň pár hodín vopred."
           }
-        }
-      ]
-    }
-  ]
-};
+        },
+        {
+          "@type": "Question",
+          "name": "Môžem v taxi zo Zvolena platiť kartou?",
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Áno, akceptujeme platbu v hotovosti aj kartou. Pri dlhších trasách je možná aj platba na faktúru."

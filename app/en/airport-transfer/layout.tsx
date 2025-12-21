@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Airport Transfer Zvolen - Vienna €250, Budapest €170 | TaxiGO",
-  description: "Individual airport transfer from Zvolen to Vienna (€250), Budapest (€170), Bratislava (€180), Sliač (€10). Fixed prices, flight monitoring, luggage assistance. Book in advance.",
+  title: "Airport Transfer Zvolen | Comfortable Transfers to All Airports | TaxiGO",
+  description: "Individual airport transfer from Zvolen to Vienna, Budapest, Bratislava, and Sliač airports. Fixed prices, flight monitoring, and luggage assistance. Book your transfer in advance.",
   keywords: [
     "airport transfer zvolen",
     "taxi vienna airport",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "airport taxi",
   ],
   openGraph: {
-    title: "Airport Transfer Zvolen - Vienna €250, Budapest €170",
+    title: "Airport Transfer Zvolen | Comfortable Transfers to All Airports",
     description: "Fixed prices to all airports. Flight monitoring, luggage assistance.",
     url: "https://zvolen-taxi.sk/en/airport-transfer",
     siteName: "Taxi Zvolen",
@@ -74,8 +74,8 @@ export default function AirportTransferLayout({
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Airport Transfer",
-    "description": "Individual airport transfer to Vienna (€250), Budapest (€170), Bratislava (€180), Sliač (€10). Fixed prices, flight monitoring.",
+    "headline": "Airport Transfer Zvolen",
+    "description": "Individual airport transfer to Vienna, Budapest, Bratislava, and Sliač. Fixed prices, flight monitoring, and professional service.",
     "image": "https://zvolen-taxi.sk/og-image.svg",
     "author": {
       "@type": "Organization",

@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/private/', '/admin/'],
+      disallow: ['/private/', '/admin/', '/api/', '/_next/'],
     },
     sitemap: 'https://zvolen-taxi.sk/sitemap.xml',
   }

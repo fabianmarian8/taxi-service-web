@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Letisková preprava Zvolen - Transfer Viedeň €250, Budapešť €170 | TaxiGO",
-  description: "Individuálny odvoz na letiská Viedeň (€250), Budapešť (€170), Bratislava (€180), Sliač (€10). Fixné ceny, monitoring letu, pomoc s batožinou. Rezervujte transfer vopred.",
+  title: "Letisková preprava Zvolen | Komfortné transfery na letiská | TaxiGO",
+  description: "Individuálny odvoz na letiská Viedeň, Budapešť, Bratislava a Sliač. Fixné ceny, monitoring letu a pomoc s batožinou. Rezervujte si svoj transfer vopred.",
   keywords: [
     "letisková preprava zvolen",
     "taxi letisko viedeň",
@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     "transfer letisko",
   ],
   openGraph: {
-    title: "Letisková preprava Zvolen - Transfer Viedeň €250, Budapešť €170",
+    title: "Letisková preprava Zvolen | Komfortné transfery na letiská",
     description: "Fixné ceny na všetky letiská. Monitoring letu, pomoc s batožinou.",
     url: "https://zvolen-taxi.sk/letiskova-preprava",
     siteName: "Taxi Zvolen",
@@ -70,8 +70,8 @@ export default function LetiskovaPrepravaLayout({
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": "Letisková preprava",
-    "description": "Individuálny odvoz na letiská Viedeň (€250), Budapešť (€170), Bratislava (€180), Sliač (€10). Fixné ceny, monitoring letu.",
+    "headline": "Letisková preprava Zvolen",
+    "description": "Individuálny odvoz na letiská Viedeň, Budapešť, Bratislava a Sliač. Fixné ceny, monitoring letu a pomoc s batožinou.",
     "image": "https://zvolen-taxi.sk/og-image.svg",
     "author": {
       "@type": "Organization",

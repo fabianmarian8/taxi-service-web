@@ -18,6 +18,9 @@ const URL_MAPPING: Record<string, string> = {
   "/taxi-s-detskou-sedackou": "/en/child-seat",
   "/nonstop-taxi": "/en/24-7-service",
   "/cennik-taxi-zvolen": "/en/pricing",
+  "/ako-podat-staznost": "/en/complaints",
+  "/kedy-volat-taxi-vopred": "/en/when-to-book",
+  "/taxi-na-vlak-autobus": "/en/station-transfer",
   // EN -> SK (reverse mapping)
   "/en/": "/",
   "/en/airport-transfer": "/letiskova-preprava",
@@ -26,6 +29,9 @@ const URL_MAPPING: Record<string, string> = {
   "/en/child-seat": "/taxi-s-detskou-sedackou",
   "/en/24-7-service": "/nonstop-taxi",
   "/en/pricing": "/cennik-taxi-zvolen",
+  "/en/complaints": "/ako-podat-staznost",
+  "/en/when-to-book": "/kedy-volat-taxi-vopred",
+  "/en/station-transfer": "/taxi-na-vlak-autobus",
 };
 
 export default function Header() {

@@ -95,11 +95,12 @@ export default function CennikTaxiZvolen() {
                   >
                     <td className="border border-border p-4">
                       <strong className="text-yellow-500">Zvolen</strong> → <strong>{item.mesto}</strong>
+                      <span className="sr-only"> taxi preprava, taxislužba, transfer, odvoz</span>
                       <span className="block text-sm text-muted-foreground md:hidden">{item.kraj} kraj</span>
                     </td>
                     <td className="border border-border p-4 text-center">{item.vzdialenost} km</td>
                     <td className="border border-border p-4 text-center font-bold text-yellow-500 text-lg">
-                      {item.vzdialenost <= 30 ? `od ${Math.round(item.vzdialenost * 0.8)}€` : `${Math.round(item.vzdialenost * 0.8)}€`}
+                      {item.vzdialenost <= 10 ? `od ${Math.round(item.vzdialenost * 1.0)}€` : `${Math.round(item.vzdialenost * 1.0)}€`}
                     </td>
                     <td className="border border-border p-4 hidden md:table-cell text-muted-foreground">
                       {item.kraj}
@@ -123,7 +124,7 @@ export default function CennikTaxiZvolen() {
               <CardContent>
                 <p>
                   <strong>Zvolen Bratislava taxi</strong> je jedna z najčastejších trás. Vzdialenosť 195 km,
-                  cena <strong>156€</strong>. Ideálne pre transfer na letisko, obchodné cesty alebo návštevy.
+                  cena <strong>195€</strong>. Ideálne pre transfer na letisko, obchodné cesty alebo návštevy.
                   Cesta trvá približne 2 hodiny po diaľnici.
                 </p>
               </CardContent>
@@ -136,7 +137,7 @@ export default function CennikTaxiZvolen() {
               <CardContent>
                 <p>
                   <strong>Zvolen Košice taxi</strong> preprava na východ Slovenska. Vzdialenosť 212 km,
-                  cena <strong>170€</strong>. Komfortná cesta do metropoly východu, ideálne pre business
+                  cena <strong>212€</strong>. Komfortná cesta do metropoly východu, ideálne pre business
                   alebo osobné účely.
                 </p>
               </CardContent>
@@ -149,7 +150,7 @@ export default function CennikTaxiZvolen() {
               <CardContent>
                 <p>
                   <strong>Zvolen Žilina taxi</strong> - severné Slovensko na dosah. Vzdialenosť 108 km,
-                  cena <strong>86€</strong>. Rýchla a pohodlná preprava do priemyselného centra severu.
+                  cena <strong>108€</strong>. Rýchla a pohodlná preprava do priemyselného centra severu.
                 </p>
               </CardContent>
             </Card>
@@ -161,7 +162,7 @@ export default function CennikTaxiZvolen() {
               <CardContent>
                 <p>
                   <strong>Zvolen Banská Bystrica taxi</strong> - blízke mestá, výhodná cena. Len 21 km,
-                  cena <strong>od 17€</strong>. Najčastejšia lokálna trasa pre každodenné potreby.
+                  cena <strong>21€</strong>. Najčastejšia lokálna trasa pre každodenné potreby.
                 </p>
               </CardContent>
             </Card>
@@ -173,7 +174,7 @@ export default function CennikTaxiZvolen() {
               <CardContent>
                 <p>
                   <strong>Zvolen Poprad taxi</strong> - brána do Vysokých Tatier. Vzdialenosť 136 km,
-                  cena <strong>109€</strong>. Ideálne pre turistov smerujúcich do hôr alebo na letisko Poprad.
+                  cena <strong>136€</strong>. Ideálne pre turistov smerujúcich do hôr alebo na letisko Poprad.
                 </p>
               </CardContent>
             </Card>
@@ -185,7 +186,7 @@ export default function CennikTaxiZvolen() {
               <CardContent>
                 <p>
                   <strong>Zvolen Nitra taxi</strong> - historické mesto na západe. Vzdialenosť 102 km,
-                  cena <strong>82€</strong>. Preprava do univerzitného a kultúrneho centra Slovenska.
+                  cena <strong>102€</strong>. Preprava do univerzitného a kultúrneho centra Slovenska.
                 </p>
               </CardContent>
             </Card>
@@ -201,7 +202,7 @@ export default function CennikTaxiZvolen() {
               <CardContent className="pt-6">
                 <h3 className="font-bold text-lg mb-2">Ako sa počíta cena taxi zo Zvolena?</h3>
                 <p className="text-muted-foreground">
-                  Cena je jednoduchá - <strong>0,80€ za každý kilometer</strong>. Žiadne skryté poplatky,
+                  Cena je jednoduchá - <strong>1,00€ za každý kilometer</strong>. Žiadne skryté poplatky,
                   príplatky za batožinu ani čakaciu dobu. Cena uvedená v cenníku je finálna.
                 </p>
               </CardContent>
@@ -264,6 +265,13 @@ export default function CennikTaxiZvolen() {
 
         {/* Interné odkazy */}
         <section className="mt-12">
+          <h2 className="text-2xl font-bold mb-6">Spoľahlivé medzimestské taxi zo Zvolena</h2>
+          <p className="text-muted-foreground mb-8">
+            Naša taxislužba sa špecializuje na diaľkovú prepravu a medzimestské transfery. Či už hľadáte 
+            <strong> taxi Zvolen Žilina</strong>, potrebujete sa dostať do <strong>Bratislavy</strong>, 
+            alebo plánujete cestu na východ do <strong>Košíc</strong>, sme tu pre vás 24 hodín denne. 
+            Garantujeme pevnú cenu 1€ za kilometer a profesionálny prístup vodičov.
+          </p>
           <h3 className="text-xl font-semibold mb-4">Súvisiace služby</h3>
           <div className="flex flex-wrap gap-2">
             <Link href="/letiskova-preprava">

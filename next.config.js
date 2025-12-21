@@ -1,31 +1,23 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Static export pre GitHub Pages
+  // Static export for Cloudflare Pages
   output: 'export',
 
   // Image optimization configuration
-  // Používame custom loader, ktorý vyberie pre-optimalizované obrázky
-  // generované pomocou scripts/optimize-images.js
-  //
-  // Výhody:
-      // ✅ WebP format (90-95% menšie súbory)
-      // ✅ Responsive sizes (správna veľkosť pre každé zariadenie)
-          // ✅ Lazy loading (ušetrený bandwidth)
-          // ✅ Funguje so static export (GitHub Pages, atď.)
-        images: {
-          unoptimized: true, // Obrázky sú už pre-optimalizované
-          loader: 'custom',
-          loaderFile: './lib/imageLoader.ts',    deviceSizes: [640, 828, 1080, 1200, 1920],
+  // Images are pre-optimized via scripts/optimize-images.js
+  images: {
+    unoptimized: true,
+    loader: 'custom',
+    loaderFile: './lib/imageLoader.ts',
+    deviceSizes: [640, 828, 1080, 1200, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 192, 256, 384],
   },
 
-  // Base path pre GitHub Pages (upraviť podľa potreby)
+  // Base path remains empty for Cloudflare Pages custom domains
   basePath: '',
 
-  // Disable trailing slashes
   trailingSlash: false,
 
-  // TypeScript config
   typescript: {
     ignoreBuildErrors: false,
   },

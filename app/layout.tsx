@@ -28,9 +28,9 @@ const rajdhani = Rajdhani({
 // Fira Mono odstránené - používame system monospace
 
 export const metadata: Metadata = {
-  title: "Taxi Zvolen 24/7 od €10 | Transfer Viedeň €250 | Volajte teraz",
+  title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
   description:
-    "Taxi Zvolen - profesionálna taxislužba 24/7. Pristavenie do 5 min, platba kartou. Letiskové transfery Viedeň, Bratislava, Budapešť od €30. Volajte +421 902 048 583",
+    "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská Viedeň, Bratislava či Budapešť. Volajte nonstop na +421 902 048 583",
   authors: [{ name: "Taxi Service Zvolen" }],
   keywords: [
     "taxi zvolen",
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://zvolen-taxi.sk/",
-    title: "Taxi Zvolen 24/7 od €10 | Transfer Viedeň €250",
+    title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
     description:
-      "Taxi Zvolen - profesionálna taxislužba 24/7. Pristavenie do 5 min, platba kartou. Letiskové transfery Viedeň, Bratislava, Budapešť od €30.",
+      "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská Viedeň, Bratislava či Budapešť.",
     images: [
       {
         url: "https://zvolen-taxi.sk/flux-1-kontext-pro_a_Modern_logo_design_f.webp",
@@ -62,9 +62,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Taxi Zvolen 24/7 od €10 | Transfer Viedeň €250",
+    title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
     description:
-      "Taxi Zvolen - profesionálna taxislužba 24/7. Pristavenie do 5 min, platba kartou. Letiskové transfery od €30.",
+      "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery.",
     images: ["https://zvolen-taxi.sk/flux-1-kontext-pro_a_Modern_logo_design_f.webp"],
   },
   alternates: {

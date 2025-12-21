@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Zvolen Taxi | 24/7 Professional Taxi Service & Airport Transfers",
+  title: "Zvolen Taxi 24/7 | Reliable Transport & Airport Transfers",
   description:
-    "Professional taxi service in Zvolen. 24/7 airport transfers to Vienna, Budapest, Bratislava. English-speaking drivers. Fixed prices. Call +421 902 048 583",
+    "Professional taxi service in Zvolen and surrounding areas. Fast pickup, card payments, and comfortable transfers to Vienna, Bratislava, or Budapest airports. Available 24/7.",
   authors: [{ name: "Taxi Service Zvolen" }],
   keywords: [
     "taxi Zvolen",

@@ -441,7 +441,7 @@ export default function HomePageClient() {
                 </div>
                 <div>
                   <p className="text-xs text-muted-foreground mb-0.5">{t.pricing.bratislava}</p>
-                  <p className="text-lg font-bold text-accent">180€</p>
+                  <p className="text-lg font-bold text-accent">195€</p>
                 </div>
               </div>
               <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-all">

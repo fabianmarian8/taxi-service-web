@@ -2,10 +2,10 @@ export const translations = {
   en: {
     // SEO Metadata
     seo: {
-      title: "Zvolen Taxi | 24/7 Professional Taxi Service & Airport Transfers",
-      description: "Professional taxi service in Zvolen. 24/7 airport transfers to Vienna, Budapest, Bratislava. English-speaking drivers. Fixed prices. Call +421 902 048 583",
+      title: "Zvolen Taxi 24/7 | Reliable Transport & Airport Transfers",
+      description: "Professional taxi service in Zvolen and surrounding areas. Fast pickup, card payments, and comfortable transfers to Vienna, Bratislava, or Budapest airports. Available 24/7.",
       keywords: "taxi Zvolen, taxi service, airport transfer, Zvolen taxi service, taxi to Vienna airport, taxi to Budapest airport, taxi Bratislava, Sliač airport taxi, professional taxi, 24/7 taxi, English speaking taxi driver, taxi Slovakia, Zvolen transport, airport shuttle, city taxi, intercity transfer, taxi Banská Bystrica, reliable taxi service, taxi with child seat zvolen, family taxi zvolen, child car seat taxi, taxi zvolen children, corporate taxi zvolen, business taxi zvolen, taxi zvolen invoice, company taxi zvolen, cheapest taxi zvolen, cheap taxi zvolen budapest, cheap taxi zvolen vienna, taxi zvolen price, bolt alternative zvolen, alternative to bolt zvolen, taxi zvolen airport shuttle, zvolen to budapest taxi, zvolen to vienna taxi, taxi zvolen spa, taxi zvolen kúpele sliač, taxi zvolen podborová, taxi zvolen západ, taxi zvolen zlatý potok, taxi zvolen hospital, wedding taxi zvolen, corporate event taxi zvolen, courier service zvolen, senior taxi zvolen, accessible taxi zvolen, taxi for disabled zvolen, taxi zvolen neighborhoods, taxi zvolen center",
-      ogTitle: "Zvolen Taxi | 24/7 Professional Taxi & Airport Transfers",
+      ogTitle: "Zvolen Taxi 24/7 | Reliable Transport & Airport Transfers",
       ogDescription: "Professional 24/7 taxi service in Zvolen. Airport transfers to Vienna, Budapest, Bratislava with English-speaking drivers and fixed prices.",
     },
     // Navigation
@@ -97,17 +97,17 @@ export const translations = {
       legal: "Legal",
       privacy: "Privacy Policy",
       terms: "Terms of Service",
-      copyright: "© 2024 ZVOLEN TAXI. All rights reserved.",
+      copyright: `© ${new Date().getFullYear()} ZVOLEN TAXI. All rights reserved.`,
     },
   },
   sk: {
     // SEO Metadata
     seo: {
-      title: "Zvolen Taxi | Taxi služba Nonstop 24/7",
-      description: "Profesionálna taxislužba vo Zvolene nonstop. Transfer na letiská Viedeň, Budapešť, Bratislava, Sliač. Fixné ceny. Volajte +421 902 048 583",
+      title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
+      description: "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská Viedeň, Bratislava či Budapešť. Volajte nonstop.",
       keywords: "taxi, zvolen taxi, taxi service, taxi nonstop, zvolen, taxi delivery, food delivery, taxi sliač, taxi lešť, taxi lest, taxi banská bystrica, europa taxi, zv taxi, eko taxi, pp taxi, bolt taxi, bolt, zvolen vlaková stanica, zvolen autobusová stanica, letisko transfer, taxi na letisko, profesionálne taxi, taxi so sedačkou zvolen, taxi zvolen deti, detská autosedačka taxi, rodinné taxi zvolen, firemné taxi zvolen, taxi zvolen faktúra, biznis taxi zvolen, taxi zvolen firma, lacné taxi zvolen budapešť, taxi zvolen cena, lacné taxi zvolen, bolt alternatíva zvolen, alternatíva bolt zvolen, taxi zvolen kúpele, taxi zvolen podborová, taxi zvolen západ, taxi zvolen zlatý potok, taxi zvolen nemocnica, taxi zvolen svadba, taxi zvolen firemná akcia, kuriérska služba zvolen, senior taxi zvolen, taxi pre invalidov zvolen, taxi zvolen košíky, taxi zvolen centrum, taxi zvolen sídlisko, taxi zvolen letiško, lacné taxi zvolen bratislava",
-      ogTitle: "Zvolen Taxi | Taxi služba Nonstop",
-      ogDescription: "Profesionálna taxislužba vo Zvolene nonstop. Transfer na letiská, alebo kdekoľvek potrebujete. Volajte +421 902 048 583.",
+      ogTitle: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
+      ogDescription: "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská.",
     },
     // Navigation
     nav: {
@@ -198,7 +198,7 @@ export const translations = {
       legal: "Právne informácie",
       privacy: "Zásady ochrany osobných údajov",
       terms: "Podmienky používania",
-      copyright: "© 2024 ZVOLEN TAXI. Všetky práva vyhradené.",
+      copyright: `© ${new Date().getFullYear()} ZVOLEN TAXI. All rights reserved.`,
     },
   },
 };

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Beiruti, Rajdhani } from "next/font/google";
 import Script from "next/script";
 import { Providers } from "./providers";
+import { siteConfig, getFullAddress } from "@/lib/config";
 import "./globals.css";
 
 // Optimalizované fonty pre lepšie Core Web Vitals
@@ -30,8 +31,8 @@ const rajdhani = Rajdhani({
 export const metadata: Metadata = {
   title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
   description:
-    "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská Viedeň, Bratislava či Budapešť. Volajte nonstop na +421 902 048 583",
-  authors: [{ name: "Taxi Service Zvolen" }],
+    `Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská Viedeň, Bratislava či Budapešť. Volajte nonstop na ${siteConfig.contact.phone}`,
+  authors: [{ name: siteConfig.brand.name }],
   keywords: [
     "taxi zvolen",
     "taxislužba zvolen",
@@ -45,16 +46,16 @@ export const metadata: Metadata = {
   robots: "index, follow",
   openGraph: {
     type: "website",
-    url: "https://zvolen-taxi.sk/",
+    url: `${siteConfig.brand.url}/`,
     title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
     description:
       "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská Viedeň, Bratislava či Budapešť.",
     images: [
       {
-        url: "https://zvolen-taxi.sk/flux-1-kontext-pro_a_Modern_logo_design_f.webp",
-        width: 256,
-        height: 256,
-        alt: "Taxi Service Zvolen Logo",
+        url: `${siteConfig.brand.url}/og-image.jpg`,
+        width: 1200,
+        height: 630,
+        alt: `${siteConfig.brand.name} - Taxi Zvolen`,
       },
     ],
     locale: "sk_SK",
@@ -65,28 +66,28 @@ export const metadata: Metadata = {
     title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
     description:
       "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery.",
-    images: ["https://zvolen-taxi.sk/flux-1-kontext-pro_a_Modern_logo_design_f.webp"],
+    images: [`${siteConfig.brand.url}/og-image.jpg`],
   },
   alternates: {
-    canonical: "https://zvolen-taxi.sk/",
+    canonical: `${siteConfig.brand.url}/`,
     languages: {
-      sk: "https://zvolen-taxi.sk/",
-      en: "https://zvolen-taxi.sk/en/",
-      "x-default": "https://zvolen-taxi.sk/",
+      sk: `${siteConfig.brand.url}/`,
+      en: `${siteConfig.brand.url}/en/`,
+      "x-default": `${siteConfig.brand.url}/`,
     },
   },
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: siteConfig.brand.logo,
+    apple: siteConfig.brand.logo,
   },
   verification: {
-    google: "lQ4KKwYBn_4OAit-CY6Ye57Iwl19XvSjDe4yfLLPSJc",
+    google: siteConfig.analytics.googleVerification,
   },
   other: {
-    "geo.region": "SK-BC",
-    "geo.placename": "Zvolen",
-    "geo.position": "48.5764;19.1251",
-    ICBM: "48.5764, 19.1251",
+    "geo.region": siteConfig.geo.region,
+    "geo.placename": siteConfig.address.city,
+    "geo.position": `${siteConfig.geo.latitude};${siteConfig.geo.longitude}`,
+    ICBM: `${siteConfig.geo.latitude}, ${siteConfig.geo.longitude}`,
   },
 };
 
@@ -106,35 +107,35 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
-              "@id": "https://zvolen-taxi.sk",
-              name: "Taxi Service Zvolen",
-              alternateName: ["Zvolen Taxi", "ZV Taxi", "Taxi Zvolen"],
+              "@id": siteConfig.brand.url,
+              name: siteConfig.brand.name,
+              alternateName: siteConfig.brand.alternateNames,
               description:
                 "Professional 24/7 taxi service in Zvolen and surrounding areas. Airport transfers to Sliač, Vienna, Bratislava, Budapest. English-speaking drivers.",
-              url: "https://zvolen-taxi.sk",
-              telephone: "+421902048583",
+              url: siteConfig.brand.url,
+              telephone: siteConfig.contact.phoneRaw,
               priceRange: "€€",
-              image: "https://zvolen-taxi.sk/og-image.svg",
-              logo: "https://zvolen-taxi.sk/favicon.png",
+              image: `${siteConfig.brand.url}/og-image.jpg`,
+              logo: `${siteConfig.brand.url}${siteConfig.brand.logo}`,
               aggregateRating: {
                 "@type": "AggregateRating",
-                ratingValue: "4.8",
-                reviewCount: "127",
-                bestRating: "5",
-                worstRating: "1",
+                ratingValue: siteConfig.rating.value,
+                reviewCount: siteConfig.rating.count,
+                bestRating: siteConfig.rating.bestRating,
+                worstRating: siteConfig.rating.worstRating,
               },
               address: {
                 "@type": "PostalAddress",
-                streetAddress: "Námestie SNP 63",
-                postalCode: "960 01",
-                addressLocality: "Zvolen",
-                addressRegion: "Banskobystrický kraj",
-                addressCountry: "SK",
+                streetAddress: siteConfig.address.street,
+                postalCode: siteConfig.address.postalCode,
+                addressLocality: siteConfig.address.city,
+                addressRegion: siteConfig.address.region,
+                addressCountry: siteConfig.address.country,
               },
               geo: {
                 "@type": "GeoCoordinates",
-                latitude: 48.5764,
-                longitude: 19.1251,
+                latitude: siteConfig.geo.latitude,
+                longitude: siteConfig.geo.longitude,
               },
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
@@ -202,12 +203,12 @@ export default function RootLayout({
                 ],
               },
               knowsLanguage: ["English", "Slovak"],
-              sameAs: ["https://api.whatsapp.com/send?phone=421919040118"],
+              sameAs: [siteConfig.social.whatsappUrl],
               potentialAction: {
                 "@type": "ReserveAction",
                 target: {
                   "@type": "EntryPoint",
-                  urlTemplate: "tel:+421902048583",
+                  urlTemplate: `tel:${siteConfig.contact.phoneRaw}`,
                   actionPlatform: [
                     "http://schema.org/DesktopWebPlatform",
                     "http://schema.org/MobileWebPlatform",
@@ -235,7 +236,7 @@ export default function RootLayout({
                   name: "Ako si objednám taxi?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Môžete nám zavolať na +421 919 040 118 alebo nám napísať na WhatsApp. Potvrdíme vašu objednávku a poskytneme fixnú cenu.",
+                    text: `Môžete nám zavolať na ${siteConfig.contact.phone} alebo nám napísať na WhatsApp. Potvrdíme vašu objednávku a poskytneme fixnú cenu.`,
                   },
                 },
                 {
@@ -281,7 +282,7 @@ export default function RootLayout({
 
         {/* Google Analytics - lazyOnload pre lepší LCP */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-G5NKCS80W0"
+          src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.analytics.googleId}`}
           strategy="lazyOnload"
         />
         <Script id="google-analytics" strategy="lazyOnload">
@@ -289,7 +290,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-G5NKCS80W0');
+            gtag('config', '${siteConfig.analytics.googleId}');
           `}
         </Script>
 
@@ -300,7 +301,7 @@ export default function RootLayout({
               c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
               t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
               y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "u32b6wmhp2");
+            })(window, document, "clarity", "script", "${siteConfig.analytics.clarityId}");
           `}
         </Script>
       </body>

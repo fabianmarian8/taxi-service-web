@@ -1,0 +1,10 @@
+version: '1.0'
+name: taxi-service-web
+description: taxi-service-web project
+beads:
+  default_enabled: false
+subjects: {}
+auto_detect:
+  enabled: true
+  method: path_match
+project_id: 2aa9572c-c6e8-4abd-9570-05390f0a978b

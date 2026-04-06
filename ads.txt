@@ -1,0 +1,8 @@
+# Ads.txt pre taxinearme.sk
+# Authorized Digital Sellers deklarácia
+
+# Google AdSense
+google.com, pub-XXXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+
+# Ak nemáte momentálne žiadnych autorizovaných predajcov,
+# môžete tento súbor nechať prázdny alebo obsahujúci len komentáre

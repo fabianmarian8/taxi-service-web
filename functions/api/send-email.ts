@@ -102,24 +102,33 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       ? `Firemný dopyt: ${data.companyName}`
       : `Corporate request: ${data.companyName}`;
 
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${context.env.RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: `Taxi Zvolen Web <${SENDER}>`,
-        to: RECIPIENTS,
-        reply_to: data.contact.includes("@") ? data.contact : undefined,
-        subject,
-        html: buildEmailHtml(data),
-      }),
-    });
+    const emailPayload = {
+      from: `Taxi Zvolen Web <${SENDER}>`,
+      reply_to: data.contact.includes("@") ? data.contact : undefined,
+      subject,
+      html: buildEmailHtml(data),
+    };
 
-    if (!res.ok) {
-      const err = await res.text();
-      console.error("Resend error:", err);
+    const sendEmail = (to: string) =>
+      fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${context.env.RESEND_API_KEY}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...emailPayload, to: [to] }),
+      });
+
+    const results = await Promise.allSettled(
+      RECIPIENTS.map((r) => sendEmail(r))
+    );
+
+    const anyOk = results.some(
+      (r) => r.status === "fulfilled" && r.value.ok
+    );
+
+    if (!anyOk) {
+      console.error("All sends failed:", results);
       return new Response(JSON.stringify({ error: "Email sending failed" }), {
         status: 502,
         headers: { "Content-Type": "application/json", ...corsHeaders },

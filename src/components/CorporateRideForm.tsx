@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, type ChangeEvent } from "react";
-import { Building2, Mail, MessageCircle } from "lucide-react";
+import { Building2, Mail, MessageCircle, CheckCircle, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -34,8 +34,11 @@ const defaultState: FormState = {
   notes: "",
 };
 
+type SendStatus = "idle" | "sending" | "sent" | "error";
+
 export default function CorporateRideForm({ language }: CorporateRideFormProps) {
   const [form, setForm] = useState<FormState>(defaultState);
+  const [sendStatus, setSendStatus] = useState<SendStatus>("idle");
 
   const content =
     language === "en"
@@ -135,12 +138,30 @@ export default function CorporateRideForm({ language }: CorporateRideFormProps) 
     `${content.notes}: ${form.notes || "-"}`,
   ].join("\n");
 
-  const emailHref = `mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(
-    content.subject
-  )}&body=${encodeURIComponent(message)}`;
   const whatsappHref = `https://api.whatsapp.com/send?phone=${siteConfig.contact.whatsappRaw}&text=${encodeURIComponent(
     message
   )}`;
+
+  const handleSendEmail = async () => {
+    if (!isReady || sendStatus === "sending") return;
+    setSendStatus("sending");
+    try {
+      const frequencyLabel =
+        content.frequencies.find((item) => item.value === form.frequency)?.label || "";
+      const res = await fetch("/api/send-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...form, frequency: frequencyLabel, language }),
+      });
+      if (!res.ok) throw new Error("Send failed");
+      setSendStatus("sent");
+      setForm(defaultState);
+      setTimeout(() => setSendStatus("idle"), 5000);
+    } catch {
+      setSendStatus("error");
+      setTimeout(() => setSendStatus("idle"), 4000);
+    }
+  };
 
   return (
     <div className="rounded-[28px] border border-white/10 bg-black/40 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.35)] md:p-8">
@@ -214,12 +235,29 @@ export default function CorporateRideForm({ language }: CorporateRideFormProps) 
       </div>
 
       <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <a href={isReady ? emailHref : "#corporate-form"} className="w-full sm:w-auto">
-          <Button size="lg" className="w-full sm:w-auto btn-yellow" disabled={!isReady}>
+        <Button
+          size="lg"
+          className="w-full sm:w-auto btn-yellow"
+          disabled={!isReady || sendStatus === "sending"}
+          onClick={handleSendEmail}
+        >
+          {sendStatus === "sending" ? (
+            <Loader2 className="mr-2 h-5 w-5 animate-spin" aria-hidden="true" />
+          ) : sendStatus === "sent" ? (
+            <CheckCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+          ) : (
             <Mail className="mr-2 h-5 w-5" aria-hidden="true" />
-            {content.email}
-          </Button>
-        </a>
+          )}
+          {sendStatus === "sent"
+            ? language === "sk"
+              ? "Dopyt odoslaný ✓"
+              : "Request sent ✓"
+            : sendStatus === "error"
+              ? language === "sk"
+                ? "Chyba – skúste znova"
+                : "Error – try again"
+              : content.email}
+        </Button>
         <a href={isReady ? whatsappHref : "#corporate-form"} className="w-full sm:w-auto">
           <Button
             size="lg"

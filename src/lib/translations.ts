@@ -2,11 +2,11 @@ export const translations = {
   en: {
     // SEO Metadata
     seo: {
-      title: "Zvolen Taxi 24/7 | Reliable Transport & Airport Transfers",
-      description: "Professional taxi service in Zvolen and surrounding areas. Fast pickup, card payments, and comfortable transfers to Vienna, Bratislava, or Budapest airports. Available 24/7.",
+      title: "Taxi Zvolen +421 902 048 583 | 24/7, Fixed Prices from €3",
+      description: "Taxi Zvolen 24/7 ☎ +421 902 048 583. City rides from €3, invoice billing for companies, 25% discount on approved corporate rides, and fixed airport prices.",
       keywords: "taxi Zvolen, taxi service, airport transfer, Zvolen taxi service, taxi to Vienna airport, taxi to Budapest airport, taxi Bratislava, Sliač airport taxi, professional taxi, 24/7 taxi, English speaking taxi driver, taxi Slovakia, Zvolen transport, airport shuttle, city taxi, intercity transfer, taxi Banská Bystrica, reliable taxi service, taxi with child seat zvolen, family taxi zvolen, child car seat taxi, taxi zvolen children, corporate taxi zvolen, business taxi zvolen, taxi zvolen invoice, company taxi zvolen, cheapest taxi zvolen, cheap taxi zvolen budapest, cheap taxi zvolen vienna, taxi zvolen price, bolt alternative zvolen, alternative to bolt zvolen, taxi zvolen airport shuttle, zvolen to budapest taxi, zvolen to vienna taxi, taxi zvolen spa, taxi zvolen kúpele sliač, taxi zvolen podborová, taxi zvolen západ, taxi zvolen zlatý potok, taxi zvolen hospital, wedding taxi zvolen, corporate event taxi zvolen, courier service zvolen, senior taxi zvolen, accessible taxi zvolen, taxi for disabled zvolen, taxi zvolen neighborhoods, taxi zvolen center",
-      ogTitle: "Zvolen Taxi 24/7 | Reliable Transport & Airport Transfers",
-      ogDescription: "Professional 24/7 taxi service in Zvolen. Airport transfers to Vienna, Budapest, Bratislava with English-speaking drivers and fixed prices.",
+      ogTitle: "Taxi Zvolen +421 902 048 583 | 24/7, Fixed Prices from €3",
+      ogDescription: "Taxi Zvolen 24/7 ☎ +421 902 048 583. City rides from €3, invoice billing for companies, and 25% discount on approved corporate rides.",
     },
     // Navigation
     nav: {
@@ -18,10 +18,10 @@ export const translations = {
     },
     // Hero Section
     hero: {
-      title: "Professional Taxi Service Zvolen",
-      subtitle: "24/7 Airport Transfers & City Rides",
+      title: "Taxi Zvolen",
+      subtitle: "Pickup in 5 minutes. From €3.",
       cta: "Book Now",
-      description: "Reliable transport across Slovakia with professional, English-speaking drivers",
+      description: "24/7 taxi service in Zvolen. Fixed prices, invoice billing for companies, and 25% discount on corporate rides. Airport transfers to Vienna, Budapest, Bratislava.",
     },
     // Services
     services: {
@@ -39,19 +39,43 @@ export const translations = {
         description: "Long-distance transfers with spacious vehicles and professional service",
       },
       corporate: {
-        name: "Hotel Polana",
-        description: "Vehicle pickup in front of your hotel, according to your requirements",
+        name: "Corporate Rides",
+        description: "Regular business transport with invoice billing and 25% discount for company clients",
       },
     },
     // Pricing
     pricing: {
       title: "Transparent Pricing",
-      subtitle: "Pre-agreed fixed prices, no hidden charges",
+      subtitle: "Pre-agreed fixed prices, no hidden charges, and clear terms for company clients",
       vienna: "Vienna Airport",
       budapest: "Budapest Airport",
       bratislava: "Bratislava",
       sliač: "Sliač Airport",
-      contact: "Contact for custom quotes",
+      contact: "Contact us for custom quotes and corporate conditions",
+      business: "Corporate rides",
+      discount: "-25% with invoice",
+      note: "Discount applies to approved corporate rides with invoice billing.",
+    },
+    business: {
+      kicker: "For companies and hotels",
+      title: "Corporate rides with invoice billing and 25% discount.",
+      description: "We set up straightforward B2B transport for companies, hotels, offices, and regular guests in Zvolen and the surrounding area.",
+      benefit1Title: "Monthly invoicing",
+      benefit1Desc: "Simple setup with company ID and billing details.",
+      benefit2Title: "Priority dispatch",
+      benefit2Desc: "Faster pickup for regular routes and recurring ride requests.",
+      benefit3Title: "Fixed ride costs",
+      benefit3Desc: "Clear rates agreed in advance for local, intercity, and airport transfers.",
+      summaryTitle: "B2B setup",
+      summaryDiscountLabel: "Discount",
+      summaryDiscountValue: "25% off corporate rides",
+      summaryInvoiceLabel: "Billing",
+      summaryInvoiceValue: "Invoice / bank transfer",
+      summaryAvailabilityLabel: "Availability",
+      summaryAvailabilityValue: "24/7 for regular and pre-booked rides",
+      ctaPrimary: "Call for company setup",
+      ctaSecondary: "Request invoice rides by email",
+      note: "We can set up billing terms individually for your company.",
     },
     // Features
     features: {
@@ -83,7 +107,7 @@ export const translations = {
       q2: "Do you monitor flights?",
       a2: "Yes! For airport transfers, we monitor your flight and adjust pickup times if there are delays.",
       q3: "What payment methods do you accept?",
-      a3: "We accept cash and bank transfers. Corporate clients can use invoice billing.",
+      a3: "We accept cash and bank transfers. Corporate clients can use invoice billing and receive a 25% discount on approved business rides.",
       q4: "Are your vehicles spacious?",
       a4: "Yes, our vehicles handle standard luggage and duty gear. We're happy to assist with bags at pickup and drop-off.",
       q5: "Do you serve other cities?",
@@ -103,11 +127,11 @@ export const translations = {
   sk: {
     // SEO Metadata
     seo: {
-      title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
-      description: "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská Viedeň, Bratislava či Budapešť. Volajte nonstop.",
+      title: "Taxi Zvolen +421 902 048 583 | Nonstop, fixné ceny od 3€",
+      description: "Taxi Zvolen nonstop ☎ +421 902 048 583. Mestské jazdy od 3€, firemné jazdy na faktúru, 25% zľava na schválené firemné jazdy a fixné ceny na letiská.",
       keywords: "taxi, zvolen taxi, taxi service, taxi nonstop, zvolen, taxi delivery, food delivery, taxi sliač, taxi lešť, taxi lest, taxi banská bystrica, europa taxi, zv taxi, eko taxi, pp taxi, bolt taxi, bolt, zvolen vlaková stanica, zvolen autobusová stanica, letisko transfer, taxi na letisko, profesionálne taxi, taxi so sedačkou zvolen, taxi zvolen deti, detská autosedačka taxi, rodinné taxi zvolen, firemné taxi zvolen, taxi zvolen faktúra, biznis taxi zvolen, taxi zvolen firma, lacné taxi zvolen budapešť, taxi zvolen cena, lacné taxi zvolen, bolt alternatíva zvolen, alternatíva bolt zvolen, taxi zvolen kúpele, taxi zvolen podborová, taxi zvolen západ, taxi zvolen zlatý potok, taxi zvolen nemocnica, taxi zvolen svadba, taxi zvolen firemná akcia, kuriérska služba zvolen, senior taxi zvolen, taxi pre invalidov zvolen, taxi zvolen košíky, taxi zvolen centrum, taxi zvolen sídlisko, taxi zvolen letiško, lacné taxi zvolen bratislava",
-      ogTitle: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
-      ogDescription: "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská.",
+      ogTitle: "Taxi Zvolen +421 902 048 583 | Nonstop, fixné ceny od 3€",
+      ogDescription: "Taxi Zvolen nonstop ☎ +421 902 048 583. Mestské jazdy od 3€, platba na faktúru pre firmy a 25% zľava na schválené firemné jazdy.",
     },
     // Navigation
     nav: {
@@ -119,10 +143,10 @@ export const translations = {
     },
     // Hero Section
     hero: {
-      title: "Profesionálna taxislužba Zvolen",
-      subtitle: "Letiskové transfery a mestské jazdy 24/7",
+      title: "Taxi Zvolen",
+      subtitle: "Pristavíme do 5 minút. Od 3€.",
       cta: "Objednať",
-      description: "Spoľahlivá preprava po celom Slovensku s profesionálnymi vodičmi",
+      description: "Nonstop taxislužba vo Zvolene a okolí. Fixné ceny, platba na faktúru pre firmy a 25% zľava na firemné jazdy. Letiskové transfery Viedeň, Budapešť, Bratislava.",
     },
     // Services
     services: {
@@ -140,19 +164,43 @@ export const translations = {
         description: "Dlhé vzdialenosti s priestrannými vozidlami a profesionálnym servisom",
       },
       corporate: {
-        name: "Hotel Polana",
-        description: "pristavenie vozidla pred Váš hotel, podľa Vašich požiadaviek",
+        name: "Firemné jazdy",
+        description: "Pravidelná firemná preprava na faktúru so zľavou 25% pre firemných klientov",
       },
     },
     // Pricing
     pricing: {
       title: "Transparentné ceny",
-      subtitle: "Vopred dohodnuté fixné ceny bez skrytých poplatkov",
+      subtitle: "Vopred dohodnuté fixné ceny bez skrytých poplatkov a jasné podmienky pre firmy",
       vienna: "Letisko Viedeň",
       budapest: "Letisko Budapešť",
       bratislava: "Bratislava",
       sliač: "Letisko Sliač",
-      contact: "Kontaktujte nás na individuálne ponuky",
+      contact: "Kontaktujte nás na individuálne ponuky a firemné podmienky",
+      business: "Firemné jazdy",
+      discount: "-25% na faktúru",
+      note: "Zľava platí pre schválené firemné jazdy pri platbe na faktúru.",
+    },
+    business: {
+      kicker: "Pre firmy a hotely",
+      title: "Firemné jazdy na faktúru so zľavou 25%.",
+      description: "Nastavíme vám jednoduchú B2B prepravu pre firmy, hotely, kancelárie aj pravidelných hostí vo Zvolene a okolí.",
+      benefit1Title: "Mesačná fakturácia",
+      benefit1Desc: "Rýchle nastavenie po zaslaní IČO a fakturačných údajov.",
+      benefit2Title: "Prednostné pristavenie",
+      benefit2Desc: "Rýchlejšie vybavenie pravidelných trás a opakovaných objednávok.",
+      benefit3Title: "Fixné náklady na jazdy",
+      benefit3Desc: "Jasné ceny dohodnuté vopred pre mestské, medzimestské aj letiskové transfery.",
+      summaryTitle: "Firemná spolupráca",
+      summaryDiscountLabel: "Zľava",
+      summaryDiscountValue: "25% na firemné jazdy",
+      summaryInvoiceLabel: "Platba",
+      summaryInvoiceValue: "Faktúra / bankový prevod",
+      summaryAvailabilityLabel: "Dostupnosť",
+      summaryAvailabilityValue: "24/7 pre pravidelné aj objednané jazdy",
+      ctaPrimary: "Zavolať pre firemnú spoluprácu",
+      ctaSecondary: "Napísať pre jazdy na faktúru",
+      note: "Firemné podmienky vieme nastaviť individuálne podľa objemu jázd.",
     },
     // Features
     features: {
@@ -184,7 +232,7 @@ export const translations = {
       q2: "Monitorujete lety?",
       a2: "Áno! Pri letiskových transferoch sledujeme váš let a prispôsobujeme čas vyzdvihnutia pri oneskoreniach.",
       q3: "Aké spôsoby platby akceptujete?",
-      a3: "Akceptujeme hotovosť a bankové prevody. Firemní klienti môžu používať faktúry.",
+      a3: "Akceptujeme hotovosť a bankové prevody. Firemní klienti môžu používať faktúry a pri schválených firemných jazdách získať zľavu 25%.",
       q4: "Sú vaše vozidlá priestranné?",
       a4: "Áno, naše vozidlá pojmú štandardný kufor a vybavenie. Pomôžeme vám s batožinou pri vyzdvihnutí a vysadení.",
       q5: "Slúžite aj v iných mestách?",

@@ -135,6 +135,12 @@
     font-family: var(--font-family-mono);
   }
 
+  @media (max-width: 767px) {
+    body {
+      padding-bottom: calc(5.75rem + env(safe-area-inset-bottom));
+    }
+  }
+
   /* Respect user's motion preferences */
   @media (prefers-reduced-motion: reduce) {
 
@@ -455,8 +461,10 @@
 
   /* Header styling */
   .header-dark {
-    background-color: #e5e5e5;
-    @apply backdrop-blur-sm border-b border-border sticky top-0 z-50;
+    background: rgba(5, 5, 5, 0.88);
+    border-bottom-color: rgba(249, 177, 1, 0.16);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+    @apply sticky top-0 z-50 border-b backdrop-blur-md;
   }
 
   /* Text shadow for better readability on images */
@@ -493,7 +501,7 @@
   }
 
   .nav-link {
-    color: #000000 !important;
+    color: #ffffff !important;
     font-family: var(--font-beiruti), sans-serif;
     font-weight: 600;
     transition: color 0.3s ease;

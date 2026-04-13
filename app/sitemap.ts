@@ -12,6 +12,7 @@ const routeMapping: Record<string, string> = {
   '/letiskova-preprava': '/en/airport-transfer',
   '/nonstop-taxi': '/en/24-7-service',
   '/platba-v-taxiku': '/en/payment-options',
+  '/firemne-jazdy': '/en/corporate-rides',
   '/taxi-na-vlak-autobus': '/en/station-transfer',
   '/taxi-s-detskou-sedackou': '/en/child-seat',
 }

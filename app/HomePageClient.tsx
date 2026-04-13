@@ -1,33 +1,39 @@
 "use client";
 
 import Header from "@/components/Header";
-import { useLanguage } from "@/contexts/LanguageContext";
-import { getTranslation } from "@/lib/translations";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import {
-  Phone,
-  MessageCircle,
-  MapPin,
-  Clock,
-  Zap,
-  Users,
-  Shield,
-  Plane,
-  Star,
-  CheckCircle,
-  AlertCircle,
-  BookOpen,
-  ArrowRight,
-} from "lucide-react";
-import { useState } from "react";
-import Link from "next/link";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { siteConfig } from "@/lib/config";
+import { getLocalizedUrl } from "@/lib/routes";
+import { getTranslation } from "@/lib/translations";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import {
+  AlertCircle,
+  ArrowRight,
+  BadgePercent,
+  BookOpen,
+  Building2,
+  CheckCircle,
+  Clock,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Plane,
+  ReceiptText,
+  Shield,
+  Star,
+  Users,
+  Zap,
+} from "lucide-react";
 
 export default function HomePageClient() {
   const { language } = useLanguage();
   const t = getTranslation(language);
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
 
   const faqItems = [
     { q: t.faq.q1, a: t.faq.a1 },
@@ -46,310 +52,442 @@ export default function HomePageClient() {
     { name: "Ministry of Fun White", src: "/images/processed/ministry-of-fun-white.png" },
   ];
 
+  const localizedHref = (href: string) => getLocalizedUrl(href, language);
+  const invoiceSubject =
+    language === "en" ? "Corporate rides and invoice billing" : "Firemné jazdy a platba na faktúru";
+
+  const heroChips = [
+    {
+      icon: Building2,
+      label: language === "en" ? "Corporate rides" : "Firemné jazdy",
+    },
+    {
+      icon: ReceiptText,
+      label: language === "en" ? "Invoice billing" : "Platba na faktúru",
+    },
+    {
+      icon: BadgePercent,
+      label: language === "en" ? "25% discount" : "Zľava 25%",
+    },
+  ];
+
+  const serviceCards = [
+    {
+      icon: Plane,
+      image: "/images/processed/airport-transfer.png",
+      title: t.services.airport.name,
+      description: t.services.airport.description,
+      alt:
+        language === "en"
+          ? "Professional airport transfer service to Vienna, Budapest, Bratislava and Sliač airports"
+          : "Profesionálny letiskový transfer na letiská Viedeň, Budapešť, Bratislava a Sliač",
+    },
+    {
+      icon: Users,
+      image: "/images/processed/family-transfer.png",
+      title: t.services.city.name,
+      description: t.services.city.description,
+      alt:
+        language === "en"
+          ? "City taxi service in Lešť, Zvolen, Banská Bystrica and surrounding areas"
+          : "Mestská taxislužba v Lešti, Zvolene, Banskej Bystrici a okolí",
+    },
+    {
+      icon: Shield,
+      image: "/images/processed/car-interior.png",
+      title: t.services.intercity.name,
+      description: t.services.intercity.description,
+      alt:
+        language === "en"
+          ? "Spacious intercity transfer service with professional vehicles"
+          : "Priestranný medzimestský transfer s profesionálnymi vozidlami",
+    },
+    {
+      icon: Building2,
+      image: "/images/processed/hotel-night.png",
+      title: t.services.corporate.name,
+      description: t.services.corporate.description,
+      alt:
+        language === "en"
+          ? "Corporate taxi rides for hotels, offices, and company clients"
+          : "Firemné taxi jazdy pre hotely, kancelárie a firemných klientov",
+    },
+  ];
+
+  const differentiators = [
+    {
+      icon: Star,
+      title: language === "en" ? "4.8 Rating" : "4.8 hodnotenie",
+      description:
+        language === "en"
+          ? "127 reviews from satisfied customers"
+          : "127 hodnotení od spokojných zákazníkov",
+    },
+    {
+      icon: Clock,
+      title: language === "en" ? "24/7 Nonstop" : "24/7 nonstop",
+      description:
+        language === "en"
+          ? "Day, night, weekends, and holidays"
+          : "Deň, noc, víkendy aj sviatky",
+    },
+    {
+      icon: Shield,
+      title: language === "en" ? "Fixed Prices" : "Fixné ceny",
+      description:
+        language === "en"
+          ? "Clear quote agreed before the ride"
+          : "Jasná cena dohodnutá vopred",
+    },
+    {
+      icon: Zap,
+      title: language === "en" ? "5 min Pickup" : "Pristavenie do 5 min",
+      description:
+        language === "en"
+          ? "Fast dispatch inside Zvolen"
+          : "Rýchle pristavenie v rámci Zvolena",
+    },
+    {
+      icon: ReceiptText,
+      title: language === "en" ? "Invoice Billing" : "Platba na faktúru",
+      description:
+        language === "en"
+          ? "Suitable for companies, hotels, and offices"
+          : "Vhodné pre firmy, hotely aj kancelárie",
+    },
+    {
+      icon: BadgePercent,
+      title: language === "en" ? "25% for Companies" : "25% pre firmy",
+      description:
+        language === "en"
+          ? "On approved corporate rides"
+          : "Na schválené firemné jazdy",
+    },
+  ];
+
+  const pricingCards = [
+    {
+      icon: MapPin,
+      label: language === "en" ? "Within the city from" : "V rámci mesta od",
+      value: "3€",
+    },
+    {
+      icon: Plane,
+      label: t.pricing.sliač,
+      value: "10€",
+    },
+    {
+      icon: Plane,
+      label: t.pricing.budapest,
+      value: "170€",
+    },
+    {
+      icon: MapPin,
+      label: t.pricing.bratislava,
+      value: "195€",
+    },
+    {
+      icon: Plane,
+      label: t.pricing.vienna,
+      value: "250€",
+    },
+    {
+      icon: Building2,
+      label: t.pricing.business,
+      value: t.pricing.discount,
+      highlight: true,
+    },
+  ];
+
+  const businessBenefits = [
+    {
+      icon: ReceiptText,
+      title: t.business.benefit1Title,
+      description: t.business.benefit1Desc,
+    },
+    {
+      icon: Clock,
+      title: t.business.benefit2Title,
+      description: t.business.benefit2Desc,
+    },
+    {
+      icon: MapPin,
+      title: t.business.benefit3Title,
+      description: t.business.benefit3Desc,
+    },
+  ];
+
+  const blogCards = [
+    {
+      href: "/firemne-jazdy",
+      icon: Building2,
+      title: language === "en" ? "Corporate Rides" : "Firemné jazdy",
+      description:
+        language === "en"
+          ? "Invoice billing, recurring rides, and 25% company discount"
+          : "Faktúra, pravidelné jazdy a 25% zľava pre firmy",
+    },
+    {
+      href: "/ako-objednat-taxi-bez-aplikacie",
+      icon: MessageCircle,
+      title: language === "en" ? "How to Order Taxi" : "Ako objednať taxi",
+      description:
+        language === "en"
+          ? "Order by phone, SMS, or WhatsApp without an app"
+          : "Objednajte telefonicky, SMS alebo cez WhatsApp bez aplikácie",
+    },
+    {
+      href: "/kedy-volat-taxi-vopred",
+      icon: Clock,
+      title: language === "en" ? "When to Book in Advance" : "Kedy volať vopred",
+      description:
+        language === "en"
+          ? "Tips for rush hours, weekends, and events"
+          : "Tipy pre špičky, víkendy a podujatia",
+    },
+    {
+      href: "/platba-v-taxiku",
+      icon: CheckCircle,
+      title: language === "en" ? "Payment Options" : "Platba v taxíku",
+      description:
+        language === "en"
+          ? "Cash, transfer, or invoice for companies"
+          : "Hotovosť, prevod alebo faktúra pre firmy",
+    },
+    {
+      href: "/taxi-s-detskou-sedackou",
+      icon: Users,
+      title: language === "en" ? "Child Seat" : "Detská sedačka",
+      description:
+        language === "en" ? "Safe travel with children" : "Bezpečná preprava s deťmi",
+    },
+    {
+      href: "/taxi-na-vlak-autobus",
+      icon: MapPin,
+      title: language === "en" ? "Station Transfer" : "Transfer na stanicu",
+      description:
+        language === "en" ? "Arrive on time for train or bus" : "Načas na vlak alebo autobus",
+    },
+    {
+      href: "/letiskova-preprava",
+      icon: Plane,
+      title: language === "en" ? "Airport Transfer" : "Letisková preprava",
+      description:
+        language === "en"
+          ? "To Vienna, Budapest, and Bratislava"
+          : "Do Viedne, Budapešti a Bratislavy",
+    },
+    {
+      href: "/ako-podat-staznost",
+      icon: AlertCircle,
+      title: language === "en" ? "Complaints" : "Reklamácia",
+      description:
+        language === "en" ? "How to file a complaint" : "Ako podať sťažnosť",
+    },
+    {
+      href: "/nonstop-taxi",
+      icon: Clock,
+      title: language === "en" ? "24/7 Service" : "Nonstop služba",
+      description:
+        language === "en" ? "Night and weekend operation" : "Nočná a víkendová prevádzka",
+    },
+  ];
+
+  const contactCards = [
+    {
+      icon: Phone,
+      title: t.contact.phone,
+      value: siteConfig.contact.phone,
+      href: `tel:${siteConfig.contact.phoneRaw}`,
+    },
+    {
+      icon: MessageCircle,
+      title: t.contact.whatsapp,
+      value: siteConfig.contact.whatsapp,
+      href: siteConfig.social.whatsappUrl,
+    },
+    {
+      icon: Mail,
+      title: t.contact.email,
+      value: siteConfig.contact.email,
+      href: `mailto:${siteConfig.contact.email}`,
+    },
+    {
+      icon: Clock,
+      title: t.contact.hours,
+      value: language === "en" ? "Immediate response for booked rides" : "Rýchla odpoveď pri objednaných jazdách",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
 
-      {/* Hero Section with Image Background */}
-      <section className="relative w-full min-h-[70vh] md:min-h-[80vh] flex items-start justify-center overflow-hidden pt-20 md:pt-24">
-        {/* Image Background with overlay */}
-        <div className="absolute inset-0 w-full h-full">
+      <section className="relative flex min-h-[72vh] w-full items-center justify-center overflow-hidden pt-20 md:min-h-[82vh] md:pt-24">
+        <div className="absolute inset-0 h-full w-full">
           <Image
             src="/lexi-anderson-G8wPrJyNqWQ-unsplash.webp"
             alt={language === "en" ? "Taxi service background" : "Pozadie taxislužby"}
             fill
             className="object-cover"
-            style={{ filter: "brightness(0.7)", objectPosition: "75% 60%" }}
+            style={{ filter: "brightness(0.62)", objectPosition: "75% 60%" }}
             priority
             fetchPriority="high"
             sizes="100vw"
             quality={85}
           />
         </div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/35" />
 
-        {/* Hero Content */}
-        <div className="relative z-10 container text-left text-white fade-in px-8 md:px-12 lg:px-20">
-          <h1 className="font-medium text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider drop-shadow-lg leading-none mb-1">
-            {language === "en" ? (
-              <>
-                Professional <span className="text-[#f9b101] font-semibold">Taxi Service</span> Zvolen
-              </>
-            ) : (
-              <>
-                <span className="text-[#f9b101] font-semibold">Taxi Zvolen</span>
-              </>
-            )}
-          </h1>
-          <h2 className="font-medium text-3xl md:text-4xl lg:text-5xl uppercase tracking-wider text-[#ffffff] drop-shadow-lg leading-none mt-2 mb-8">
-            {language === "en" ? (
-              <>
-                Your quick contact <span className="text-[#f9b101]">always on time</span>
-              </>
-            ) : (
-              <>
-                Jazda, ktorá rešpektuje váš čas a pokoj.
-              </>
-            )}
-          </h2>
-          <p className="text-base md:text-lg lg:text-xl mb-12 max-w-3xl text-shadow text-white leading-7">
-            {language === "en"
-              ? "Quick, reliable and professional taxi service. Available 24/7 for airport transfers, city transport and intercity journeys."
-              : "Rýchla, spoľahlivá a profesionálna taxislužba v meste Zvolen. Dostupné 24/7 pre letiskové transfery, mestskú dopravu a medzimiestne cesty."}
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-start items-start">
-            <a href="tel:+421902048583" className="w-full sm:w-auto btn-call text-lg">
-              <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
-              +421 902 048 583
-            </a>
+        <div className="relative z-10 container px-8 py-12 text-left text-white md:px-12 md:py-16 lg:px-20">
+          <div className="max-w-4xl">
+            <div className="mb-5 flex flex-wrap gap-2.5">
+              {heroChips.map((chip) => (
+                <span
+                  key={chip.label}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90 backdrop-blur-sm md:text-xs"
+                >
+                  <chip.icon className="h-4 w-4 text-[#f9b101]" aria-hidden="true" />
+                  {chip.label}
+                </span>
+              ))}
+            </div>
+
+            <h1 className="mb-2 text-3xl font-medium uppercase leading-none tracking-wider drop-shadow-lg md:text-5xl lg:text-6xl">
+              <span className="font-semibold text-[#f9b101]">{t.hero.title}</span>
+            </h1>
+            <h2 className="mt-3 mb-4 text-2xl font-medium uppercase leading-none tracking-wider text-white drop-shadow-lg md:text-3xl lg:text-4xl">
+              {t.hero.subtitle}
+            </h2>
+
             <a
-              href="https://api.whatsapp.com/send?phone=421919040118"
-              className="w-full sm:w-auto"
+              href={`tel:${siteConfig.contact.phoneRaw}`}
+              className="mb-4 inline-flex items-center gap-3 text-2xl font-bold text-[#f9b101] drop-shadow-lg transition-colors hover:text-yellow-300 md:text-4xl lg:text-5xl"
             >
-              <Button
-                size="lg"
-                className="text-lg px-10 py-6 w-full sm:w-auto text-black font-semibold"
-                style={{ backgroundColor: '#25D366' }}
-              >
-                <MessageCircle className="w-5 h-5 mr-2" aria-hidden="true" />
-                WhatsApp
-              </Button>
+              <Phone className="h-6 w-6 md:h-8 md:w-8" aria-hidden="true" />
+              {siteConfig.contact.phone}
             </a>
-          </div>
 
-          {/* Payment Methods Image - Mobile version (inline) */}
-          <div className="block md:hidden mt-6 w-[200px] h-[200px] relative mx-auto">
-            <Image
-              src="/Snimka-obrazovky-2022-07-12-o-14.51.55.webp"
-              alt={language === "en" ? "Payment methods" : "Platobné metódy"}
-              fill
-              className="object-contain"
-              style={{ filter: 'brightness(0.5)' }}
-              quality={85}
-              sizes="200px"
-            />
+            <p className="mb-10 max-w-3xl text-base leading-7 text-white text-shadow md:text-lg lg:text-xl">
+              {t.hero.description}
+            </p>
+
+            <div className="flex flex-col items-start gap-4 sm:flex-row">
+              <a href={`tel:${siteConfig.contact.phoneRaw}`} className="w-full sm:w-auto">
+                <span className="w-full text-lg sm:w-auto btn-call">
+                  <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
+                  {siteConfig.contact.phone}
+                </span>
+              </a>
+              <a href={siteConfig.social.whatsappUrl} className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="w-full px-10 py-6 text-lg font-semibold text-black sm:w-auto"
+                  style={{ backgroundColor: "#25D366" }}
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+                  WhatsApp
+                </Button>
+              </a>
+            </div>
+
+            <p className="mt-5 max-w-2xl text-sm leading-6 text-white/80 md:text-base">
+              {t.business.note}
+            </p>
+
+            <div className="relative mt-6 block h-[160px] w-[220px] md:hidden">
+              <Image
+                src="/Snimka-obrazovky-2022-07-12-o-14.51.55.webp"
+                alt={language === "en" ? "Payment methods" : "Platobné metódy"}
+                fill
+                className="object-contain"
+                style={{ filter: "brightness(0.65)" }}
+                quality={85}
+                sizes="220px"
+              />
+            </div>
           </div>
         </div>
 
-        {/* Payment Methods Image - Desktop version (absolute positioned) */}
-        <div className="hidden md:block absolute -bottom-43 right-37 z-20 w-[392px] h-[392px]">
+        <div className="absolute bottom-2 right-4 z-20 hidden h-[250px] w-[250px] opacity-90 lg:block xl:right-12 xl:h-[320px] xl:w-[320px]">
           <Image
             src="/Snimka-obrazovky-2022-07-12-o-14.51.55.webp"
             alt={language === "en" ? "Payment methods" : "Platobné metódy"}
             fill
-            className="object-contain"
-            style={{ filter: 'brightness(0.5)' }}
+            className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
+            style={{ filter: "brightness(0.72)" }}
             quality={85}
-            sizes="392px"
+            sizes="(min-width: 1280px) 320px, 250px"
           />
         </div>
       </section>
 
-      {/* Services Section */}
       <section
         id="services"
-        className="pt-6 pb-24 md:pt-12 md:pb-24 bg-background"
+        className="bg-background pt-8 pb-20 md:pt-12 md:pb-24"
         aria-label={language === "en" ? "Our services" : "Naše služby"}
       >
         <div className="container">
-          <h2 className="text-xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-6 text-white">
+          <h2 className="mb-3 text-center text-xl font-bold text-white md:mb-6 md:text-4xl lg:text-5xl">
             {language === "en" ? "OUR SERVICES" : "NAŠE SLUŽBY"}
           </h2>
-          <p className="text-center text-muted-foreground text-xs md:text-base mb-8 md:mb-16 max-w-2xl mx-auto">
+          <p className="mx-auto mb-8 max-w-2xl text-center text-xs text-muted-foreground md:mb-16 md:text-base">
             {language === "en"
-              ? "Professional taxi services for all your transportation needs"
-              : "Profesionálne taxi služby pre všetky vaše prepravné potreby"}
+              ? "Transport for private clients, airport transfers, and company accounts."
+              : "Preprava pre súkromných klientov, letiskové transfery aj firemné účty."}
           </p>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-            {/* Airport Transfer Card */}
-            <div className="service-card h-[180px] md:h-[260px] scale-in">
-              <Image
-                src="/images/processed/airport-transfer.png"
-                alt={
-                  language === "en"
-                    ? "Professional airport transfer service to Vienna, Budapest, Bratislava and Sliač airports"
-                    : "Profesionálny letiskový transfer na letiská Viedeň, Budapešť, Bratislava a Sliač"
-                }
-                fill
-                className="object-cover"
-                quality={80}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              <div className="service-card-content">
-                <div className="w-8 h-8 md:w-9 md:h-9 bg-accent rounded-lg flex items-center justify-center mb-1 md:mb-2 float-animation">
-                  <Plane className="w-4 h-4 md:w-5 md:h-5 text-accent-foreground" aria-hidden="true" />
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
+            {serviceCards.map((card, index) => (
+              <div key={card.title} className="service-card h-[190px] scale-in md:h-[260px]">
+                <Image
+                  src={card.image}
+                  alt={card.alt}
+                  fill
+                  className="object-cover"
+                  quality={80}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                />
+                <div className="service-card-content">
+                  <div
+                    className="mb-1 flex h-8 w-8 items-center justify-center rounded-lg bg-accent md:mb-2 md:h-9 md:w-9 float-animation"
+                    style={{ animationDelay: `${index * 0.2}s` }}
+                  >
+                    <card.icon className="h-4 w-4 text-accent-foreground md:h-5 md:w-5" aria-hidden="true" />
+                  </div>
+                  <h3 className="mb-1 text-sm font-bold text-white md:mb-3 md:text-lg">{card.title}</h3>
+                  <p className="text-xs text-white/90 md:text-sm">{card.description}</p>
                 </div>
-                <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-3">
-                  {t.services.airport.name}
-                </h3>
-                <p className="text-white/90 text-xs md:text-sm">{t.services.airport.description}</p>
               </div>
-            </div>
-
-            {/* Family Transfer Card */}
-            <div className="service-card h-[180px] md:h-[260px] scale-in">
-              <Image
-                src="/images/processed/family-transfer.png"
-                alt={
-                  language === "en"
-                    ? "City taxi service in Lešť, Zvolen, Banská Bystrica and surrounding areas"
-                    : "Mestská taxislužba v Lešti, Zvolene, Banskej Bystrici a okolí"
-                }
-                fill
-                className="object-cover"
-                quality={80}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              <div className="service-card-content">
-                <div
-                  className="w-8 h-8 md:w-9 md:h-9 bg-accent rounded-lg flex items-center justify-center mb-1 md:mb-2 float-animation"
-                  style={{ animationDelay: "0.2s" }}
-                >
-                  <Users className="w-4 h-4 md:w-5 md:h-5 text-accent-foreground" aria-hidden="true" />
-                </div>
-                <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-3">
-                  {t.services.city.name}
-                </h3>
-                <p className="text-white/90 text-xs md:text-sm">{t.services.city.description}</p>
-              </div>
-            </div>
-
-            {/* Luxury Interior Card */}
-            <div className="service-card h-[180px] md:h-[260px] scale-in">
-              <Image
-                src="/images/processed/car-interior.png"
-                alt={
-                  language === "en"
-                    ? "Spacious intercity transfer service with professional vehicles"
-                    : "Priestranný medzimiestny transfer s profesionálnymi vozidlami"
-                }
-                fill
-                className="object-cover"
-                quality={80}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              <div className="service-card-content">
-                <div
-                  className="w-8 h-8 md:w-9 md:h-9 bg-accent rounded-lg flex items-center justify-center mb-1 md:mb-2 float-animation"
-                  style={{ animationDelay: "0.4s" }}
-                >
-                  <Shield className="w-4 h-4 md:w-5 md:h-5 text-accent-foreground" aria-hidden="true" />
-                </div>
-                <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-3">
-                  {t.services.intercity.name}
-                </h3>
-                <p className="text-white/90 text-xs md:text-sm">{t.services.intercity.description}</p>
-              </div>
-            </div>
-
-            {/* Night Service Card */}
-            <div className="service-card h-[180px] md:h-[260px] scale-in">
-              <Image
-                src="/images/processed/hotel-night.png"
-                alt={
-                  language === "en"
-                    ? "Hotel Polana pickup service - vehicle pickup in front of your hotel"
-                    : "Služba Hotel Polana - pristavenie vozidla pred váš hotel"
-                }
-                fill
-                className="object-cover"
-                quality={80}
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              />
-              <div className="service-card-content">
-                <div
-                  className="w-8 h-8 md:w-9 md:h-9 bg-accent rounded-lg flex items-center justify-center mb-1 md:mb-2 float-animation"
-                  style={{ animationDelay: "0.6s" }}
-                >
-                  <Zap className="w-4 h-4 md:w-5 md:h-5 text-accent-foreground" aria-hidden="true" />
-                </div>
-                <h3 className="text-sm md:text-lg font-bold text-white mb-1 md:mb-3">
-                  {t.services.corporate.name}
-                </h3>
-                <p className="text-white/90 text-xs md:text-sm">{t.services.corporate.description}</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Features Section - What Sets Us Apart */}
       <section
-        className="py-12 bg-card/50"
+        className="bg-card/50 py-12"
         aria-label={language === "en" ? "What sets us apart" : "Čo nás odlišuje"}
       >
         <div className="container">
-          <h2 className="text-xl md:text-5xl lg:text-6xl font-bold text-center mb-3 md:mb-6 text-white">
+          <h2 className="mb-3 text-center text-xl font-bold text-white md:mb-6 md:text-5xl lg:text-6xl">
             {language === "en" ? "WHAT SETS US APART" : "ČO NÁS ODLIŠUJE"}
           </h2>
-          <p className="text-center text-muted-foreground text-xs md:text-lg mb-8 md:mb-16 max-w-2xl mx-auto">
-            {language === "en" ? "Excellence in every journey" : "Dokonalošť v každej ceste"}
+          <p className="mx-auto mb-8 max-w-2xl text-center text-xs text-muted-foreground md:mb-16 md:text-lg">
+            {language === "en" ? "Built for reliable daily rides and business transport." : "Nastavené pre spoľahlivé denné jazdy aj firemnú prepravu."}
           </p>
 
-          <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-6">
-            {[
-              {
-                icon: Star,
-                title: language === "en" ? "Trusted" : "Dôveryhodní",
-                desc:
-                  language === "en"
-                    ? "Years of exceptional service and satisfied customers"
-                    : "Roky výnimočných služieb a spokojných zákazníkov",
-              },
-              {
-                icon: Clock,
-                title: language === "en" ? "Reliable" : "Spoľahliví",
-                desc:
-                  language === "en"
-                    ? "Always on time, day or night, rain or shine"
-                    : "Vždy načas, vo dne v noci, za každého počasia",
-              },
-              {
-                icon: Shield,
-                title: language === "en" ? "Safe" : "Bezpeční",
-                desc:
-                  language === "en"
-                    ? "Professional drivers and secure vehicles"
-                    : "Profesionálni vodiči a bezpečné vozidlá",
-              },
-              {
-                icon: Zap,
-                title: language === "en" ? "Fast" : "Rýchli",
-                desc:
-                  language === "en"
-                    ? "Quick response and efficient routes"
-                    : "Rýchla odpoveď a efektívne trasy",
-              },
-              {
-                icon: CheckCircle,
-                title: language === "en" ? "Quality" : "Kvalita",
-                desc:
-                  language === "en"
-                    ? "Premium vehicles and excellent service"
-                    : "Prémiové vozidlá a vynikajúce služby",
-              },
-              {
-                icon: Users,
-                title: language === "en" ? "Personal" : "Osobní",
-                desc:
-                  language === "en"
-                    ? "Tailored service for your needs"
-                    : "Služby prispôsobené vašim potrebám",
-              },
-            ].map((feature, idx) => (
-              <Card
-                key={idx}
-                className="card-hover p-3 md:p-8 text-center bg-card border-border group"
-              >
-                <div className="w-8 h-8 md:w-16 md:h-16 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-2 md:mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-6 xl:grid-cols-6">
+            {differentiators.map((feature) => (
+              <Card key={feature.title} className="card-hover group border-border bg-card p-4 text-center md:p-8">
+                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-accent/10 transition-colors duration-300 group-hover:bg-accent/20 md:mb-6 md:h-16 md:w-16">
                   <feature.icon
-                    className="w-4 h-4 md:w-8 md:h-8 text-accent group-hover:scale-110 transition-transform duration-300"
+                    className="h-5 w-5 text-accent transition-transform duration-300 group-hover:scale-110 md:h-8 md:w-8"
                     aria-hidden="true"
                   />
                 </div>
-                <h3 className="text-xs md:text-2xl font-bold mb-1 md:mb-4 text-white">{feature.title}</h3>
-                <p className="text-muted-foreground text-xs md:text-base leading-relaxed hidden md:block">
-                  {feature.desc}
+                <h3 className="mb-2 text-sm font-bold text-white md:mb-4 md:text-2xl">{feature.title}</h3>
+                <p className="hidden text-xs leading-relaxed text-muted-foreground md:block md:text-base">
+                  {feature.description}
                 </p>
               </Card>
             ))}
@@ -357,31 +495,22 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* Partner Logos Scrolling Banner */}
       <section
-        className="py-10 bg-background border-y border-border overflow-hidden"
+        className="overflow-hidden border-y border-border bg-background py-10"
         aria-label={language === "en" ? "Our partners" : "Naši partneri"}
       >
         <div className="container mb-3 md:mb-5">
-          <h2 className="text-base md:text-2xl font-bold text-center text-white">
+          <h2 className="text-center text-base font-bold text-white md:text-2xl">
             {language === "en" ? "OUR PARTNERS" : "NAŠI PARTNERI"}
           </h2>
         </div>
         <div className="relative">
-          <div className="flex gap-5 md:gap-10 animate-scroll">
-            {/* Duplicate logos for seamless loop - 2x for infinite scroll effect */}
-            {[...partnerLogos, ...partnerLogos].map((logo, idx) => (
-              <div
-                key={idx}
-                className="flex-shrink-0 w-24 h-12 md:w-28 md:h-14 relative"
-              >
+          <div className="animate-scroll flex gap-5 md:gap-10">
+            {[...partnerLogos, ...partnerLogos].map((logo, index) => (
+              <div key={`${logo.name}-${index}`} className="relative h-12 w-24 flex-shrink-0 md:h-14 md:w-28">
                 <Image
                   src={logo.src}
-                  alt={
-                    language === "en"
-                      ? `${logo.name} partner logo`
-                      : `Logo partnera ${logo.name}`
-                  }
+                  alt={language === "en" ? `${logo.name} partner logo` : `Logo partnera ${logo.name}`}
                   fill
                   className="object-contain"
                   quality={75}
@@ -393,276 +522,283 @@ export default function HomePageClient() {
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section
-        id="pricing"
-        className="py-12 bg-card/50"
-        aria-label={language === "en" ? "Pricing" : "Cenník"}
-      >
+      <section id="pricing" className="bg-card/50 py-12" aria-label={language === "en" ? "Pricing" : "Cenník"}>
         <div className="container">
-          <h2 className="text-lg md:text-3xl lg:text-3xl font-bold text-center mb-2 md:mb-3 text-white">
+          <h2 className="mb-2 text-center text-lg font-bold text-white md:mb-3 md:text-3xl lg:text-4xl">
             {t.pricing.title}
           </h2>
-          <p className="text-center text-xs md:text-sm text-muted-foreground mb-4 md:mb-8 max-w-2xl mx-auto">
+          <p className="mx-auto mb-4 max-w-2xl text-center text-xs text-muted-foreground md:mb-8 md:text-sm">
             {t.pricing.subtitle}
           </p>
-          <div className="bg-card border border-border rounded-lg p-3 md:p-6 max-w-3xl mx-auto">
-            <div className="grid grid-cols-3 md:grid-cols-2 gap-2 md:gap-4">
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
-                <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4 text-accent" aria-hidden="true" />
+          <div className="mx-auto max-w-4xl rounded-2xl border border-border bg-card p-4 md:p-6">
+            <div className="grid grid-cols-1 gap-3 md:grid-cols-2 md:gap-4 xl:grid-cols-3">
+              {pricingCards.map((item) => (
+                <div
+                  key={item.label}
+                  className={`flex items-center gap-3 rounded-xl p-4 transition-all ${
+                    item.highlight
+                      ? "border border-accent/35 bg-accent/10 hover:bg-accent/15"
+                      : "bg-background/50 hover:bg-background/80"
+                  }`}
+                >
+                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-accent/10">
+                    <item.icon className="h-5 w-5 text-accent" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <p className="mb-0.5 text-xs text-muted-foreground">{item.label}</p>
+                    <p className="text-lg font-bold text-accent">{item.value}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">{language === "en" ? "Within the city from" : "V rámci mesta od"}</p>
-                  <p className="text-lg font-bold text-accent">3€</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
-                <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Plane className="w-4 h-4 text-accent" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">{t.pricing.sliač}</p>
-                  <p className="text-lg font-bold text-accent">10€</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
-                <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Plane className="w-4 h-4 text-accent" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">{t.pricing.budapest}</p>
-                  <p className="text-lg font-bold text-accent">170€</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
-                <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-4 h-4 text-accent" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">{t.pricing.bratislava}</p>
-                  <p className="text-lg font-bold text-accent">195€</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3 p-3 rounded-lg bg-background/50 hover:bg-background/80 transition-all">
-                <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Plane className="w-4 h-4 text-accent" aria-hidden="true" />
-                </div>
-                <div>
-                  <p className="text-xs text-muted-foreground mb-0.5">{t.pricing.vienna}</p>
-                  <p className="text-lg font-bold text-accent">250€</p>
-                </div>
-              </div>
+              ))}
             </div>
-            <p className="text-center text-muted-foreground mt-5 pt-4 border-t border-border text-sm">
+            <p className="mt-4 text-center text-sm font-medium text-accent">{t.pricing.note}</p>
+            <p className="mt-4 border-t border-border pt-4 text-center text-sm text-muted-foreground">
               {t.pricing.contact}
             </p>
           </div>
         </div>
       </section>
 
-      {/* Blog/Info Section */}
       <section
-        className="py-12 bg-background border-t border-border"
+        className="border-t border-border bg-background py-14"
+        aria-label={language === "en" ? "Corporate rides" : "Firemné jazdy"}
+      >
+        <div className="container">
+          <div className="overflow-hidden rounded-[28px] border border-accent/20 bg-[radial-gradient(circle_at_top_left,rgba(249,177,1,0.18),transparent_38%),linear-gradient(135deg,rgba(10,10,10,0.98),rgba(5,5,5,0.94))] p-6 md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[1.25fr_0.9fr]">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.24em] text-accent">
+                  {t.business.kicker}
+                </p>
+                <h2 className="mb-4 text-3xl font-bold text-white md:text-5xl">{t.business.title}</h2>
+                <p className="mb-8 max-w-3xl text-base leading-7 text-white/80 md:text-lg">
+                  {t.business.description}
+                </p>
+
+                <div className="grid gap-4 md:grid-cols-3">
+                  {businessBenefits.map((benefit) => (
+                    <div
+                      key={benefit.title}
+                      className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm"
+                    >
+                      <benefit.icon className="mb-4 h-6 w-6 text-accent" aria-hidden="true" />
+                      <h3 className="mb-2 text-lg font-semibold text-white">{benefit.title}</h3>
+                      <p className="text-sm leading-6 text-white/70">{benefit.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <Card className="border-accent/25 bg-black/45 p-6 shadow-[0_20px_50px_rgba(0,0,0,0.35)]">
+                <h3 className="mb-6 text-2xl font-bold text-white">{t.business.summaryTitle}</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
+                    <span className="text-sm uppercase tracking-[0.18em] text-white/50">
+                      {t.business.summaryDiscountLabel}
+                    </span>
+                    <span className="text-right text-lg font-semibold text-accent">
+                      {t.business.summaryDiscountValue}
+                    </span>
+                  </div>
+                  <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
+                    <span className="text-sm uppercase tracking-[0.18em] text-white/50">
+                      {t.business.summaryInvoiceLabel}
+                    </span>
+                    <span className="text-right text-base font-medium text-white">
+                      {t.business.summaryInvoiceValue}
+                    </span>
+                  </div>
+                  <div className="flex items-start justify-between gap-4 border-b border-white/10 pb-4">
+                    <span className="text-sm uppercase tracking-[0.18em] text-white/50">
+                      {t.business.summaryAvailabilityLabel}
+                    </span>
+                    <span className="text-right text-base font-medium text-white">
+                      {t.business.summaryAvailabilityValue}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex flex-col gap-3">
+                  <a href={`tel:${siteConfig.contact.phoneRaw}`} className="w-full">
+                    <span className="w-full btn-call">
+                      <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
+                      {t.business.ctaPrimary}
+                    </span>
+                  </a>
+                  <a
+                    href={`mailto:${siteConfig.contact.email}?subject=${encodeURIComponent(invoiceSubject)}`}
+                    className="w-full"
+                  >
+                    <Button size="lg" variant="outline" className="w-full border-white/25 bg-white/5 text-white hover:bg-white hover:text-black">
+                      <Mail className="mr-2 h-5 w-5" aria-hidden="true" />
+                      {t.business.ctaSecondary}
+                    </Button>
+                  </a>
+                  <Link href={localizedHref("/firemne-jazdy")}>
+                    <Button size="lg" variant="outline" className="w-full border-accent/30 bg-accent/10 text-accent hover:bg-accent hover:text-black">
+                      <Building2 className="mr-2 h-5 w-5" aria-hidden="true" />
+                      {language === "en" ? "Open corporate page" : "Otvoriť firemnú stránku"}
+                    </Button>
+                  </Link>
+                </div>
+
+                <p className="mt-5 text-sm leading-6 text-white/65">{t.business.note}</p>
+              </Card>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="bg-card/50 py-12" aria-label={t.faq.title}>
+        <div className="container">
+          <div className="mx-auto max-w-4xl">
+            <h2 className="mb-3 text-center text-2xl font-bold text-white md:mb-4 md:text-4xl">
+              {t.faq.title}
+            </h2>
+            <p className="mx-auto mb-8 max-w-2xl text-center text-sm text-muted-foreground md:mb-10 md:text-base">
+              {language === "en"
+                ? "Clear answers before you order, including company invoicing."
+                : "Jasné odpovede pred objednávkou, vrátane firemnej fakturácie."}
+            </p>
+
+            <div className="space-y-3">
+              {faqItems.map((item, index) => {
+                const isOpen = openFaqIndex === index;
+
+                return (
+                  <Card key={item.q} className="overflow-hidden border-border bg-card">
+                    <button
+                      type="button"
+                      className="w-full px-5 py-5 text-left md:px-6"
+                      onClick={() => setOpenFaqIndex(isOpen ? null : index)}
+                      aria-expanded={isOpen}
+                    >
+                      <div className="flex items-start justify-between gap-4">
+                        <span className="text-base font-semibold text-white md:text-lg">{item.q}</span>
+                        <span
+                          className={`mt-0.5 text-2xl font-light text-accent transition-transform ${
+                            isOpen ? "rotate-45" : ""
+                          }`}
+                          aria-hidden="true"
+                        >
+                          +
+                        </span>
+                      </div>
+                      {isOpen && (
+                        <p className="mt-4 max-w-3xl text-sm leading-7 text-muted-foreground md:text-base">
+                          {item.a}
+                        </p>
+                      )}
+                    </button>
+                  </Card>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        className="border-t border-border bg-background py-12"
         aria-label={language === "en" ? "Useful information" : "Užitočné informácie"}
       >
         <div className="container">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <BookOpen className="w-10 h-10 text-accent" aria-hidden="true" />
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
+          <div className="mb-12 text-center md:mb-16">
+            <div className="mb-6 flex items-center justify-center gap-3">
+              <BookOpen className="h-10 w-10 text-accent" aria-hidden="true" />
+              <h2 className="text-3xl font-bold text-white md:text-5xl">
                 {language === "en" ? "USEFUL INFORMATION" : "UŽITOČNÉ INFORMÁCIE"}
               </h2>
             </div>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            <p className="mx-auto max-w-2xl text-base text-muted-foreground md:text-lg">
               {language === "en"
                 ? "Everything you need to know about our taxi service"
                 : "Všetko, čo potrebujete vedieť o našej taxislužbe"}
             </p>
           </div>
 
-          <div className="grid grid-cols-3 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 max-w-6xl mx-auto">
-            <Link href="/ako-objednat-taxi-bez-aplikacie">
-              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
-                <div className="flex flex-col h-full">
-                  <div className="mb-4">
-                    <MessageCircle className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
+          <div className="mx-auto grid max-w-6xl grid-cols-1 gap-3 md:grid-cols-2 md:gap-6 lg:grid-cols-3">
+            {blogCards.map((card) => (
+              <Link key={card.href} href={localizedHref(card.href)}>
+                <Card className="card-hover group h-full cursor-pointer border-border bg-card p-6">
+                  <div className="flex h-full flex-col">
+                    <div className="mb-4">
+                      <card.icon className="h-8 w-8 text-accent transition-transform duration-300 group-hover:scale-110" />
+                    </div>
+                    <h3 className="mb-2 text-lg font-bold text-white transition-colors group-hover:text-accent">
+                      {card.title}
+                    </h3>
+                    <p className="mb-4 flex-grow text-sm text-muted-foreground">{card.description}</p>
+                    <div className="flex items-center text-sm font-medium text-accent">
+                      {language === "en" ? "Read more" : "Čítať viac"}
+                      <ArrowRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </div>
                   </div>
-                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
-                    {language === "en" ? "How to Order Taxi" : "Ako objednať taxi"}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {language === "en"
-                      ? "Order by phone, SMS or WhatsApp without app"
-                      : "Objednajte telefonicky, SMS alebo WhatsApp bez aplikácie"}
-                  </p>
-                  <div className="flex items-center text-accent text-sm font-medium">
-                    {language === "en" ? "Read more" : "Čítať viac"}{" "}
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Card>
-            </Link>
-
-            <Link href="/kedy-volat-taxi-vopred">
-              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
-                <div className="flex flex-col h-full">
-                  <div className="mb-4">
-                    <Clock className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
-                    {language === "en" ? "When to Book in Advance" : "Kedy volať vopred"}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {language === "en"
-                      ? "Tips for rush hours, weekends and events"
-                      : "Tipy pre špičky, víkendy a podujatia"}
-                  </p>
-                  <div className="flex items-center text-accent text-sm font-medium">
-                    {language === "en" ? "Read more" : "Čítať viac"}{" "}
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Card>
-            </Link>
-
-            <Link href="/platba-v-taxiku">
-              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
-                <div className="flex flex-col h-full">
-                  <div className="mb-4">
-                    <CheckCircle className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
-                    {language === "en" ? "Payment Options" : "Platba v taxíku"}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {language === "en"
-                      ? "Card, cash or invoice for companies"
-                      : "Kartou, hotovosť alebo faktúra pre firmy"}
-                  </p>
-                  <div className="flex items-center text-accent text-sm font-medium">
-                    {language === "en" ? "Read more" : "Čítať viac"}{" "}
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Card>
-            </Link>
-
-            <Link href="/taxi-s-detskou-sedackou">
-              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
-                <div className="flex flex-col h-full">
-                  <div className="mb-4">
-                    <Users className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
-                    {language === "en" ? "Child Seat" : "Detská sedačka"}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {language === "en"
-                      ? "Safe travel with children"
-                      : "Bezpečná preprava s deťmi"}
-                  </p>
-                  <div className="flex items-center text-accent text-sm font-medium">
-                    {language === "en" ? "Read more" : "Čítať viac"}{" "}
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Card>
-            </Link>
-
-            <Link href="/taxi-na-vlak-autobus">
-              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
-                <div className="flex flex-col h-full">
-                  <div className="mb-4">
-                    <MapPin className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
-                    {language === "en" ? "Station Transfer" : "Transfer na stanicu"}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {language === "en"
-                      ? "On time to train or bus"
-                      : "Načas na vlak alebo autobus"}
-                  </p>
-                  <div className="flex items-center text-accent text-sm font-medium">
-                    {language === "en" ? "Read more" : "Čítať viac"}{" "}
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Card>
-            </Link>
-
-            <Link href="/letiskova-preprava">
-              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
-                <div className="flex flex-col h-full">
-                  <div className="mb-4">
-                    <Plane className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
-                    {language === "en" ? "Airport Transfer" : "Letisková preprava"}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {language === "en"
-                      ? "To Vienna, Budapest, Bratislava"
-                      : "Do Viedne, Budapešti, Bratislavy"}
-                  </p>
-                  <div className="flex items-center text-accent text-sm font-medium">
-                    {language === "en" ? "Read more" : "Čítať viac"}{" "}
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Card>
-            </Link>
-
-            <Link href="/ako-podat-staznost">
-              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
-                <div className="flex flex-col h-full">
-                  <div className="mb-4">
-                    <AlertCircle className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
-                    {language === "en" ? "Complaints" : "Reklamácia"}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {language === "en"
-                      ? "How to file a complaint"
-                      : "Ako podať sťažnosť"}
-                  </p>
-                  <div className="flex items-center text-accent text-sm font-medium">
-                    {language === "en" ? "Read more" : "Čítať viac"}{" "}
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Card>
-            </Link>
-
-            <Link href="/nonstop-taxi">
-              <Card className="p-6 card-hover cursor-pointer h-full bg-card border-border group">
-                <div className="flex flex-col h-full">
-                  <div className="mb-4">
-                    <Clock className="w-8 h-8 text-accent group-hover:scale-110 transition-transform duration-300" />
-                  </div>
-                  <h3 className="font-bold text-lg mb-2 text-white group-hover:text-accent transition-colors">
-                    {language === "en" ? "24/7 Service" : "Nonstop služba"}
-                  </h3>
-                  <p className="text-muted-foreground text-sm mb-4 flex-grow">
-                    {language === "en"
-                      ? "Night and weekend service"
-                      : "Nočná a víkendová prevádzka"}
-                  </p>
-                  <div className="flex items-center text-accent text-sm font-medium">
-                    {language === "en" ? "Read more" : "Čítať viac"}{" "}
-                    <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </div>
-              </Card>
-            </Link>
+                </Card>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-12 bg-black border-t border-border">
+      <section id="contact" className="border-t border-border bg-card/50 py-14" aria-label={t.contact.title}>
+        <div className="container">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.22em] text-accent">
+                {language === "en" ? "Fast contact" : "Rýchly kontakt"}
+              </p>
+              <h2 className="mb-4 text-3xl font-bold text-white md:text-5xl">{t.contact.title}</h2>
+              <p className="mb-8 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+                {language === "en"
+                  ? "Call, WhatsApp, or email us. For companies, we can arrange invoice billing and individual pricing for regular rides."
+                  : "Zavolajte, napíšte na WhatsApp alebo email. Pre firmy vieme nastaviť platbu na faktúru a individuálne ceny pri pravidelných jazdách."}
+              </p>
+
+              <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap">
+                <a href={`tel:${siteConfig.contact.phoneRaw}`} className="w-full sm:w-auto">
+                  <span className="w-full sm:w-auto btn-call">
+                    <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
+                    {siteConfig.contact.phone}
+                  </span>
+                </a>
+                <a href={siteConfig.social.whatsappUrl} className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    className="w-full px-8 py-6 text-black sm:w-auto"
+                    style={{ backgroundColor: "#25D366" }}
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
+                    WhatsApp
+                  </Button>
+                </a>
+              </div>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              {contactCards.map((item) => (
+                <Card key={item.title} className="border-border bg-card p-5">
+                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-accent/10">
+                    <item.icon className="h-5 w-5 text-accent" aria-hidden="true" />
+                  </div>
+                  <p className="mb-2 text-sm uppercase tracking-[0.18em] text-muted-foreground">
+                    {item.title}
+                  </p>
+                  {item.href ? (
+                    <a href={item.href} className="text-base font-semibold text-white transition-colors hover:text-accent">
+                      {item.value}
+                    </a>
+                  ) : (
+                    <p className="text-base font-semibold text-white">{item.value}</p>
+                  )}
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="border-t border-border bg-black py-12">
         <div className="container text-center">
           <p className="text-muted-foreground">
             © {new Date().getFullYear()} Zvolen Taxi Service.{" "}

@@ -127,7 +127,7 @@ export default function Header() {
             variant="ghost"
             size="sm"
             onClick={toggleLanguage}
-            className="gap-2 text-black hover:text-accent hover:bg-muted/20"
+            className="gap-2 text-white hover:bg-white/5 hover:text-accent"
             title={language === "en" ? "Switch to Slovak" : "Switch to English"}
             aria-label={language === "en" ? "Switch language to Slovak" : "Prepnúť jazyk na angličtinu"}
           >
@@ -139,14 +139,17 @@ export default function Header() {
 
           <a
             href={`tel:${siteConfig.contact.phoneRaw}`}
-            className="hidden md:inline-flex btn-call"
+            className="hidden md:inline-flex btn-call items-center gap-2"
           >
-            {language === "en" ? "CALL NOW" : "ZAVOLAŤ"}
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            {siteConfig.contact.phone}
           </a>
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 hover:bg-muted/20 rounded-lg transition-colors text-black"
+            className="rounded-lg p-2 text-white transition-colors hover:bg-white/5 md:hidden"
             aria-label={language === "en" ? "Toggle navigation menu" : "Prepínač navigačného menu"}
             aria-expanded={isMenuOpen}
             aria-controls="mobile-menu"
@@ -172,7 +175,7 @@ export default function Header() {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div id="mobile-menu" className="md:hidden border-t border-border bg-gray-200">
+        <div id="mobile-menu" className="border-t border-white/10 bg-black/95 md:hidden">
           <nav
             className="container py-6 flex flex-col gap-4 px-8 md:px-12 lg:px-20"
             aria-label={language === "en" ? "Mobile navigation" : "Mobilná navigácia"}

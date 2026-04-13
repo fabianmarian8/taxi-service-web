@@ -1,6 +1,7 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { Language } from "@/lib/translations";
 
 interface LanguageContextType {
@@ -13,25 +14,24 @@ const LanguageContext = createContext<LanguageContextType | undefined>(
 );
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
   const [language, setLanguageState] = useState<Language>(() => {
-    // Check if we're on the client
     if (typeof window === "undefined") {
-      return "sk"; // Default for SSR
+      return "sk";
     }
-    // Try to get from localStorage
-    const saved = localStorage.getItem("language") as Language | null;
-    if (saved && (saved === "en" || saved === "sk")) {
-      return saved;
-    }
-    // Default to Slovak
-    return "sk";
+
+    return window.location.pathname.startsWith("/en") ? "en" : "sk";
   });
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      localStorage.setItem("language", language);
-      document.documentElement.lang = language;
+    const routeLanguage = pathname.startsWith("/en") ? "en" : "sk";
+    if (language !== routeLanguage) {
+      setLanguageState(routeLanguage);
     }
+  }, [language, pathname]);
+
+  useEffect(() => {
+    document.documentElement.lang = language;
   }, [language]);
 
   const setLanguage = (lang: Language) => {

@@ -8,6 +8,7 @@ export const URL_MAPPING: Record<string, string> = {
   "/taxi-s-detskou-sedackou": "/en/child-seat",
   "/nonstop-taxi": "/en/24-7-service",
   "/cennik-taxi-zvolen": "/en/pricing",
+  "/firemne-jazdy": "/en/corporate-rides",
   "/ako-podat-staznost": "/en/complaints",
   "/kedy-volat-taxi-vopred": "/en/when-to-book",
   "/taxi-na-vlak-autobus": "/en/station-transfer",
@@ -19,6 +20,7 @@ export const URL_MAPPING: Record<string, string> = {
   "/en/child-seat": "/taxi-s-detskou-sedackou",
   "/en/24-7-service": "/nonstop-taxi",
   "/en/pricing": "/cennik-taxi-zvolen",
+  "/en/corporate-rides": "/firemne-jazdy",
   "/en/complaints": "/ako-podat-staznost",
   "/en/when-to-book": "/kedy-volat-taxi-vopred",
   "/en/station-transfer": "/taxi-na-vlak-autobus",
@@ -35,6 +37,7 @@ export interface NavItem {
 export const servicesNavItems: NavItem[] = [
   { labelSk: "Všetky služby", labelEn: "All Services", href: "services", isSection: true },
   { labelSk: "Letisková preprava", labelEn: "Airport Transfer", href: "/letiskova-preprava" },
+  { labelSk: "Firemné jazdy", labelEn: "Corporate Rides", href: "/firemne-jazdy" },
   { labelSk: "Transfer na stanicu", labelEn: "Station Transfer", href: "/taxi-na-vlak-autobus" },
   { labelSk: "Detská sedačka", labelEn: "Child Seat", href: "/taxi-s-detskou-sedackou" },
 ];
@@ -52,6 +55,7 @@ export const faqNavItems: NavItem[] = [
 ];
 
 export const blogNavItems: NavItem[] = [
+  { labelSk: "Firemné jazdy", labelEn: "Corporate Rides", href: "/firemne-jazdy" },
   { labelSk: "Ako objednať taxi", labelEn: "How to Order Taxi", href: "/ako-objednat-taxi-bez-aplikacie" },
   { labelSk: "Kedy volať vopred", labelEn: "When to Book in Advance", href: "/kedy-volat-taxi-vopred" },
   { labelSk: "Platba v taxíku", labelEn: "Payment Options", href: "/platba-v-taxiku" },

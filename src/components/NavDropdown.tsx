@@ -113,7 +113,7 @@ export function MobileNavDropdown({
                 <button
                   key={item.href}
                   onClick={() => onSectionClick(item.href)}
-                  className="text-black text-sm py-2 hover:text-accent text-left"
+                  className="text-left text-sm py-2 text-white hover:text-accent"
                 >
                   {language === "en" ? item.labelEn : item.labelSk}
                 </button>
@@ -124,7 +124,7 @@ export function MobileNavDropdown({
               <a
                 key={item.href}
                 href={getLocalizedUrl(item.href, language)}
-                className="text-black text-sm py-2 hover:text-accent"
+                className="text-sm py-2 text-white hover:text-accent"
               >
                 {language === "en" ? item.labelEn : item.labelSk}
               </a>

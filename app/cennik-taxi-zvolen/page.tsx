@@ -1,8 +1,9 @@
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, MessageSquare } from "lucide-react";
+import { BadgePercent, Building2, Phone, ReceiptText, MessageSquare } from "lucide-react";
 import Link from "next/link";
+import { siteConfig } from "@/lib/config";
 
 // 50 najväčších miest Slovenska so vzdialenosťami od Zvolena (v km) - overené cestné vzdialenosti z Google Maps a vzdialenosti.sk
 const mestaSlovensko = [
@@ -72,6 +73,36 @@ export default function CennikTaxiZvolen() {
             Cenník Taxi Zvolen
           </h1>
         </header>
+
+        <section className="mb-12">
+          <Card className="border-accent/30 bg-accent/5">
+            <CardContent className="pt-6">
+              <div className="grid gap-6 md:grid-cols-[1.4fr_0.8fr_0.8fr]">
+                <div>
+                  <h2 className="text-2xl font-bold mb-3">Firemné jazdy na faktúru</h2>
+                  <p className="text-muted-foreground text-lg">
+                    Pre firmy, hotely a pravidelných klientov vieme nastaviť platbu na faktúru,
+                    jednoduchú B2B spoluprácu a zľavu 25% na schválené firemné jazdy.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <ReceiptText className="w-6 h-6 text-accent mt-1" />
+                  <div>
+                    <p className="font-semibold">Fakturácia</p>
+                    <p className="text-sm text-muted-foreground">IČO, fakturačné údaje a pravidelný režim jázd.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <BadgePercent className="w-6 h-6 text-accent mt-1" />
+                  <div>
+                    <p className="font-semibold">Zľava 25%</p>
+                    <p className="text-sm text-muted-foreground">Pri pravidelnej firemnej spolupráci po dohode.</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
 
         {/* Cenník tabuľka */}
         <section className="mb-12">
@@ -212,8 +243,18 @@ export default function CennikTaxiZvolen() {
               <CardContent className="pt-6">
                 <h3 className="font-bold text-lg mb-2">Môžem platiť kartou?</h3>
                 <p className="text-muted-foreground">
-                  Áno, akceptujeme platbu v hotovosti aj kartou. Pri dlhších trasách je možná
-                  aj platba vopred alebo na faktúru pre firemných zákazníkov.
+                  Áno, akceptujeme platbu v hotovosti aj bankovým prevodom. Pri dlhších trasách je
+                  možná aj platba vopred alebo na faktúru pre firemných zákazníkov.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <h3 className="font-bold text-lg mb-2">Platí zľava 25% aj na firemné jazdy?</h3>
+                <p className="text-muted-foreground">
+                  Áno, pri schválených firemných jazdách a pravidelnej spolupráci vieme nastaviť
+                  zľavu 25% a fakturačný režim podľa objemu jázd.
                 </p>
               </CardContent>
             </Card>
@@ -248,13 +289,13 @@ export default function CennikTaxiZvolen() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+421902048583" aria-label="Zavolať taxi na číslo +421 902 048 583">
+            <a href={`tel:${siteConfig.contact.phoneRaw}`} aria-label={`Zavolať taxi na číslo ${siteConfig.contact.phone}`}>
               <Button size="lg" className="btn-yellow w-full sm:w-auto">
                 <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
-                +421 902 048 583
+                {siteConfig.contact.phone}
               </Button>
             </a>
-            <a href="https://api.whatsapp.com/send?phone=421902048583" aria-label="Objednať taxi cez WhatsApp">
+            <a href={siteConfig.social.whatsappUrl} aria-label="Objednať taxi cez WhatsApp">
               <Button size="lg" className="btn-outline-white w-full sm:w-auto">
                 <MessageSquare className="w-5 h-5 mr-2" aria-hidden="true" />
                 WhatsApp

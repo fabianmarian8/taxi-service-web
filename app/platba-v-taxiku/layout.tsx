@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Platba v taxíku Zvolen: Karta, Hotovosť, Faktúra | TaxiGO",
-  description: "Zaplaťte v taxi Zvolen kartou, mobilom (Apple/Google Pay) alebo hotovosťou. Firemní zákazníci môžu jazdiť na faktúru. Všetky platobné možnosti na jednom mieste.",
+  description: "Zaplaťte v taxi Zvolen hotovosťou, prevodom alebo na faktúru. Firemní zákazníci môžu pri schválených jazdách získať zľavu 25%.",
   keywords: [
     "platba taxi zvolen",
     "platba kartou taxi",
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: "Platba v taxíku Zvolen: Karta, Hotovosť, Faktúra",
-    description: "Platba kartou, mobilom alebo hotovosťou. Firemní zákazníci môžu jazdiť na faktúru.",
+    description: "Platba hotovosťou, prevodom alebo na faktúru. Firemní zákazníci môžu jazdiť na faktúru so zľavou 25%.",
     url: "https://zvolen-taxi.sk/platba-v-taxiku",
     siteName: "Taxi Zvolen",
     locale: "sk_SK",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Platba v taxíku Zvolen",
-    description: "Karta, hotovosť alebo faktúra - všetky platobné možnosti.",
+    description: "Hotovosť, prevod alebo faktúra pre firmy so zľavou 25%.",
     images: ["https://zvolen-taxi.sk/og-image.svg"],
   },
   alternates: {
@@ -71,7 +71,7 @@ export default function PlatbaVTaxikuLayout({
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "Platba v taxíku: karta, hotovosť, faktúra",
-    "description": "Zaplaťte v taxi Zvolen kartou, mobilom (Apple/Google Pay) alebo hotovosťou. Firemní zákazníci môžu jazdiť na faktúru.",
+    "description": "Zaplaťte v taxi Zvolen hotovosťou, prevodom alebo na faktúru. Firemní zákazníci môžu jazdiť na faktúru so zľavou 25%.",
     "image": "https://zvolen-taxi.sk/og-image.svg",
     "author": {
       "@type": "Organization",

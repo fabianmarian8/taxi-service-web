@@ -1,8 +1,9 @@
 import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Phone, MessageSquare } from "lucide-react";
+import { BadgePercent, Phone, ReceiptText, MessageSquare } from "lucide-react";
 import Link from "next/link";
+import { siteConfig } from "@/lib/config";
 
 // 50 largest cities in Slovakia with distances from Zvolen (in km)
 const citiesSlovakia = [
@@ -71,6 +72,36 @@ export default function EnglishPricing() {
             Taxi Zvolen Price List
           </h1>
         </header>
+
+        <section className="mb-12">
+          <Card className="border-accent/30 bg-accent/5">
+            <CardContent className="pt-6">
+              <div className="grid gap-6 md:grid-cols-[1.4fr_0.8fr_0.8fr]">
+                <div>
+                  <h2 className="text-2xl font-bold mb-3">Corporate rides with invoice billing</h2>
+                  <p className="text-muted-foreground text-lg">
+                    For companies, hotels, and regular business clients we can set up invoice
+                    billing and a 25% discount on approved corporate rides.
+                  </p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <ReceiptText className="w-6 h-6 text-accent mt-1" />
+                  <div>
+                    <p className="font-semibold">Billing setup</p>
+                    <p className="text-sm text-muted-foreground">Company ID, billing details, and recurring ride flow.</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <BadgePercent className="w-6 h-6 text-accent mt-1" />
+                  <div>
+                    <p className="font-semibold">25% discount</p>
+                    <p className="text-sm text-muted-foreground">Available for approved corporate cooperation.</p>
+                  </div>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
 
         <section className="mb-12">
           <div className="overflow-x-auto">
@@ -158,8 +189,18 @@ export default function EnglishPricing() {
               <CardContent className="pt-6">
                 <h3 className="font-bold text-lg mb-2">Can I pay by card?</h3>
                 <p className="text-muted-foreground">
-                  Yes, we accept cash and card payments. For longer routes, advance payment
+                  Yes, we accept cash and bank transfer payments. For longer routes, advance payment
                   or invoice billing for corporate customers is also possible.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardContent className="pt-6">
+                <h3 className="font-bold text-lg mb-2">Does the 25% discount apply to company rides?</h3>
+                <p className="text-muted-foreground">
+                  Yes. For approved corporate rides and regular cooperation we can set a 25%
+                  discount together with invoice billing terms.
                 </p>
               </CardContent>
             </Card>
@@ -173,13 +214,13 @@ export default function EnglishPricing() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:+421902048583" aria-label="Call taxi at +421 902 048 583">
+            <a href={`tel:${siteConfig.contact.phoneRaw}`} aria-label={`Call taxi at ${siteConfig.contact.phone}`}>
               <Button size="lg" className="btn-yellow w-full sm:w-auto">
                 <Phone className="w-5 h-5 mr-2" aria-hidden="true" />
-                +421 902 048 583
+                {siteConfig.contact.phone}
               </Button>
             </a>
-            <a href="https://api.whatsapp.com/send?phone=421902048583" aria-label="Order taxi via WhatsApp">
+            <a href={siteConfig.social.whatsappUrl} aria-label="Order taxi via WhatsApp">
               <Button size="lg" className="btn-outline-white w-full sm:w-auto">
                 <MessageSquare className="w-5 h-5 mr-2" aria-hidden="true" />
                 WhatsApp

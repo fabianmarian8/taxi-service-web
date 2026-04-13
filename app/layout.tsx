@@ -29,9 +29,9 @@ const rajdhani = Rajdhani({
 // Fira Mono odstránené - používame system monospace
 
 export const metadata: Metadata = {
-  title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
+  title: `Taxi Zvolen ${siteConfig.contact.phone} | Nonstop, fixné ceny od 3€`,
   description:
-    `Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská Viedeň, Bratislava či Budapešť. Volajte nonstop na ${siteConfig.contact.phone}`,
+    `Taxi Zvolen nonstop ☎ ${siteConfig.contact.phone}. Mestské jazdy od 3€, firemné jazdy na faktúru so zľavou 25%, letisko Viedeň 250€, Budapešť 170€. Fixné ceny, žiadne prekvapenia.`,
   authors: [{ name: siteConfig.brand.name }],
   keywords: [
     "taxi zvolen",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: `${siteConfig.brand.url}/`,
-    title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
+    title: `Taxi Zvolen ${siteConfig.contact.phone} | Nonstop, fixné ceny od 3€`,
     description:
-      "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery na letiská Viedeň, Bratislava či Budapešť.",
+      `Taxi Zvolen nonstop ☎ ${siteConfig.contact.phone}. Mestské jazdy od 3€, firemné jazdy na faktúru so zľavou 25%, letisko Viedeň 250€, Budapešť 170€.`,
     images: [
       {
         url: `${siteConfig.brand.url}/og-image.jpg`,
@@ -63,9 +63,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Taxi Zvolen 24/7 | Spoľahlivá preprava a letiskové transfery",
+    title: `Taxi Zvolen ${siteConfig.contact.phone} | Nonstop, fixné ceny od 3€`,
     description:
-      "Profesionálna taxislužba vo Zvolene a okolí. Rýchle pristavenie, platba kartou a komfortné transfery.",
+      `Taxi Zvolen nonstop ☎ ${siteConfig.contact.phone}. Mestské jazdy od 3€, firemné jazdy na faktúru so zľavou 25%, letisko Viedeň 250€, Budapešť 170€.`,
     images: [`${siteConfig.brand.url}/og-image.jpg`],
   },
   alternates: {
@@ -252,7 +252,7 @@ export default function RootLayout({
                   name: "Aké spôsoby platby akceptujete?",
                   acceptedAnswer: {
                     "@type": "Answer",
-                    text: "Akceptujeme hotovosť a bankové prevody. Firemní klienti môžu používať faktúry.",
+                    text: "Akceptujeme hotovosť a bankové prevody. Firemní klienti môžu využívať platbu na faktúru a pri schválených firemných jazdách aj zľavu 25%.",
                   },
                 },
                 {

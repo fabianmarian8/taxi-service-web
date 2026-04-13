@@ -16,7 +16,7 @@ interface FormData {
   language: "sk" | "en";
 }
 
-const RECIPIENT = "info@zvolen-taxi.sk";
+const RECIPIENTS = ["fabianmarian8@gmail.com", "info@zvolen-taxi.sk"];
 const SENDER = "noreply@zvolen-taxi.sk";
 
 function buildEmailHtml(data: FormData): string {
@@ -110,7 +110,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       },
       body: JSON.stringify({
         from: `Taxi Zvolen Web <${SENDER}>`,
-        to: [RECIPIENT],
+        to: RECIPIENTS,
         reply_to: data.contact.includes("@") ? data.contact : undefined,
         subject,
         html: buildEmailHtml(data),

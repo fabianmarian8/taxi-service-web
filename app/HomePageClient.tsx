@@ -58,16 +58,14 @@ export default function HomePageClient() {
 
   const heroChips = [
     {
-      icon: Building2,
-      label: language === "en" ? "Corporate rides" : "Firemné jazdy",
+      label: language === "en" ? "Open 24/7" : "Nonstop · 24/7",
+      bullet: true,
     },
     {
-      icon: ReceiptText,
-      label: language === "en" ? "Invoice billing" : "Platba na faktúru",
+      label: language === "en" ? "Fixed prices from €3" : "Fixné ceny od 3€",
     },
     {
-      icon: BadgePercent,
-      label: language === "en" ? "25% discount" : "Zľava 25%",
+      label: language === "en" ? "Pickup in 5 minutes" : "Pristavenie do 5 min",
     },
   ];
 
@@ -323,7 +321,7 @@ export default function HomePageClient() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <section className="relative flex min-h-[72vh] w-full items-center justify-center overflow-hidden pt-20 md:min-h-[82vh] md:pt-24">
+      <section className="relative flex w-full items-start justify-center overflow-hidden pt-4 md:min-h-[82vh] md:items-center md:pt-24">
         <div className="absolute inset-0 h-full w-full">
           <Image
             src="/lexi-anderson-G8wPrJyNqWQ-unsplash.webp"
@@ -339,86 +337,104 @@ export default function HomePageClient() {
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/35" />
 
-        <div className="relative z-10 container px-8 py-12 text-left text-white md:px-12 md:py-16 lg:px-20">
-          <div className="max-w-4xl">
-            <div className="mb-5 flex flex-wrap gap-2.5">
-              {heroChips.map((chip) => (
-                <span
-                  key={chip.label}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90 backdrop-blur-sm md:text-xs"
-                >
-                  <chip.icon className="h-4 w-4 text-[#f9b101]" aria-hidden="true" />
-                  {chip.label}
-                </span>
-              ))}
-            </div>
+        <div className="relative z-10 container px-8 py-6 text-left text-white md:px-12 md:py-16 lg:px-20">
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:items-center">
+            <div className="max-w-4xl">
+              <div className="mb-5 flex flex-wrap gap-2.5">
+                {heroChips.map((chip) => (
+                  <span
+                    key={chip.label}
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-black/40 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-white/90 backdrop-blur-sm md:text-xs"
+                  >
+                    {chip.bullet && (
+                      <span
+                        className="inline-block h-1.5 w-1.5 rounded-full bg-[#25D366]"
+                        style={{ boxShadow: "0 0 10px #25D366" }}
+                        aria-hidden="true"
+                      />
+                    )}
+                    {chip.label}
+                  </span>
+                ))}
+              </div>
 
-            <h1 className="mb-2 text-3xl font-medium uppercase leading-none tracking-wider drop-shadow-lg md:text-5xl lg:text-6xl">
-              <span className="font-semibold text-[#f9b101]">{t.hero.title}</span>
-            </h1>
-            <h2 className="mt-3 mb-4 text-2xl font-medium uppercase leading-none tracking-wider text-white drop-shadow-lg md:text-3xl lg:text-4xl">
-              {t.hero.subtitle}
-            </h2>
+              <h1 className="mb-2 text-3xl font-medium uppercase leading-none tracking-wider drop-shadow-lg md:text-5xl lg:text-6xl">
+                <span className="font-semibold text-[#f9b101]">{t.hero.title}</span>
+              </h1>
+              <h2 className="mt-3 mb-4 text-2xl font-medium uppercase leading-none tracking-wider text-white drop-shadow-lg md:text-3xl lg:text-4xl">
+                {t.hero.subtitle}
+              </h2>
 
-            <a
-              href={`tel:${siteConfig.contact.phoneRaw}`}
-              className="mb-4 inline-flex items-center gap-3 text-2xl font-bold text-[#f9b101] drop-shadow-lg transition-colors hover:text-yellow-300 md:text-4xl lg:text-5xl"
-            >
-              <Phone className="h-6 w-6 md:h-8 md:w-8" aria-hidden="true" />
-              {siteConfig.contact.phone}
-            </a>
+              <p className="mb-8 max-w-2xl text-base leading-7 text-white text-shadow md:text-lg">
+                {t.hero.description}
+              </p>
 
-            <p className="mb-10 max-w-3xl text-base leading-7 text-white text-shadow md:text-lg lg:text-xl">
-              {t.hero.description}
-            </p>
-
-            <div className="flex flex-col items-start gap-4 sm:flex-row">
-              <a href={`tel:${siteConfig.contact.phoneRaw}`} className="w-full sm:w-auto">
-                <span className="w-full text-lg sm:w-auto btn-call">
-                  <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
-                  {siteConfig.contact.phone}
-                </span>
-              </a>
-              <a href={siteConfig.social.whatsappUrl} className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="w-full px-10 py-6 text-lg font-semibold text-black sm:w-auto"
-                  style={{ backgroundColor: "#25D366" }}
+              <div className="flex flex-col items-start gap-4 sm:flex-row">
+                <a href={`tel:${siteConfig.contact.phoneRaw}`} className="w-full sm:w-auto">
+                  <span className="w-full text-lg sm:w-auto btn-call">
+                    <Phone className="mr-2 h-5 w-5" aria-hidden="true" />
+                    {siteConfig.contact.phone}
+                  </span>
+                </a>
+                <a
+                  href={siteConfig.social.whatsappUrl}
+                  className="btn-wa w-full sm:w-auto"
                 >
                   <MessageCircle className="mr-2 h-5 w-5" aria-hidden="true" />
-                  WhatsApp
-                </Button>
+                  {language === "en" ? "Message on WhatsApp" : "Napísať na WhatsApp"}
+                </a>
+              </div>
+
+              <div className="mt-5 flex items-center gap-2 font-mono text-sm text-white/85">
+                <span className="inline-flex gap-0.5">
+                  {[0, 1, 2, 3, 4].map((i) => (
+                    <Star
+                      key={i}
+                      className="h-4 w-4 text-[#FFD700]"
+                      fill="#FFD700"
+                      strokeWidth={1}
+                      aria-hidden="true"
+                    />
+                  ))}
+                </span>
+                {language === "en"
+                  ? `${siteConfig.rating.value} / 5 · 2,300+ rides`
+                  : `${siteConfig.rating.value} / 5 · 2 300+ jázd`}
+              </div>
+
+              <p className="mt-5 max-w-2xl text-sm leading-6 text-white/80 md:text-base">
+                {t.business.note}
+              </p>
+
+              <div className="relative mt-6 block h-[160px] w-[220px] md:hidden">
+                <Image
+                  src="/Snimka-obrazovky-2022-07-12-o-14.51.55.webp"
+                  alt={language === "en" ? "Payment methods" : "Platobné metódy"}
+                  fill
+                  className="object-contain"
+                  style={{ filter: "brightness(0.65)" }}
+                  quality={85}
+                  sizes="220px"
+                />
+              </div>
+            </div>
+
+            <div className="hidden justify-self-end text-right lg:block">
+              <div className="kicker" style={{ color: "#f9b101" }}>
+                {language === "en" ? "Call us 24/7" : "Volajte 24/7"}
+              </div>
+              <a
+                href={`tel:${siteConfig.contact.phoneRaw}`}
+                className="mt-3 block text-5xl font-bold leading-none text-white no-underline drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] transition-colors hover:text-[#f9b101] xl:text-6xl 2xl:text-7xl"
+                style={{ fontFamily: "var(--font-beiruti), sans-serif" }}
+                aria-label={`${language === "en" ? "Call" : "Zavolať"} ${siteConfig.contact.phone}`}
+              >
+                +421 902
+                <br />
+                048 583
               </a>
             </div>
-
-            <p className="mt-5 max-w-2xl text-sm leading-6 text-white/80 md:text-base">
-              {t.business.note}
-            </p>
-
-            <div className="relative mt-6 block h-[160px] w-[220px] md:hidden">
-              <Image
-                src="/Snimka-obrazovky-2022-07-12-o-14.51.55.webp"
-                alt={language === "en" ? "Payment methods" : "Platobné metódy"}
-                fill
-                className="object-contain"
-                style={{ filter: "brightness(0.65)" }}
-                quality={85}
-                sizes="220px"
-              />
-            </div>
           </div>
-        </div>
-
-        <div className="absolute bottom-2 right-4 z-20 hidden h-[250px] w-[250px] opacity-90 lg:block xl:right-12 xl:h-[320px] xl:w-[320px]">
-          <Image
-            src="/Snimka-obrazovky-2022-07-12-o-14.51.55.webp"
-            alt={language === "en" ? "Payment methods" : "Platobné metódy"}
-            fill
-            className="object-contain drop-shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
-            style={{ filter: "brightness(0.72)" }}
-            quality={85}
-            sizes="(min-width: 1280px) 320px, 250px"
-          />
         </div>
       </section>
 
@@ -465,6 +481,7 @@ export default function HomePageClient() {
       </section>
 
       <section
+        id="why"
         className="bg-card/50 py-12"
         aria-label={language === "en" ? "What sets us apart" : "Čo nás odlišuje"}
       >
@@ -504,7 +521,7 @@ export default function HomePageClient() {
             {language === "en" ? "OUR PARTNERS" : "NAŠI PARTNERI"}
           </h2>
         </div>
-        <div className="relative">
+        <div className="relative partners-mask">
           <div className="animate-scroll flex gap-5 md:gap-10">
             {[...partnerLogos, ...partnerLogos].map((logo, index) => (
               <div key={`${logo.name}-${index}`} className="relative h-12 w-24 flex-shrink-0 md:h-14 md:w-28">

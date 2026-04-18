@@ -21,7 +21,7 @@ export const translations = {
       title: "Taxi Zvolen",
       subtitle: "Pickup in 5 minutes. From €3.",
       cta: "Book Now",
-      description: "24/7 taxi service in Zvolen. Fixed prices, invoice billing for companies, and 25% discount on corporate rides. Airport transfers to Vienna, Budapest, Bratislava.",
+      description: "Round-the-clock taxi in Zvolen and surroundings. Fixed prices, invoice billing for companies and 25% off for regular clients.",
     },
     // Services
     services: {
@@ -139,14 +139,14 @@ export const translations = {
       services: "Služby",
       about: "O nás",
       contact: "Kontakt",
-      faq: "Často kladené otázky",
+      faq: "FAQ",
     },
     // Hero Section
     hero: {
       title: "Taxi Zvolen",
       subtitle: "Pristavíme do 5 minút. Od 3€.",
       cta: "Objednať",
-      description: "Nonstop taxislužba vo Zvolene a okolí. Fixné ceny, platba na faktúru pre firmy a 25% zľava na firemné jazdy. Letiskové transfery Viedeň, Budapešť, Bratislava.",
+      description: "Nonstop taxislužba vo Zvolene a okolí. Fixné ceny, platba na faktúru pre firmy a 25% zľava pre pravidelných klientov.",
     },
     // Services
     services: {

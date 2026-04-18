@@ -2,6 +2,9 @@
 **/node_modules
 .pnpm-store/
 
+# Local design-system reference (from Zvolen Taxi Design System zip)
+.design-system/
+
 # Build outputs
 dist/
 build/

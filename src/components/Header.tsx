@@ -4,7 +4,8 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import Image from "next/image";
-import { getAlternateUrl } from "@/lib/routes";
+import { NavDropdown, MobileNavDropdown } from "@/components/NavDropdown";
+import { getAlternateUrl, pricingNavItems } from "@/lib/routes";
 import { siteConfig } from "@/lib/config";
 
 export default function Header() {
@@ -36,13 +37,8 @@ export default function Header() {
     }
   };
 
-  const navItems: { id: string; label: string }[] = [
-    { id: "services", label: language === "en" ? "Services" : "Služby" },
-    { id: "why", label: language === "en" ? "Why us" : "Prečo my" },
-    { id: "pricing", label: language === "en" ? "Pricing" : "Cenník" },
-    { id: "faq", label: "FAQ" },
-    { id: "contact", label: language === "en" ? "Contact" : "Kontakt" },
-  ];
+  const pricingLabel = language === "en" ? "Pricing" : "Cenník";
+  const [pricingMobileOpen, setPricingMobileOpen] = useState(false);
 
   return (
     <header className="header-dark">
@@ -71,16 +67,37 @@ export default function Header() {
           className="hidden md:flex items-center gap-7 flex-1 justify-center"
           aria-label={language === "en" ? "Main navigation" : "Hlavná navigácia"}
         >
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="nav-link text-[13px] font-semibold uppercase tracking-[0.08em]"
-              aria-label={language === "en" ? `Go to ${item.label} section` : `Prejsť na sekciu ${item.label}`}
-            >
-              {item.label}
-            </button>
-          ))}
+          <button
+            onClick={() => scrollToSection("services")}
+            className="nav-link text-[13px] font-semibold uppercase tracking-[0.08em]"
+          >
+            {language === "en" ? "Services" : "Služby"}
+          </button>
+          <button
+            onClick={() => scrollToSection("why")}
+            className="nav-link text-[13px] font-semibold uppercase tracking-[0.08em]"
+          >
+            {language === "en" ? "Why us" : "Prečo my"}
+          </button>
+          <NavDropdown
+            label={pricingLabel}
+            items={pricingNavItems}
+            language={language}
+            onSectionClick={scrollToSection}
+            ariaLabel={language === "en" ? "Pricing menu" : "Menu cenník"}
+          />
+          <button
+            onClick={() => scrollToSection("faq")}
+            className="nav-link text-[13px] font-semibold uppercase tracking-[0.08em]"
+          >
+            FAQ
+          </button>
+          <button
+            onClick={() => scrollToSection("contact")}
+            className="nav-link text-[13px] font-semibold uppercase tracking-[0.08em]"
+          >
+            {language === "en" ? "Contact" : "Kontakt"}
+          </button>
         </nav>
 
         {/* Right side - Language toggle + CTA + Mobile menu */}
@@ -138,15 +155,39 @@ export default function Header() {
             className="container py-6 flex flex-col gap-3 px-6"
             aria-label={language === "en" ? "Mobile navigation" : "Mobilná navigácia"}
           >
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="nav-link text-base text-left py-2 uppercase tracking-wide"
-              >
-                {item.label}
-              </button>
-            ))}
+            <button
+              onClick={() => scrollToSection("services")}
+              className="nav-link text-base text-left py-2 uppercase tracking-wide"
+            >
+              {language === "en" ? "Services" : "Služby"}
+            </button>
+            <button
+              onClick={() => scrollToSection("why")}
+              className="nav-link text-base text-left py-2 uppercase tracking-wide"
+            >
+              {language === "en" ? "Why us" : "Prečo my"}
+            </button>
+            <MobileNavDropdown
+              label={pricingLabel}
+              items={pricingNavItems}
+              language={language}
+              onSectionClick={scrollToSection}
+              isExpanded={pricingMobileOpen}
+              onToggle={() => setPricingMobileOpen(!pricingMobileOpen)}
+              ariaLabel={language === "en" ? "Pricing menu" : "Menu cenník"}
+            />
+            <button
+              onClick={() => scrollToSection("faq")}
+              className="nav-link text-base text-left py-2 uppercase tracking-wide"
+            >
+              FAQ
+            </button>
+            <button
+              onClick={() => scrollToSection("contact")}
+              className="nav-link text-base text-left py-2 uppercase tracking-wide"
+            >
+              {language === "en" ? "Contact" : "Kontakt"}
+            </button>
 
             <button
               onClick={toggleLanguage}
